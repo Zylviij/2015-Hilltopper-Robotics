@@ -655,3 +655,9 @@ Contains: The project description file (.project) for 'RemoteSystemsTempFiles' i
 !MESSAGE Save operation warnings.
 !SUBENTRY 1 org.eclipse.core.resources 2 234 2015-01-06 02:22:20.712
 !MESSAGE The project description file (.project) for 'RemoteSystemsTempFiles' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2015-01-06 02:51:13.656
+!MESSAGE Running ant file: /Users/zylviij/2015-Hilltopper-Robotics/2015-Hilltopper-Robotics/build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2015-01-06 02:51:13.657
+!MESSAGE Targets: deploy, Mode: run

@@ -88,7 +88,16 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
     	// drive
-    	
+    	robotMap.drive.drive(io.leftJoystick.getRawAxis(1), io.rightJoystick.getRawAxis(1), io.getShift());
+
+        // controls gates
+        robotMap.gates.setGates(io.getGates(), io.getForward(), io.getShoot());
+        
+        // controls arm
+        robotMap.arm.setArm(io.getArm(), io.getIntake(), io.getBackward());
+        
+        // controls catapult
+        robotMap.catapult.setCatapult(io.getShoot(), io.getForward(), io.getBackward());
     }
     
     /*
