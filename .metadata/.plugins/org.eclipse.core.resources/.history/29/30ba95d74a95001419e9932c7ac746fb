@@ -1,25 +1,19 @@
 package org.usfirst.frc.team1732.systems;
 
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Talon;
 
 public class Drive {
 	private Talon leftMotor = new Talon(0);
 	private Talon rightMotor = new Talon(1);
-	private RobotDrive drive = new RobotDrive(leftMotor, rightMotor);
 	
 	/**
 	 * Set the drive.
 	 * @param left
 	 * @param right
 	 */
-	public void drive(Joystick left, Joystick right) {
-		drive.mecanumDrive_Polar(
-				(left.getMagnitude() + right.getMagnitude()) / 2.0, 
-				(left.getDirectionRadians() + right.getDirectionDegrees()) / 2.0, 
-				(left.getRawAxis(0) + (-1.0 * right.getRawAxis(0))) / 2.0
-				);
+	public void drive(double left, double right) {
+		leftMotor.set(left);
+		rightMotor.set(right);
 	}
 	
 	/**
