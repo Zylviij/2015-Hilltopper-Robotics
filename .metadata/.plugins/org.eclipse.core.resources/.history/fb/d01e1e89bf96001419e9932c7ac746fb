@@ -17,18 +17,18 @@ import edu.wpi.first.wpilibj.Timer;
 public class Robot extends IterativeRobot {
 	
 	// creates all buttons and joysticks
-	static IO m_io;
+	static IO io;
 		
 	// creates all robot parts (motors, solenoids, sensors)
-	static RobotMap m_robotMap;
+	static RobotMap robotMap;
 	
 	/**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     public void robotInit() {
-    	m_io = new IO();
-    	m_robotMap = new RobotMap();
+    	io = new IO();
+    	robotMap = new RobotMap();
     }
 
     /*
@@ -39,7 +39,7 @@ public class Robot extends IterativeRobot {
      * disabled mode.
      */
     public void disabledInit() {
-    	m_robotMap.makeSafe();
+    	robotMap.makeSafe();
     }
     
     private boolean dpFirstRun = true;
@@ -88,7 +88,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
     	// drive
-    	m_robotMap.m_drive.drive(m_io.m_leftJoystick, m_io.m_rightJoystick, m_io.getShifter());
+    	robotMap.drive.drive(io.leftJoystick, io.rightJoystick, io.getShifter());
     }
     
     /*

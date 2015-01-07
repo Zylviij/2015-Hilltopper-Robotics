@@ -1,0 +1,70 @@
+package org.usfirst.frc.team1732.systems;
+
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.Talon;
+
+public class Drive {
+	private Talon leftFrontMotor = new Talon(0);
+	private Talon rightFrontMotor = new Talon(1);
+	private Talon leftBackMotor = new Talon(2);
+	private Talon rightBackMotor = new Talon(4);
+	
+	private Solenoid shifter = new Solenoid(0);
+
+	private RobotDrive drive = new RobotDrive(leftFrontMotor, leftBackMotor, rightFrontMotor, rightBackMotor);
+	
+	/**
+	 * Set the drive.
+	 * @param left
+	 * @param right
+	 */
+	public void drive(Joystick left, Joystick right, boolean shift) {
+		
+		//if the button is depressed
+		if (shift) {
+			
+			//enable solenoid, on mecanum wheels
+			shifter.set(true);
+			
+			//drive mecanum
+			drive.mecanumDrive_Polar(
+					(left.getMagnitude() + right.getMagnitude()) / 2.0, 
+					(left.getDirectionRadians() + right.getDirectionDegrees()) / 2.0, 
+					(left.getRawAxis(0) + (-1.0 * right.getRawAxis(0))) / 2.0
+					);
+		} else {
+			
+			//disable solenoid, on tread
+			shifter.set(false);
+			
+			// drive tank
+			drive.tankDrive(left, right);
+		}
+	}
+	
+	/**
+	 * Make safe the drive train.
+	 */
+	public void makeSafe() {
+		leftFrontMotor.set(0);
+		leftFrontMotor.free();
+		leftFrontMotor.disable();
+		
+		rightFrontMotor.set(0);
+		rightFrontMotor.free();
+		rightFrontMotor.disable();
+
+		leftBackMotor.set(0);
+		leftBackMotor.free();
+		leftBackMotor.disable();
+		
+		rightBackMotor.set(0);
+		rightBackMotor.free();
+		rightBackMotor.disable();
+		
+		shifter.set(false);
+		shifter.free();
+	}
+}

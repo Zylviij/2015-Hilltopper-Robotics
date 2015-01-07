@@ -27,7 +27,7 @@ public class IO {
 	 * @return boolean value of button
 	 */
 	public boolean getShifter() {
-		return m_leftJoystick.getTrigger() || m_rightJoystick.getTrigger();
+		return m_shifterLeft.get() || m_shifterRight.get();
 	}
 	
 }

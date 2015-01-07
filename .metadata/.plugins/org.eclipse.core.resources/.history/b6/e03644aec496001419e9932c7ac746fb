@@ -30,9 +30,9 @@ public class Drive {
 			
 			//drive mecanum
 			m_drive.mecanumDrive_Polar(
-					(left.getMagnitude() + 			right.getMagnitude()) / 2.0, 
-					(left.getDirectionRadians() + 	right.getDirectionDegrees()) / 2.0, 
-					(left.getY() + 					(-1.0 * right.getY())) / 2.0
+					(left.getMagnitude() + right.getMagnitude()) / 2.0, 
+					(left.getDirectionRadians() + right.getDirectionDegrees()) / 2.0, 
+					(left.getY() + (-1.0 * right.getY())) / 2.0
 					);
 		} else {
 			
