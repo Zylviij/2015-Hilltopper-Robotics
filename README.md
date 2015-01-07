@@ -20,5 +20,5 @@
 6. Create Mecanum-Butterfly Drive in Labview
 7. Image the RoboRIO with the new non-beta image.
 8. Read into the NI vision code for LabView
-9. Java (Honestly, if you got this far in one meeting.....you can do whatever you want))
+9. Java (Honestly, if you got this far in one meeting.....you can do whatever you want)
 
