@@ -88,7 +88,7 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
     	// drive
-    	robotMap.drive.drive(io.leftJoystick, io.rightJoystick, io.getShifter());
+    	
     }
     
     /*

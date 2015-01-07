@@ -19,15 +19,14 @@ public class IO {
 	/*
 	 * Create Joystick Buttons
 	 */
-	private Button shifterLeft = new JoystickButton(leftJoystick, 0);
-	private Button shifterRight = new JoystickButton(leftJoystick, 0);
+	private Button button = new JoystickButton(leftJoystick, 2);
 	
 	/**
 	 * Gets Button state
 	 * @return boolean value of button
 	 */
-	public boolean getShifter() {
-		return shifterLeft.get() || shifterRight.get();
+	public boolean getButton() {
+		return button.get();
 	}
 	
 }

@@ -21,10 +21,10 @@ public class Drive {
 	 * @param left
 	 * @param right
 	 */
-	public void drive(Joystick left, Joystick right, boolean shift) {
+	public void drive(Joystick left, Joystick right, Button shift) {
 		
 		//if the button is depressed
-		if (shift) {
+		if (shift.get()) {
 			
 			//enable solenoid, on mecanum wheels
 			shifter.set(true);
