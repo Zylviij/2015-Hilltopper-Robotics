@@ -3,5 +3,6 @@ public class HelloWorld {
       System.out.println("Eric says Hello, World");
    }
 } 
-! Ha Ha - Corrected my error!  	
-
+/**
+ * ! Ha Ha - Corrected my error!
+ */
