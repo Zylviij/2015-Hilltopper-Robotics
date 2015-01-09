@@ -1,0 +1,128 @@
+package org.usfirst.frc.team1732.systems;
+
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
+/**
+ * Creates all IO. (Joysticks and buttons)
+ */
+public class IO {
+	
+	/*
+	 * Create Joysticks
+	 */
+	public Joystick m_leftJoystick = new Joystick(0);
+	public Joystick m_rightJoystick = new Joystick(1);
+	
+	
+	/*
+	 * Create Joystick Buttons
+	 */
+	private Button m_arcadeLeft = new JoystickButton(m_leftJoystick, 7);
+	private Button m_arcadeRight = new JoystickButton(m_leftJoystick, 7);
+	
+	/**
+	 * Gets Button state
+	 * @return boolean value of button
+	 */
+	public boolean getShifter() {
+		return m_leftJoystick.getTrigger() || m_rightJoystick.getTrigger();
+	}
+	
+	/**
+	 * Gets the arcade drive state
+	 * @return 0 for tank, 1 for left, 2 for right
+	 */
+	public int getArcade() {
+		if (m_arcadeLeft.get()) return 1;
+		if (m_arcadeRight.get()) return 2;
+		return 0;
+	}
+	
+	/**
+	 * Gets average magnitude
+	 * @return mean magnitude [0.....1]
+	 */
+	public double getMagnitude() {
+		return (m_leftJoystick.getMagnitude() + m_rightJoystick.getMagnitude()) / 2.0;
+	}
+	
+	/**
+	 * Gets average direction
+	 * @return mean direction in degrees
+	 */
+	public double getDirection() {
+		return ((360 + m_rightJoystick.getDirectionDegrees() + ((((m_leftJoystick.getDirectionDegrees() - m_rightJoystick.getDirectionDegrees() + 180 + 360) % 360) - 180) / 2)) % 360);	
+	}
+	
+	/**
+	 * Gets rotation
+	 * @return rotation [-1.....1]
+	 */
+	public double getRotation() {
+		return m_leftJoystick.getY() + (-1 * m_rightJoystick.getY());
+	}
+	
+	/**
+	 * Gets Y value for left or right
+	 * @param joystick 0 = left; 1 = right
+	 * @throws Exception 
+	 * @returns y value for joystick [-1.....1]
+	 */
+	public double getY(int joystick) throws Exception {
+		if (joystick == 0) {
+			return m_leftJoystick.getY();
+		} else if (joystick == 1) {
+			return m_rightJoystick.getY();
+		} else {
+			throw new Exception();
+		}
+	}
+	
+	/**
+	 * Gets x value for left or right
+	 * @param joystick 0 = left; 1 = right
+	 * @throws Exception 
+	 * @returns x value for joystick [-1.....1]
+	 */
+	public double getx(int joystick) throws Exception {
+		if (joystick == 0) {
+			return m_leftJoystick.getX();
+		} else if (joystick == 1) {
+			return m_rightJoystick.getX();
+		} else {
+			throw new Exception();
+		}
+	}
+	
+	public Joysticks getJoysticks() {
+		return new Joysticks(m_leftJoystick, m_rightJoystick);
+	}
+	
+	/*
+	 * Subclasses
+	 */
+	public class Joysticks {
+		private double m_leftX;
+		private double m_leftY;
+		private double m_rightX;
+		private double m_rightY;
+		private double m_leftZ;
+		private double m_rightZ;
+		public double getLeftX() { return m_leftX; }
+		public double getLeftY() { return m_leftY; }
+		public double getRightX() { return m_rightX; }
+		public double getRightY() { return m_rightY; }
+		public double getLeftZ() { return m_leftZ; }
+		public double getRightZ() { return m_rightZ; }
+		Joysticks(Joystick left, Joystick right) {
+			m_leftX = left.getX();
+			m_leftY = left.getY();
+			m_leftZ = left.getTwist();
+			m_rightX = right.getX();
+			m_rightY = right.getY();
+			m_rightZ = right.getZ();
+		}
+	}
+}

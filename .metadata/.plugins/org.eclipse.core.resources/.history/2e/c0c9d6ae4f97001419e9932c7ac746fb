@@ -1,7 +1,6 @@
 package org.usfirst.frc.team1732.systems;
 
-import org.usfirst.frc.team1732.systems.IO.Joysticks;
-
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
@@ -23,21 +22,21 @@ public class Drive {
 	 * @param shift: if shifted
 	 * @param arcade: arcade is left, right, or both
 	 */
-	public void drive(Joysticks joysticks) {
+	public void drive(double magnitude, double direction, double rotation, boolean shift, int arcade) {
 		
 		//if the button is depressed
-		if (joysticks.getShift()) {
+		if (shift) {
 			
 			//enable solenoid, on mecanum wheels
 			m_shifter.set(true);
 			
 			//drive mecanum
-			if (joysticks.getArcadeMode() == 0) {
-				m_drive.mecanumDrive_Polar(joysticks.getMagnitude(), joysticks.getDirection(), joysticks.getRotation());
-			} else if (joysticks.getArcadeMode() == 1) {
-				m_drive.mecanumDrive_Polar(joysticks.getLeftMagnitude(), joysticks.getLeftMagnitude(), joysticks.getLeftRotation());
+			if (arcade == 0) {
+				m_drive.mecanumDrive_Polar(magnitude, direction, rotation);
+			} else if (arcade == 1) {
+				m_drive.mecanumDrive_Polar(left.getMagnitude(), left.getDirectionDegrees(), left.getTwist());
 			} else {
-				m_drive.mecanumDrive_Polar(joysticks.getRightMagnitude(), joysticks.getRightDirection(), joysticks.getRightRotation());
+				m_drive.mecanumDrive_Polar(right.getMagnitude(), right.getDirectionDegrees(), right.getTwist());
 			}
 			
 		} else {
@@ -46,12 +45,12 @@ public class Drive {
 			m_shifter.set(false);
 			
 			// drive tank
-			if (joysticks.getArcadeMode() == 0) {
-				m_drive.tankDrive(joysticks.getLeftY(), joysticks.getRightY());
-			} else if (joysticks.getArcadeMode() == 1) {
-				m_drive.arcadeDrive(joysticks.getLeftY(), joysticks.getLeftX());
+			if (arcade == 0) {
+				m_drive.tankDrive(left, right);
+			} else if (arcade == 1) {
+				m_drive.arcadeDrive(left);
 			} else {
-				m_drive.arcadeDrive(joysticks.getRightY(), joysticks.getRightX());
+				m_drive.arcadeDrive(right);
 			}
 		}
 	}
@@ -79,5 +78,4 @@ public class Drive {
 		m_shifter.set(false);
 		m_shifter.free();
 	}
-
 }

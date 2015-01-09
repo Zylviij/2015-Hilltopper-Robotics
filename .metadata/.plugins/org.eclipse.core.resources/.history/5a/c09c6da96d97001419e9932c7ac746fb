@@ -2,6 +2,7 @@ package org.usfirst.frc.team1732.systems;
 
 import org.usfirst.frc.team1732.systems.IO.Joysticks;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;

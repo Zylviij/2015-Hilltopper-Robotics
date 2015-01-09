@@ -1,0 +1,59 @@
+package org.usfirst.frc.team1732.systems;
+
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
+/**
+ * Creates all IO. (Joysticks and buttons)
+ */
+public class IO {
+	
+	/*
+	 * Create Joysticks
+	 */
+	public Joystick m_leftJoystick = new Joystick(0);
+	public Joystick m_rightJoystick = new Joystick(1);
+	
+	
+	/*
+	 * Create Joystick Buttons
+	 */
+	private Button m_arcadeLeft = new JoystickButton(m_leftJoystick, 7);
+	private Button m_arcadeRight = new JoystickButton(m_leftJoystick, 7);
+	
+	/**
+	 * Gets Button state
+	 * @return boolean value of button
+	 */
+	public boolean getShifter() {
+		return m_leftJoystick.getTrigger() || m_rightJoystick.getTrigger();
+	}
+	
+	/**
+	 * Gets the arcade drive state
+	 * @return 0 for tank, 1 for left, 2 for right
+	 */
+	public int getArcade() {
+		if (m_arcadeLeft.get()) return 1;
+		if (m_arcadeRight.get()) return 2;
+		return 0;
+	}
+	
+	/**
+	 * Gets average magnitude
+	 * @return mean magnitude
+	 */
+	public double getMagnitude() {
+		return (m_leftJoystick.getMagnitude() + m_rightJoystick.getMagnitude()) / 2.0;
+	}
+	
+	/**
+	 * Gets average direction
+	 * @return mean drirection in degrees
+	 */
+	public double getDirection() {
+		return ((360 + m_rightJoystick.getDirectionDegrees() + ((((m_leftJoystick.getDirectionDegrees() - m_rightJoystick.getDirectionDegrees() + 180 + 360) % 360) - 180) / 2)) % 360);	
+	}
+	
+}
