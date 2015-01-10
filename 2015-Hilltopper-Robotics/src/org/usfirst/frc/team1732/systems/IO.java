@@ -1,6 +1,5 @@
 package org.usfirst.frc.team1732.systems;
 
-import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -13,8 +12,8 @@ public class IO {
 	/*
 	 * Create Joysticks
 	 */
-	private Joystick m_leftJoystick = new Joystick(0);
-	private Joystick m_rightJoystick = new Joystick(1);
+	public Joystick m_leftJoystick = new Joystick(0);
+	public Joystick m_rightJoystick = new Joystick(1);
 	
 	
 	/*
@@ -25,18 +24,6 @@ public class IO {
 	private Button m_shiftLeft = new JoystickButton(m_leftJoystick, 1);
 	private Button m_shiftRight = new JoystickButton(m_rightJoystick, 1);
 
-	/*
-	 * Sensors
-	 */
-	private Gyro m_gyro = new Gyro(0); // channel 0
-	
-	/**
-	 * Gets Gyro Angle
-	 * @returns gyro_angle
-	 */
-	public double k_getGyroAngle() {
-		return m_gyro.getAngle();
-	}
 	
 	/**
 	 * Gets Button state
@@ -114,9 +101,6 @@ public class IO {
 		private double m_direction;
 		private double m_rotation;
 		
-		// gyro
-		private double m_gyroAngle;
-		
 		// get axis
 		public double getLeftX() { return m_leftX; }
 		public double getLeftY() { return m_leftY; }
@@ -142,9 +126,6 @@ public class IO {
 		public double getMagnitude() { return m_magnitude; }
 		public double getDirection() { return m_direction; }
 		public double getRotation() { return m_rotation; }
-		
-		// get gyro angle
-		public double getGyroAngle() { return m_gyroAngle; }
 		
 		Joysticks(Joystick left, Joystick right) {
 			
@@ -172,10 +153,6 @@ public class IO {
 			m_magnitude = k_getMagnitude();
 			m_direction = k_getDirection();
 			m_rotation = k_getRotation();
-			
-			// gyro angle
-			m_gyroAngle = k_getGyroAngle();
-			
 		}
 	}
 }
