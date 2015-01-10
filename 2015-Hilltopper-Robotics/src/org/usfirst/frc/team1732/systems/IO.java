@@ -20,14 +20,17 @@ public class IO {
 	 * Create Joystick Buttons
 	 */
 	private Button m_arcadeLeft = new JoystickButton(m_leftJoystick, 7);
-	private Button m_arcadeRight = new JoystickButton(m_leftJoystick, 7);
+	private Button m_arcadeRight = new JoystickButton(m_rightJoystick, 7);
+	private Button m_shiftLeft = new JoystickButton(m_leftJoystick, 1);
+	private Button m_shiftRight = new JoystickButton(m_rightJoystick, 1);
+
 	
 	/**
 	 * Gets Button state
 	 * @return boolean value of button
 	 */
-	public boolean getShift() {
-		return m_leftJoystick.getTrigger() || m_rightJoystick.getTrigger();
+	public boolean getShifter() {
+		return m_shiftLeft.get() || m_shiftRight.get();
 	}
 	
 	/**
@@ -44,7 +47,7 @@ public class IO {
 	 * Gets average magnitude
 	 * @return mean magnitude [0.....1]
 	 */
-	public double getMagnitude() {
+	public double k_getMagnitude() {
 		return (m_leftJoystick.getMagnitude() + m_rightJoystick.getMagnitude()) / 2.0;
 	}
 	
@@ -52,16 +55,16 @@ public class IO {
 	 * Gets average direction
 	 * @return mean direction in degrees
 	 */
-	public double getDirection() {
-		return ((360 + m_rightJoystick.getDirectionDegrees() + ((((m_leftJoystick.getDirectionDegrees() - m_rightJoystick.getDirectionDegrees() + 180 + 360) % 360) - 180) / 2)) % 360);	
+	public double k_getDirection() {
+		return Math.toDegrees(Math.atan2(((m_leftJoystick.getX() + m_rightJoystick.getX()) / 2.0), ((m_leftJoystick.getY() + m_rightJoystick.getY()) / -2.0)));	
 	}
 	
 	/**
 	 * Gets rotation
 	 * @return rotation [-1.....1]
 	 */
-	public double getRotation() {
-		return m_leftJoystick.getY() + (-1 * m_rightJoystick.getY());
+	public double k_getRotation() {
+		return (m_rightJoystick.getY() + (-1 * m_leftJoystick.getY()) / 2.0);
 	}
 	
 	public Joysticks getJoysticks() {
@@ -135,7 +138,7 @@ public class IO {
 			// mode
 			m_arcadeMode = getArcade();
 			
-			m_shift = getShift();
+			m_shift = getShifter();
 			
 			// polar
 			m_leftMagnitude = left.getMagnitude();
@@ -147,9 +150,9 @@ public class IO {
 			m_rightRotation = right.getTwist();
 			
 			// average polar
-			m_magnitude = getMagnitude();
-			m_direction = getDirection();
-			m_rotation = getRotation();
+			m_magnitude = k_getMagnitude();
+			m_direction = k_getDirection();
+			m_rotation = k_getRotation();
 		}
 	}
 }

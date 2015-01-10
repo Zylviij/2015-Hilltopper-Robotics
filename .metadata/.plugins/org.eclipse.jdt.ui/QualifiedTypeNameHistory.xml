@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.usfirst.frc.team1732.systems.RobotMap"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team1732.systems.IO"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.Timer"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.RobotDrive"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.Joystick"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.Solenoid"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.buttons.Button"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team1732.systems.IO.Joysticks"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.RobotDrive.MotorType"/>
+</qualifiedTypeNameHistroy>

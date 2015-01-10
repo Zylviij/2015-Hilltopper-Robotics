@@ -3,18 +3,26 @@ package org.usfirst.frc.team1732.systems;
 import org.usfirst.frc.team1732.systems.IO.Joysticks;
 
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.RobotDrive.MotorType;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
 
 public class Drive {
-	private Talon m_leftFrontMotor = new Talon(0);
-	private Talon m_rightFrontMotor = new Talon(1);
-	private Talon m_leftBackMotor = new Talon(2);
-	private Talon m_rightBackMotor = new Talon(4);
+	private Talon m_leftFrontMotor = new Talon(3);
+	private Talon m_rightFrontMotor = new Talon(2);
+	private Talon m_leftBackMotor = new Talon(1);
+	private Talon m_rightBackMotor = new Talon(0);
 	
 	private Solenoid m_shifter = new Solenoid(0);
 
 	private RobotDrive m_drive = new RobotDrive(m_leftFrontMotor, m_leftBackMotor, m_rightFrontMotor, m_rightBackMotor);
+	
+	public Drive() {
+		m_drive.setInvertedMotor(MotorType.kFrontLeft, false);
+		m_drive.setInvertedMotor(MotorType.kFrontRight, false);
+		m_drive.setInvertedMotor(MotorType.kRearLeft, false);
+		m_drive.setInvertedMotor(MotorType.kRearRight, false);
+	}
 	
 	/**
 	 * Set the drive.
@@ -28,19 +36,26 @@ public class Drive {
 		//if the button is depressed
 		if (joysticks.getShift()) {
 			
+			m_drive.setInvertedMotor(MotorType.kFrontLeft, true);
+			m_drive.setInvertedMotor(MotorType.kRearLeft, true);
+			
 			//enable solenoid, on mecanum wheels
 			m_shifter.set(true);
 			
 			//drive mecanum
 			if (joysticks.getArcadeMode() == 0) {
-				m_drive.mecanumDrive_Polar(joysticks.getMagnitude(), joysticks.getDirection(), joysticks.getRotation());
+			m_drive.mecanumDrive_Polar(joysticks.getMagnitude(), joysticks.getDirection(), joysticks.getRotation());
 			} else if (joysticks.getArcadeMode() == 1) {
-				m_drive.mecanumDrive_Polar(joysticks.getLeftMagnitude(), joysticks.getLeftMagnitude(), joysticks.getLeftRotation());
+				m_drive.mecanumDrive_Polar(joysticks.getLeftMagnitude(), joysticks.getLeftDirection(), joysticks.getLeftRotation());
 			} else {
 				m_drive.mecanumDrive_Polar(joysticks.getRightMagnitude(), joysticks.getRightDirection(), joysticks.getRightRotation());
 			}
 			
 		} else {
+
+			m_drive.setInvertedMotor(MotorType.kFrontLeft, false);
+			m_drive.setInvertedMotor(MotorType.kRearLeft, false);
+
 			
 			//disable solenoid, on tread
 			m_shifter.set(false);
