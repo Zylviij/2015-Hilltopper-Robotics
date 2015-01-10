@@ -44,11 +44,11 @@ public class Drive {
 			
 			//drive mecanum
 			if (joysticks.getArcadeMode() == 0) {
-			m_drive.mecanumDrive_Polar(joysticks.getMagnitude(), joysticks.getDirection(), joysticks.getRotation());
+			m_drive.mecanumDrive_Cartesian(joysticks.getMagnitude(), joysticks.getDirection(), joysticks.getRotation(), joysticks.getGyroAngle());
 			} else if (joysticks.getArcadeMode() == 1) {
-				m_drive.mecanumDrive_Polar(joysticks.getLeftMagnitude(), joysticks.getLeftDirection(), joysticks.getLeftRotation());
+				m_drive.mecanumDrive_Cartesian(joysticks.getLeftMagnitude(), joysticks.getLeftDirection(), joysticks.getLeftRotation(), joysticks.getGyroAngle());
 			} else {
-				m_drive.mecanumDrive_Polar(joysticks.getRightMagnitude(), joysticks.getRightDirection(), joysticks.getRightRotation());
+				m_drive.mecanumDrive_Cartesian(joysticks.getRightMagnitude(), joysticks.getRightDirection(), joysticks.getRightRotation(), joysticks.getGyroAngle());
 			}
 			
 		} else {
