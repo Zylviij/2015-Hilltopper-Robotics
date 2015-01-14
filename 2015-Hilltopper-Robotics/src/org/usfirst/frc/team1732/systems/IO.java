@@ -7,13 +7,14 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 /**
  * Creates all IO. (Joysticks and buttons)
  */
-public class IO {
+public class IO
+{
 	
 	/*
 	 * Create Joysticks
 	 */
-	public Joystick m_leftJoystick = new Joystick(0);
-	public Joystick m_rightJoystick = new Joystick(1);
+	private Joystick m_leftJoystick = new Joystick(0);
+	private Joystick m_rightJoystick = new Joystick(1);
 	
 	
 	/*
@@ -29,25 +30,125 @@ public class IO {
 	 * Gets Button state
 	 * @return boolean value of button
 	 */
-	public boolean getShifter() {
+	public boolean getShift()
+	{
 		return m_shiftLeft.get() || m_shiftRight.get();
+	}
+
+	/**
+	 * Gets Button state
+	 * @return boolean value of button
+	 */
+	public boolean getLeftArcade()
+	{
+		return m_arcadeLeft.get();
 	}
 	
 	/**
-	 * Gets the arcade drive state
-	 * @return 0 for tank, 1 for left, 2 for right
+	 * Gets Button state
+	 * @return boolean value of button
 	 */
-	public int getArcade() {
-		if (m_arcadeLeft.get()) return 1;
-		if (m_arcadeRight.get()) return 2;
-		return 0;
+	public boolean getRightArcade()
+	{
+		return m_arcadeRight.get();
+	}
+	
+	/**
+	 * Gets left magnitude
+	 * @return left magnitude
+	 */
+	public double getLeftMagnitude()
+	{
+		return m_leftJoystick.getMagnitude();
+	}
+	
+	/**
+	 * Gets right magnitude
+	 * @return right magnitude
+	 */
+	public double getRightMagnitude()
+	{
+		return m_rightJoystick.getMagnitude();
+	}
+	
+	/**
+	 * Gets left direction
+	 * @return left direction
+	 */
+	public double getLeftDirection()
+	{
+		return m_leftJoystick.getDirectionDegrees();
+	}
+	
+	/**
+	 * Gets right direction
+	 * @return right direction
+	 */
+	public double getRightDirection()
+	{
+		return m_rightJoystick.getDirectionDegrees();
+	}
+	
+	/**
+	 * Gets left rotation
+	 * @return left rotation
+	 */
+	public double getLeftRotation()
+	{
+		return m_leftJoystick.getTwist();
+	}
+	
+	/**
+	 * Gets right rotation
+	 * @return right rotation
+	 */
+	public double getRightRotation()
+	{
+		return m_rightJoystick.getTwist();
+	}
+	
+	/**
+	 * Gets left x axis
+	 * @return left x axis
+	 */
+	public double getLeftX()
+	{
+		return m_leftJoystick.getX();
+	}
+	
+	/**
+	 * Gets right x axis
+	 * @return right x axis
+	 */
+	public double getRightX()
+	{
+		return m_rightJoystick.getX();
+	}
+	
+	/**
+	 * Gets left y axis
+	 * @return left y axis
+	 */
+	public double getLeftY()
+	{
+		return m_leftJoystick.getY();
+	}
+	
+	/**
+	 * Gets right y axis
+	 * @return right y axis
+	 */
+	public double getRightY()
+	{
+		return m_rightJoystick.getY();
 	}
 	
 	/**
 	 * Gets average magnitude
 	 * @return mean magnitude [0.....1]
 	 */
-	public double k_getMagnitude() {
+	public double getMagnitude()
+	{
 		return (m_leftJoystick.getMagnitude() + m_rightJoystick.getMagnitude()) / 2.0;
 	}
 	
@@ -55,104 +156,21 @@ public class IO {
 	 * Gets average direction
 	 * @return mean direction in degrees
 	 */
-	public double k_getDirection() {
-		return Math.toDegrees(Math.atan2(((m_leftJoystick.getX() + m_rightJoystick.getX()) / 2.0), ((m_leftJoystick.getY() + m_rightJoystick.getY()) / -2.0)));	
+	public double getDirection()
+	{
+		return Math.toDegrees(Math.atan2(
+				((m_leftJoystick.getX() + m_rightJoystick.getX()) / 2.0),
+				((m_leftJoystick.getY() + m_rightJoystick.getY()) / -2.0)
+				));	
 	}
 	
 	/**
 	 * Gets rotation
 	 * @return rotation [-1.....1]
 	 */
-	public double k_getRotation() {
+	public double getRotation()
+	{
 		return (m_rightJoystick.getY() + (-1 * m_leftJoystick.getY()) / 2.0);
 	}
 	
-	public Joysticks getJoysticks() {
-		return new Joysticks(m_leftJoystick, m_rightJoystick);
-	}
-	
-	/*
-	 * Subclasses
-	 */
-	public class Joysticks {
-		
-		// axis
-		private double m_leftX;
-		private double m_leftY;
-		private double m_rightX;
-		private double m_rightY;
-		
-		// polar
-		private double m_leftMagnitude;
-		private double m_leftDirection;
-		private double m_leftRotation;
-		
-		private double m_rightMagnitude;
-		private double m_rightDirection;
-		private double m_rightRotation;
-		
-		// mode
-		private boolean m_shift;
-		
-		private int m_arcadeMode;
-		
-		// average polar
-		private double m_magnitude;
-		private double m_direction;
-		private double m_rotation;
-		
-		// get axis
-		public double getLeftX() { return m_leftX; }
-		public double getLeftY() { return m_leftY; }
-		
-		public double getRightX() { return m_rightX; }
-		public double getRightY() { return m_rightY; }
-		
-		// get polar
-		public double getLeftMagnitude() { return m_leftMagnitude; }
-		public double getLeftDirection() { return m_leftDirection; }
-		public double getLeftRotation() { return m_leftRotation; }
-		
-		public double getRightMagnitude() { return m_rightMagnitude; }
-		public double getRightDirection() { return m_rightDirection; }
-		public double getRightRotation() { return m_rightRotation; }
-		
-		// get mode
-		public int getArcadeMode() { return m_arcadeMode; }
-		
-		public boolean getShift() { return m_shift; }
-		
-		// get average polar
-		public double getMagnitude() { return m_magnitude; }
-		public double getDirection() { return m_direction; }
-		public double getRotation() { return m_rotation; }
-		
-		Joysticks(Joystick left, Joystick right) {
-			
-			// axis
-			m_leftX = left.getX();
-			m_leftY = left.getY();
-			m_rightX = right.getX();
-			m_rightY = right.getY();
-			
-			// mode
-			m_arcadeMode = getArcade();
-			
-			m_shift = getShifter();
-			
-			// polar
-			m_leftMagnitude = left.getMagnitude();
-			m_leftDirection = left.getDirectionDegrees();
-			m_leftRotation = left.getTwist();
-			
-			m_rightMagnitude = right.getMagnitude();
-			m_rightDirection = right.getDirectionDegrees();
-			m_rightRotation = right.getTwist();
-			
-			// average polar
-			m_magnitude = k_getMagnitude();
-			m_direction = k_getDirection();
-			m_rotation = k_getRotation();
-		}
-	}
 }
