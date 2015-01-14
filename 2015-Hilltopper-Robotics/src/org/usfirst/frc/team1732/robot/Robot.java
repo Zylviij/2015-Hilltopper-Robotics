@@ -14,7 +14,8 @@ import edu.wpi.first.wpilibj.Timer;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class Robot extends IterativeRobot {
+public class Robot extends IterativeRobot
+{
 	
 	// creates all buttons and joysticks
 	static IO m_io;
@@ -26,7 +27,8 @@ public class Robot extends IterativeRobot {
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
-    public void robotInit() {
+    public void robotInit()
+    {
     	m_io = new IO();
     	m_robotMap = new RobotMap();
     }
@@ -38,7 +40,8 @@ public class Robot extends IterativeRobot {
      * This function is run when the robot is first in
      * disabled mode.
      */
-    public void disabledInit() {
+    public void disabledInit()
+    {
     	m_robotMap.makeSafe();
     }
     
@@ -46,8 +49,10 @@ public class Robot extends IterativeRobot {
     /**
      * This function is called periodically during disabled mode.
      */
-    public void disabledPeriodic() {
-    	if (dpFirstRun) {
+    public void disabledPeriodic()
+    {
+    	if (dpFirstRun)
+    	{
             System.out.println("In disabled Periodic mode!");
             dpFirstRun = false;
         }
@@ -61,14 +66,16 @@ public class Robot extends IterativeRobot {
      * This function is run when the robot is first in
      * autonomous mode. 
      */
-    public void autonomousInit() {
+    public void autonomousInit()
+    {
     	
     }
     
     /**
      * This function is called periodically during autonomous mode.
      */
-    public void autonomousPeriodic() {
+    public void autonomousPeriodic()
+    {
 
     }
     
@@ -79,14 +86,16 @@ public class Robot extends IterativeRobot {
      * This function is run when the robot is first in
      * teleop mode.
      */
-    public void teleopInit() {
+    public void teleopInit()
+    {
     	
     }
     
     /**
      * This function is called periodically during teleop mode.
      */
-    public void teleopPeriodic() {
+    public void teleopPeriodic()
+    {
     	// drive
     	m_robotMap.m_drive.drive(m_io);
     }
@@ -98,7 +107,8 @@ public class Robot extends IterativeRobot {
      * This function is run when the robot is first in
      * test mode.
      */
-    public void testInit() {
+    public void testInit()
+    {
     	
     }
     
@@ -106,8 +116,10 @@ public class Robot extends IterativeRobot {
     /**
      * This function is called periodically during test mode
      */
-    public void testPeriodic() {
-    	if (tpFirstRun) {
+    public void testPeriodic()
+    {
+    	if (tpFirstRun)
+    	{
             System.out.println("In test Periodic mode!");
             tpFirstRun = false;
         }
