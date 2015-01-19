@@ -1,0 +1,3 @@
+2014-03-08 12:29:51,974 INFO [AWT-EventQueue-0] f.t.FRC_Team_Kiosk [FRC_Team_Kiosk.java:422] Starting kiosk...
+2014-03-08 12:33:00,035 INFO [SwingWorker-pool-2-thread-1] f.t.FRC_Team_Kiosk [FRC_Team_Kiosk.java:210] Radio configuration successfulfor team 1337; 2.02
+2014-03-08 12:34:49,255 INFO [AWT-EventQueue-0] f.t.FRC_Team_Kiosk [FRC_Team_Kiosk.java:222] Shutting down kiosk

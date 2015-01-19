@@ -131,13 +131,6 @@ AddOutputFilter chunkFilter
 			<Item Name="Test.vi" Type="VI" URL="../Test.vi"/>
 			<Item Name="Vision Processing.vi" Type="VI" URL="../Vision Processing.vi"/>
 		</Item>
-		<Item Name="aveDirectino.vi" Type="VI" URL="../../../../../Desktop/2014 Robot Project/aveDirectino.vi"/>
-		<Item Name="average.vi" Type="VI" URL="../../../../../Desktop/2014 Robot Project/average.vi"/>
-		<Item Name="direction.vi" Type="VI" URL="../../../../../Desktop/2014 Robot Project/direction.vi"/>
-		<Item Name="driveLogic.vi" Type="VI" URL="../../../../../Desktop/2014 Robot Project/driveLogic.vi"/>
-		<Item Name="magnitude.vi" Type="VI" URL="../../../../../Desktop/2014 Robot Project/magnitude.vi"/>
-		<Item Name="modeSel.vi" Type="VI" URL="../../../../../Desktop/2014 Robot Project/modeSel.vi"/>
-		<Item Name="ModeSelect.vi" Type="VI" URL="../../../../../Desktop/2014 Robot Project/ModeSelect.vi"/>
 		<Item Name="Robot Main.vi" Type="VI" URL="../Robot Main.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
@@ -576,9 +569,16 @@ AddOutputFilter chunkFilter
 				<Item Name="WPI_UtilitiesTimebaseConstants.vi" Type="VI" URL="/&lt;vilib&gt;/Rock Robotics/WPI/Utilities/WPI_UtilitiesTimebaseConstants.vi"/>
 				<Item Name="Write Value Core.vi" Type="VI" URL="/&lt;vilib&gt;/Rock Robotics/Network Tables/Write Value Core.vi"/>
 			</Item>
+			<Item Name="aveDirectino.vi" Type="VI" URL="../SubVIs/aveDirectino.vi"/>
+			<Item Name="average.vi" Type="VI" URL="../SubVIs/average.vi"/>
+			<Item Name="direction.vi" Type="VI" URL="../SubVIs/direction.vi"/>
+			<Item Name="driveLogic.vi" Type="VI" URL="../SubVIs/driveLogic.vi"/>
 			<Item Name="FRC_NetworkCommunication.dll" Type="Document" URL="FRC_NetworkCommunication.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
+			<Item Name="magnitude.vi" Type="VI" URL="../SubVIs/magnitude.vi"/>
+			<Item Name="modeSel.vi" Type="VI" URL="../SubVIs/modeSel.vi"/>
+			<Item Name="ModeSelect.vi" Type="VI" URL="../SubVIs/ModeSelect.vi"/>
 			<Item Name="NiFpgaLv.dll" Type="Document" URL="NiFpgaLv.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
@@ -605,11 +605,11 @@ AddOutputFilter chunkFilter
 				<Property Name="Bld_compilerOptLevel" Type="Int">0</Property>
 				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
 				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
-				<Property Name="Bld_localDestDir" Type="Path">/C</Property>
+				<Property Name="Bld_localDestDir" Type="Path">/C/Github/LabVIEW Data/2015 Beta Robot Project/Builds/build.bin</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{980EAAB3-3632-4C6E-8261-281A41A3B1DC}</Property>
 				<Property Name="Bld_targetDestDir" Type="Path">/home/lvuser/natinst/bin</Property>
-				<Property Name="Bld_version.build" Type="Int">1</Property>
+				<Property Name="Bld_version.build" Type="Int">10</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">startup.rtexe</Property>
 				<Property Name="Destination[0].path" Type="Path">/home/lvuser/natinst/bin/startup.rtexe</Property>
@@ -619,7 +619,7 @@ AddOutputFilter chunkFilter
 				<Property Name="Destination[1].path" Type="Path">/home/lvuser/natinst/bin/data</Property>
 				<Property Name="Destination[1].path.type" Type="Str">&lt;none&gt;</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
-				<Property Name="Source[0].itemID" Type="Str">{619CEDEA-ED37-448C-B1FC-4F8EEF2E0869}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{F2B53004-4FBB-46D6-8CA8-F371B3CB3468}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/Target/Robot Main.vi</Property>
