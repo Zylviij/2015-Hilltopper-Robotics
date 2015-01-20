@@ -2,7 +2,6 @@ package org.usfirst.frc.team1732.systems;
 
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.RobotDrive.MotorType;
-import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Talon;
 
 public class Drive
@@ -12,9 +11,6 @@ public class Drive
 	private Talon m_rightFrontMotor = new Talon(2);
 	private Talon m_leftBackMotor = new Talon(1);
 	private Talon m_rightBackMotor = new Talon(0);
-	
-	// solenoids
-	private Solenoid m_shifter = new Solenoid(0);
 
 	// drive
 	private RobotDrive m_drive = new RobotDrive(m_leftFrontMotor, m_leftBackMotor, m_rightFrontMotor, m_rightBackMotor);
@@ -25,55 +21,21 @@ public class Drive
 	 */
 	public void drive(IO io)
 	{
-		
-		// if the button is depressed
-		if (io.getShift())
+		m_drive.setInvertedMotor(MotorType.kFrontLeft, true);
+		m_drive.setInvertedMotor(MotorType.kRearLeft, true);
+				
+		// drive mecanum
+		if (io.getLeftArcade())
 		{
-			
-			m_drive.setInvertedMotor(MotorType.kFrontLeft, true);
-			m_drive.setInvertedMotor(MotorType.kRearLeft, true);
-			
-			// enable solenoid, on mecanum wheels
-			m_shifter.set(true);
-			
-			// drive mecanum
-			if (io.getLeftArcade())
-			{
-			m_drive.mecanumDrive_Polar(io.getLeftMagnitude(), io.getLeftDirection(), io.getLeftRotation());
-			} 
-			else if (io.getRightArcade())
-			{
-				m_drive.mecanumDrive_Polar(io.getRightMagnitude(), io.getRightDirection(), io.getRightRotation());
-			}
-			else
-			{
-				m_drive.mecanumDrive_Polar(io.getMagnitude(), io.getDirection(), io.getRotation());
-			}
-			
+		m_drive.mecanumDrive_Polar(io.getLeftMagnitude(), io.getLeftDirection(), io.getLeftRotation());
+		} 
+		else if (io.getRightArcade())
+		{
+			m_drive.mecanumDrive_Polar(io.getRightMagnitude(), io.getRightDirection(), io.getRightRotation());
 		}
 		else
 		{
-
-			m_drive.setInvertedMotor(MotorType.kFrontLeft, false);
-			m_drive.setInvertedMotor(MotorType.kRearLeft, false);
-
-			
-			// disable solenoid, on tread
-			m_shifter.set(false);
-			
-			// drive tank
-			if (io.getLeftArcade())
-			{
-				m_drive.arcadeDrive(io.getLeftY(), io.getLeftX());
-			}
-			else if (io.getRightArcade())
-			{
-				m_drive.arcadeDrive(io.getRightY(), io.getRightX());
-			}
-			else
-			{
-				m_drive.tankDrive(io.getLeftY(), io.getRightY());
-			}
+			m_drive.mecanumDrive_Polar(io.getMagnitude(), io.getDirection(), io.getRotation());
 		}
 	}
 	
@@ -97,9 +59,6 @@ public class Drive
 		m_rightBackMotor.set(0);
 		m_rightBackMotor.free();
 		m_rightBackMotor.disable();
-		
-		m_shifter.set(false);
-		m_shifter.free();
 	}
 
 }
