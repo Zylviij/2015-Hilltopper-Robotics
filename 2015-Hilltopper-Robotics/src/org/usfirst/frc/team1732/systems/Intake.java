@@ -43,7 +43,7 @@ public class Intake
 	/**
 	 * make safe the intake
 	 */
-	public void makesafe()
+	public void makeSafe()
 	{
 		m_rightIntakeMotor.set(0);
 		m_rightIntakeMotor.free();
