@@ -22,7 +22,18 @@ public class IO
 	 */
 	private Button m_arcadeLeft = new JoystickButton(m_leftJoystick, 7);
 	private Button m_arcadeRight = new JoystickButton(m_rightJoystick, 7);
+	private Button m_shiftLeft = new JoystickButton(m_leftJoystick, 1);
+	private Button m_shiftRight = new JoystickButton(m_rightJoystick, 1);
 
+	/**
+	 * Gets button state OR
+	 * @return shift
+	 */
+	public boolean getShift()
+	{
+		return m_shiftLeft.get() || m_shiftRight.get();
+	}
+	
 	/**
 	 * Gets Button state
 	 * @return boolean value of button

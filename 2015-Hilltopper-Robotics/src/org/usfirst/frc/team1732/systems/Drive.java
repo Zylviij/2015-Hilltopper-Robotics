@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.Talon;
 
 public class Drive
 {
+	private final double SHIFT_SPEED = 0.4;
 	// motors
 	private Talon m_leftFrontMotor = new Talon(3);
 	private Talon m_rightFrontMotor = new Talon(2);
@@ -15,27 +16,60 @@ public class Drive
 	// drive
 	private RobotDrive m_drive = new RobotDrive(m_leftFrontMotor, m_leftBackMotor, m_rightFrontMotor, m_rightBackMotor);
 	
-	/**
-	 * Set the drive.
-	 * @param io: all input
-	 */
-	public void drive(IO io)
+	public Drive()
 	{
 		m_drive.setInvertedMotor(MotorType.kFrontLeft, true);
 		m_drive.setInvertedMotor(MotorType.kRearLeft, true);
-				
-		// drive mecanum
-		if (io.getLeftArcade())
+	}
+	
+	/**
+	 * Set the drive for auto.
+	 * @param mag Magnitude
+	 * @param dir Direction
+	 * @param rot Rotation
+	 */
+	public void drive(double mag, double dir, double rot)
+	{
+		m_drive.mecanumDrive_Polar(mag, dir, rot);
+	}
+	
+	/**
+	 * Set the drive for tele.
+	 * @param io: all input
+	 */
+	public void drive(IO io)
+	{		
+		if (!io.getShift())
 		{
-		m_drive.mecanumDrive_Polar(io.getLeftMagnitude(), io.getLeftDirection(), io.getLeftRotation());
-		} 
-		else if (io.getRightArcade())
-		{
-			m_drive.mecanumDrive_Polar(io.getRightMagnitude(), io.getRightDirection(), io.getRightRotation());
+			// drive mecanum full speed
+			if (io.getLeftArcade())
+			{
+			m_drive.mecanumDrive_Polar(io.getLeftMagnitude(), io.getLeftDirection(), io.getLeftRotation());
+			} 
+			else if (io.getRightArcade())
+			{
+				m_drive.mecanumDrive_Polar(io.getRightMagnitude(), io.getRightDirection(), io.getRightRotation());
+			}
+			else
+			{
+				m_drive.mecanumDrive_Polar(io.getMagnitude(), io.getDirection(), io.getRotation());
+			}
 		}
-		else
+		else 
 		{
-			m_drive.mecanumDrive_Polar(io.getMagnitude(), io.getDirection(), io.getRotation());
+			// drive mecanum full speed
+			if (io.getLeftArcade())
+			{
+			m_drive.mecanumDrive_Polar(io.getLeftMagnitude() * SHIFT_SPEED, io.getLeftDirection(), io.getLeftRotation());
+			} 
+			else if (io.getRightArcade())
+			{
+				m_drive.mecanumDrive_Polar(io.getRightMagnitude() * SHIFT_SPEED, io.getRightDirection(), io.getRightRotation());
+			}
+			else
+			{
+				m_drive.mecanumDrive_Polar(io.getMagnitude() * SHIFT_SPEED, io.getDirection(), io.getRotation());
+			}
 		}
 	}
 	

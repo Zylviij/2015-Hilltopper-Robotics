@@ -23,6 +23,9 @@ public class Robot extends IterativeRobot
 	// creates all robot parts (motors, solenoids, sensors)
 	static RobotMap m_robotMap;
 	
+	// auto start time
+	static long startTime;
+	
 	/**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -68,7 +71,7 @@ public class Robot extends IterativeRobot
      */
     public void autonomousInit()
     {
-    	
+    	startTime = System.currentTimeMillis();
     }
     
     /**
@@ -76,7 +79,14 @@ public class Robot extends IterativeRobot
      */
     public void autonomousPeriodic()
     {
-
+    	if (System.currentTimeMillis() - startTime < 3000) 
+    	{
+    		m_robotMap.m_drive.drive(1, 90, 0);
+    	}
+    	else
+    	{
+    		m_robotMap.m_drive.drive(0, 0, 0);
+    	}
     }
     
     /*
