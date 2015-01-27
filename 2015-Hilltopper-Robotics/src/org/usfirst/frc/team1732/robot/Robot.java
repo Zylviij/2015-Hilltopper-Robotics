@@ -6,6 +6,7 @@ import org.usfirst.frc.team1732.systems.RobotMap;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -79,15 +80,87 @@ public class Robot extends IterativeRobot
      */
     public void autonomousPeriodic()
     {
-    	if (System.currentTimeMillis() - startTime < 3000) 
+    	int mode = (int) SmartDashboard.getNumber("auton mode");
+    	if(mode==1)
     	{
-    		m_robotMap.m_drive.drive(1, 90, 0);
+    		//Grab tote, strafe away from wall, drive forward, strafe toward wall, repeat.
+    		//https://docs.google.com/file/d/0B9czK-IAVhjLMkx3enNrVmVwRHBnaHFnSDEzZlVlZ0ttN01j/edit
     	}
+    	
+    	else if(mode==2)
+    	{
+    		//Pick up tote then strafe toward wall. Drive forward a bit then strafe into can to bash it. Drive forward to tote then repeat 2x.
+    		//https://docs.google.com/file/d/0B9czK-IAVhjLYWJHeFRCVG5iaVd2NUhRSGItU1hfTjNkd1Jn/edit
+    		
+    	}
+    	
+    	else if(mode==3)
+    	{
+    		//Grab tote then proceed with parabolic motion (toward wall) in order to shove cans and pick up more totes
+    		//https://docs.google.com/file/d/0B9czK-IAVhjLLW1YZVViSWE1dnNzMkNKc0J2cWlFS3NYZmhZ/edit
+    		
+    	}
+    	
+    	else if(mode==4)
+    	{
+    		//Grab first tote, rotate 180deg, grab can then strafe into auto zone
+    		//https://docs.google.com/file/d/0B9czK-IAVhjLdWJETm1UT3VzRWxzZXZDM1dwSVpXemRxOTJN/edit
+    		
+    	}
+    	
+    	else if(mode==5)
+    	{
+    		//Grab tote in front of bot then back up and grab can behind it, then strafe into auto zone
+    		//https://docs.google.com/file/d/0B9czK-IAVhjLREdkN3FDRnZKVm9NRFhOSXlfcnhVQzlVT2NZ/edit
+    		m_robotMap.m_intake.setleftIntakeMotor(speed);
+    		m_robotMap.m_intake.setrightIntakeMotor(speed);
+    		m_robotMap.m_intake.setleftIntakeSolenoid(true);
+    		m_robotMap.m_intake.setrightIntakeSolenoid(true);
+    		
+    		while(System.currentTimeMillis() - startTime < 1000) 
+    		{
+    			m_robotMap.m_drive.drive(.2, 270, 0);
+    		}
+    		
+    		//This ain't done yo. Pls dun trust me.
+    		
+    	}
+    	
+    	else if(mode==6)
+    	{
+    		//Pick up first tote, bash first can, drive forward and pick up second tote, then push the second can into the auto zone
+    		//https://docs.google.com/file/d/0B9czK-IAVhjLOFBCbkJaaTB4QldQMTYtWG45dHBCZXlVMko0/edit
+    		
+    	}
+    	
+    	else if(mode==7)
+    	{
+    		//Drive forward into auto zone
+    		if (System.currentTimeMillis() - startTime < 3000) 
+    		{
+    			m_robotMap.m_drive.drive(1, 90, 0);
+    		}
+    		else
+    		{
+    			m_robotMap.m_drive.drive(0, 0, 0);
+    		}
+    	}
+    	
     	else
     	{
-    		m_robotMap.m_drive.drive(0, 0, 0);
+    		//Drive forward anyway.
+    		if (System.currentTimeMillis() - startTime < 3000) 
+    		{
+    			m_robotMap.m_drive.drive(1, 90, 0);
+    		}
+    		else
+    		{
+    			m_robotMap.m_drive.drive(0, 0, 0);
+    		}
     	}
     }
+    
+    
     
     /*
      * Teleop Methods
