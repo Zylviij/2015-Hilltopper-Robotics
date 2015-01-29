@@ -117,14 +117,17 @@ public class Robot extends IterativeRobot
     		m_robotMap.m_intake.setleftIntakeSolenoid(true);
     		m_robotMap.m_intake.setrightIntakeSolenoid(true);
     		
-    		while(System.currentTimeMillis() - startTime < 1000) 
+    		while(System.currentTimeMillis() - startTime < 500) 
     		{
     			m_robotMap.m_drive.drive(.2, 270, 0);
     		}
     		
-    		//This ain't done yo. Pls dun trust me.
-    		
+    		m_robotMap.m_craaa.
+    		while(System.currentTimeMillis() - startTime > 1000 && System.currentTimeMillis() - startTime < 4000) {
+    			
+    		}
     	}
+    	
     	
     	else if(mode==6)
     	{
