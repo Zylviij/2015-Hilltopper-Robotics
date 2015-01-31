@@ -20,8 +20,8 @@ public class RobotMap
 	public void makeSafe()
 	{
 		m_drive.makeSafe();
-		m_lift.makeSafe();
-		m_intake.makeSafe();
-		m_craaa.makeSafe();
+		//m_lift.makeSafe();
+		//m_intake.makeSafe();
+		//m_craaa.makeSafe();
 	}
 }

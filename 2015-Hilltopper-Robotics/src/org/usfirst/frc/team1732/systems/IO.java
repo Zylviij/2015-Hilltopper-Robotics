@@ -26,10 +26,10 @@ public class IO
 	private Button m_shiftLeft = new JoystickButton(m_leftJoystick, 1);
 	private Button m_shiftRight = new JoystickButton(m_rightJoystick, 1);
 	
-	private Button m_finesseLeftLeft = new JoystickButton(m_leftJoystick, 4);
-	private Button m_finesseRightLeft = new JoystickButton(m_leftJoystick, 5);
-	private Button m_finesseLeftRight = new JoystickButton(m_rightJoystick, 4);
-	private Button m_finesseRightRight = new JoystickButton(m_rightJoystick, 5);
+	private Button m_finesseLeftLeft = new JoystickButton(m_leftJoystick, 5);
+	private Button m_finesseRightLeft = new JoystickButton(m_leftJoystick, 6);
+	private Button m_finesseLeftRight = new JoystickButton(m_rightJoystick, 5);
+	private Button m_finesseRightRight = new JoystickButton(m_rightJoystick, 6);
 
 
 	/**

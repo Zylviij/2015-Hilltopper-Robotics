@@ -5,7 +5,6 @@ import org.usfirst.frc.team1732.systems.IO;
 import org.usfirst.frc.team1732.systems.RobotMap;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -19,13 +18,13 @@ public class Robot extends IterativeRobot
 {
 	
 	// creates all buttons and joysticks
-	private IO m_io;
+	static IO m_io;
 		
 	// creates all robot parts (motors, solenoids, sensors)
-	private RobotMap m_robotMap;
+	static RobotMap m_robotMap;
 	
 	// auto start time
-	private long startTime;
+	long startTime;
 	
 	/**
      * This function is run when the robot is first started up and should be
@@ -60,7 +59,6 @@ public class Robot extends IterativeRobot
             System.out.println("In disabled Periodic mode!");
             m_dpFirstRun = false;
         }
-        Timer.delay(0.001);
     }
     
     /*
@@ -73,8 +71,8 @@ public class Robot extends IterativeRobot
      */
     public void autonomousInit()
     {
-    	startTime = System.currentTimeMillis();
-    	m_autonMode = (int) SmartDashboard.getNumber("auton mode");
+    	//startTime = System.currentTimeMillis();
+    	//m_autonMode = (int) SmartDashboard.getNumber("auton mode");
     }
     
     /**
@@ -111,7 +109,7 @@ public class Robot extends IterativeRobot
     	
     	else if(m_autonMode == 5)
     	{
-    		//Grab tote in front of bot then back up and grab can behind it, then strafe into auto zone
+    		/*Grab tote in front of bot then back up and grab can behind it, then strafe into auto zone
     		//https://docs.google.com/file/d/0B9czK-IAVhjLREdkN3FDRnZKVm9NRFhOSXlfcnhVQzlVT2NZ/edit
     		m_robotMap.m_intake.setleftIntakeMotor(0);
     		m_robotMap.m_intake.setrightIntakeMotor(0);
@@ -121,7 +119,7 @@ public class Robot extends IterativeRobot
     		while(System.currentTimeMillis() - startTime < 500) 
     		{
     			m_robotMap.m_drive.drive(.2, 270, 0);
-    		}
+    		}//*/
     		
        	}
     	
@@ -134,7 +132,7 @@ public class Robot extends IterativeRobot
     	}
     	else
     	{
-    		//Drive forward anyway.
+    		/*Drive forward anyway.
     		if (System.currentTimeMillis() - startTime < 3000) 
     		{
     			m_robotMap.m_drive.drive(1, 90, 0);
@@ -142,7 +140,7 @@ public class Robot extends IterativeRobot
     		else
     		{
     			m_robotMap.m_drive.drive(0, 0, 0);
-    		}
+    		}//*/
     	}
     }
     
@@ -157,7 +155,7 @@ public class Robot extends IterativeRobot
      */
     public void teleopInit()
     {
-    	
+    	m_robotMap.m_drive.periodicInit();
     }
     
     int m_slower = 0;
@@ -166,11 +164,11 @@ public class Robot extends IterativeRobot
      */
     public void teleopPeriodic()
     {
-    	// drive
+    	//* drive
     	m_robotMap.m_drive.drive(m_io);
-    	if (m_slower++%10 == 0) {
-    		setDashboard();
-    	}
+    	//*
+    	setDashboard();
+    	//*/
     }
     
     /*
@@ -197,9 +195,9 @@ public class Robot extends IterativeRobot
             System.out.println("In test Periodic mode!");
             tpFirstRun = false;
         }
-        Timer.delay(0.001);
     }
     
+    //*
     public void setDashboard() {
     	SmartDashboard.putNumber("Left Joystick X", m_io.getLeftX());
     	SmartDashboard.putNumber("Left Joystick Y", m_io.getLeftY());
@@ -207,26 +205,30 @@ public class Robot extends IterativeRobot
     	SmartDashboard.putNumber("Right Joystick Y", m_io.getRightY());
     	SmartDashboard.putBoolean("Left Joystick Arcade", m_io.getLeftArcade());
     	SmartDashboard.putBoolean("Right Joystick Arcade", m_io.getRightArcade());
-    	SmartDashboard.putBoolean("Right Joystick Shift", m_io.getLeftShift());
+    	SmartDashboard.putBoolean("Left Joystick Shift", m_io.getLeftShift());
     	SmartDashboard.putBoolean("Right Joystick Shift", m_io.getRightShift());
-    	SmartDashboard.putBoolean("Left Joystick, Fast Left Finesse", m_io.getFinesse()[0][0]);
-    	SmartDashboard.putBoolean("Left Joystick, Slow Left Finesse", m_io.getFinesse()[0][1]);
-    	SmartDashboard.putBoolean("Left Joystick, Fast Right Finesse", m_io.getFinesse()[0][2]);
-    	SmartDashboard.putBoolean("Left Joystick, Slow Right Finesse", m_io.getFinesse()[0][3]);
-    	SmartDashboard.putBoolean("Right Joystick, Fast Left Finesse", m_io.getFinesse()[1][0]);
-    	SmartDashboard.putBoolean("Right Joystick, Slow Left Finesse", m_io.getFinesse()[1][1]);
-    	SmartDashboard.putBoolean("Right Joystick, Fast Right Finesse", m_io.getFinesse()[1][2]);
-    	SmartDashboard.putBoolean("Right Joystick, Slow Right Finesse", m_io.getFinesse()[1][3]);
-    	SmartDashboard.putNumber("Gyro", m_robotMap.m_drive.getGyro());
+    	SmartDashboard.putNumber("Front Left Motor", m_robotMap.m_drive.getCANTalon()[0]);
+    	SmartDashboard.putNumber("Front Right Motor", m_robotMap.m_drive.getCANTalon()[2]);
+    	SmartDashboard.putNumber("Rear Left Motor", m_robotMap.m_drive.getCANTalon()[1]);
+    	SmartDashboard.putNumber("Rear Right Motor", m_robotMap.m_drive.getCANTalon()[3]);
+    	SmartDashboard.putBoolean("Left Joystick, Left Finesse", m_io.getFinesse()[0][0]);
+    	SmartDashboard.putBoolean("Left Joystick, Right Finesse", m_io.getFinesse()[0][1]);
+    	SmartDashboard.putBoolean("Right Joystick, Left Finesse", m_io.getFinesse()[1][0]);
+    	SmartDashboard.putBoolean("Right Joystick, Right Finesse", m_io.getFinesse()[1][1]);
+    	SmartDashboard.putNumber("Finesse Mode", m_io.getFinesseMode());
+    	SmartDashboard.putNumber("Lift Pot", m_robotMap.m_lift.getLiftPot());
+    	SmartDashboard.putNumber("Drive Gryo", m_robotMap.m_drive.getGyro()%360);
     	SmartDashboard.putNumber("Accelerometer X", m_robotMap.m_drive.getAccels()[0]);
     	SmartDashboard.putNumber("Accelerometer Y", m_robotMap.m_drive.getAccels()[1]);
     	SmartDashboard.putNumber("Accelerometer Z", m_robotMap.m_drive.getAccels()[2]);
-    	SmartDashboard.putNumber("Endocer Left Front", m_robotMap.m_drive.getEncoders()[0]);
-    	SmartDashboard.putNumber("Endocer Right Front", m_robotMap.m_drive.getEncoders()[1]);
-    	SmartDashboard.putNumber("Endocer Left Back", m_robotMap.m_drive.getEncoders()[2]);
-    	SmartDashboard.putNumber("Endocer Right Back", m_robotMap.m_drive.getEncoders()[3]);
-    	SmartDashboard.putNumber("Craaa Encoder", m_robotMap.m_craaa.getEncoderValue());
     	SmartDashboard.putBoolean("Craaa Top Limit", m_robotMap.m_craaa.getLimits()[0]);
     	SmartDashboard.putBoolean("Craaa Bottom Limit", m_robotMap.m_craaa.getLimits()[1]);
-    }
+
+    	
+    	//SmartDashboard.putNumber("Endocer Left Front", m_robotMap.m_drive.getEncoders()[0]);
+    	//SmartDashboard.putNumber("Endocer Right Front", m_robotMap.m_drive.getEncoders()[1]);
+    	//SmartDashboard.putNumber("Endocer Left Back", m_robotMap.m_drive.getEncoders()[2]);
+    	//SmartDashboard.putNumber("Endocer Right Back", m_robotMap.m_drive.getEncoders()[3]);
+    	//SmartDashboard.putNumber("Craaa Encoder", m_robotMap.m_craaa.getEncoderValue());
+    }//*/
 }
