@@ -19,13 +19,13 @@ public class Robot extends IterativeRobot
 {
 	
 	// creates all buttons and joysticks
-	static IO m_io;
+	private IO m_io;
 		
 	// creates all robot parts (motors, solenoids, sensors)
-	static RobotMap m_robotMap;
+	private RobotMap m_robotMap;
 	
 	// auto start time
-	static long startTime;
+	private long startTime;
 	
 	/**
      * This function is run when the robot is first started up and should be
@@ -49,16 +49,16 @@ public class Robot extends IterativeRobot
     	m_robotMap.makeSafe();
     }
     
-    private boolean dpFirstRun = true;
+    private boolean m_dpFirstRun = true;
     /**
      * This function is called periodically during disabled mode.
      */
     public void disabledPeriodic()
     {
-    	if (dpFirstRun)
+    	if (m_dpFirstRun)
     	{
             System.out.println("In disabled Periodic mode!");
-            dpFirstRun = false;
+            m_dpFirstRun = false;
         }
         Timer.delay(0.001);
     }
@@ -66,6 +66,7 @@ public class Robot extends IterativeRobot
     /*
      * Autonomous Methods
      */
+    int m_autonMode;
     /**
      * This function is run when the robot is first in
      * autonomous mode. 
@@ -73,6 +74,7 @@ public class Robot extends IterativeRobot
     public void autonomousInit()
     {
     	startTime = System.currentTimeMillis();
+    	m_autonMode = (int) SmartDashboard.getNumber("auton mode");
     }
     
     /**
@@ -80,40 +82,39 @@ public class Robot extends IterativeRobot
      */
     public void autonomousPeriodic()
     {
-    	int mode = (int) SmartDashboard.getNumber("auton mode");
-    	if(mode==1)
+    	if(m_autonMode == 1)
     	{
     		//Grab tote, strafe away from wall, drive forward, strafe toward wall, repeat.
     		//https://docs.google.com/file/d/0B9czK-IAVhjLMkx3enNrVmVwRHBnaHFnSDEzZlVlZ0ttN01j/edit
     	}
     	
-    	else if(mode==2)
+    	else if(m_autonMode == 2)
     	{
     		//Pick up tote then strafe toward wall. Drive forward a bit then strafe into can to bash it. Drive forward to tote then repeat 2x.
     		//https://docs.google.com/file/d/0B9czK-IAVhjLYWJHeFRCVG5iaVd2NUhRSGItU1hfTjNkd1Jn/edit
     		
     	}
     	
-    	else if(mode==3)
+    	else if(m_autonMode == 3)
     	{
     		//Grab tote then proceed with parabolic motion (toward wall) in order to shove cans and pick up more totes
     		//https://docs.google.com/file/d/0B9czK-IAVhjLLW1YZVViSWE1dnNzMkNKc0J2cWlFS3NYZmhZ/edit
     		
     	}
     	
-    	else if(mode==4)
+    	else if(m_autonMode == 4)
     	{
     		//Grab first tote, rotate 180deg, grab can then strafe into auto zone
     		//https://docs.google.com/file/d/0B9czK-IAVhjLdWJETm1UT3VzRWxzZXZDM1dwSVpXemRxOTJN/edit
     		
     	}
     	
-    	else if(mode==5)
+    	else if(m_autonMode == 5)
     	{
     		//Grab tote in front of bot then back up and grab can behind it, then strafe into auto zone
     		//https://docs.google.com/file/d/0B9czK-IAVhjLREdkN3FDRnZKVm9NRFhOSXlfcnhVQzlVT2NZ/edit
-    		m_robotMap.m_intake.setleftIntakeMotor(speed);
-    		m_robotMap.m_intake.setrightIntakeMotor(speed);
+    		m_robotMap.m_intake.setleftIntakeMotor(0);
+    		m_robotMap.m_intake.setrightIntakeMotor(0);
     		m_robotMap.m_intake.setleftIntakeSolenoid(true);
     		m_robotMap.m_intake.setrightIntakeSolenoid(true);
     		
@@ -122,33 +123,15 @@ public class Robot extends IterativeRobot
     			m_robotMap.m_drive.drive(.2, 270, 0);
     		}
     		
-    		m_robotMap.m_craaa.
-    		while(System.currentTimeMillis() - startTime > 1000 && System.currentTimeMillis() - startTime < 4000) {
-    			
-    		}
-    	}
+       	}
     	
     	
-    	else if(mode==6)
+    	else if(m_autonMode == 6)
     	{
     		//Pick up first tote, bash first can, drive forward and pick up second tote, then push the second can into the auto zone
     		//https://docs.google.com/file/d/0B9czK-IAVhjLOFBCbkJaaTB4QldQMTYtWG45dHBCZXlVMko0/edit
     		
     	}
-    	
-    	else if(mode==7)
-    	{
-    		//Drive forward into auto zone
-    		if (System.currentTimeMillis() - startTime < 3000) 
-    		{
-    			m_robotMap.m_drive.drive(1, 90, 0);
-    		}
-    		else
-    		{
-    			m_robotMap.m_drive.drive(0, 0, 0);
-    		}
-    	}
-    	
     	else
     	{
     		//Drive forward anyway.
@@ -177,6 +160,7 @@ public class Robot extends IterativeRobot
     	
     }
     
+    int m_slower = 0;
     /**
      * This function is called periodically during teleop mode.
      */
@@ -184,6 +168,9 @@ public class Robot extends IterativeRobot
     {
     	// drive
     	m_robotMap.m_drive.drive(m_io);
+    	if (m_slower++%10 == 0) {
+    		setDashboard();
+    	}
     }
     
     /*
@@ -191,6 +178,7 @@ public class Robot extends IterativeRobot
      */
     /**
      * This function is run when the robot is first in
+     *
      * test mode.
      */
     public void testInit()
@@ -210,5 +198,35 @@ public class Robot extends IterativeRobot
             tpFirstRun = false;
         }
         Timer.delay(0.001);
+    }
+    
+    public void setDashboard() {
+    	SmartDashboard.putNumber("Left Joystick X", m_io.getLeftX());
+    	SmartDashboard.putNumber("Left Joystick Y", m_io.getLeftY());
+    	SmartDashboard.putNumber("Right Joystick X", m_io.getRightX());
+    	SmartDashboard.putNumber("Right Joystick Y", m_io.getRightY());
+    	SmartDashboard.putBoolean("Left Joystick Arcade", m_io.getLeftArcade());
+    	SmartDashboard.putBoolean("Right Joystick Arcade", m_io.getRightArcade());
+    	SmartDashboard.putBoolean("Right Joystick Shift", m_io.getLeftShift());
+    	SmartDashboard.putBoolean("Right Joystick Shift", m_io.getRightShift());
+    	SmartDashboard.putBoolean("Left Joystick, Fast Left Finesse", m_io.getFinesse()[0][0]);
+    	SmartDashboard.putBoolean("Left Joystick, Slow Left Finesse", m_io.getFinesse()[0][1]);
+    	SmartDashboard.putBoolean("Left Joystick, Fast Right Finesse", m_io.getFinesse()[0][2]);
+    	SmartDashboard.putBoolean("Left Joystick, Slow Right Finesse", m_io.getFinesse()[0][3]);
+    	SmartDashboard.putBoolean("Right Joystick, Fast Left Finesse", m_io.getFinesse()[1][0]);
+    	SmartDashboard.putBoolean("Right Joystick, Slow Left Finesse", m_io.getFinesse()[1][1]);
+    	SmartDashboard.putBoolean("Right Joystick, Fast Right Finesse", m_io.getFinesse()[1][2]);
+    	SmartDashboard.putBoolean("Right Joystick, Slow Right Finesse", m_io.getFinesse()[1][3]);
+    	SmartDashboard.putNumber("Gyro", m_robotMap.m_drive.getGyro());
+    	SmartDashboard.putNumber("Accelerometer X", m_robotMap.m_drive.getAccels()[0]);
+    	SmartDashboard.putNumber("Accelerometer Y", m_robotMap.m_drive.getAccels()[1]);
+    	SmartDashboard.putNumber("Accelerometer Z", m_robotMap.m_drive.getAccels()[2]);
+    	SmartDashboard.putNumber("Endocer Left Front", m_robotMap.m_drive.getEncoders()[0]);
+    	SmartDashboard.putNumber("Endocer Right Front", m_robotMap.m_drive.getEncoders()[1]);
+    	SmartDashboard.putNumber("Endocer Left Back", m_robotMap.m_drive.getEncoders()[2]);
+    	SmartDashboard.putNumber("Endocer Right Back", m_robotMap.m_drive.getEncoders()[3]);
+    	SmartDashboard.putNumber("Craaa Encoder", m_robotMap.m_craaa.getEncoderValue());
+    	SmartDashboard.putBoolean("Craaa Top Limit", m_robotMap.m_craaa.getLimits()[0]);
+    	SmartDashboard.putBoolean("Craaa Bottom Limit", m_robotMap.m_craaa.getLimits()[1]);
     }
 }

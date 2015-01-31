@@ -1,16 +1,17 @@
 package org.usfirst.frc.team1732.systems;
 
+import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Solenoid;
-import edu.wpi.first.wpilibj.Talon;
 
 public class Intake 
 {
 	// motors
-	private Talon m_rightIntakeMotor = new Talon(0);//TODO set pwm #
-	private Talon m_leftIntakeMotor = new Talon(0);//TODO set pwm #
+	private CANTalon m_rightIntakeMotor = new CANTalon(7);
+	private CANTalon m_leftIntakeMotor = new CANTalon(8);
+	
 	// solenoids
-	private Solenoid m_rightIntakeSolenoid = new Solenoid(0,0);//TODO set solenoid, cam #
-	private Solenoid m_leftIntakeSolenoid = new Solenoid(0,0);//TODO set solenoid, cam #
+	private Solenoid m_rightIntakeSolenoid = new Solenoid(8);
+	private Solenoid m_leftIntakeSolenoid = new Solenoid(7);
 
 	/**
 	 * @param speed boolean for solenoid setter
@@ -46,10 +47,8 @@ public class Intake
 	public void makeSafe()
 	{
 		m_rightIntakeMotor.set(0);
-		m_rightIntakeMotor.free();
 		m_rightIntakeMotor.disable();
 		m_leftIntakeMotor.set(0);
-		m_leftIntakeMotor.free();
 		m_leftIntakeMotor.disable();
 		m_rightIntakeSolenoid.set(false);
 		m_rightIntakeSolenoid.free();

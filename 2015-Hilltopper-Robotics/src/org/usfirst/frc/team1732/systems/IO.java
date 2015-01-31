@@ -22,8 +22,15 @@ public class IO
 	 */
 	private Button m_arcadeLeft = new JoystickButton(m_leftJoystick, 7);
 	private Button m_arcadeRight = new JoystickButton(m_rightJoystick, 7);
+	
 	private Button m_shiftLeft = new JoystickButton(m_leftJoystick, 1);
 	private Button m_shiftRight = new JoystickButton(m_rightJoystick, 1);
+	
+	private Button m_finesseLeftLeft = new JoystickButton(m_leftJoystick, 4);
+	private Button m_finesseRightLeft = new JoystickButton(m_leftJoystick, 5);
+	private Button m_finesseLeftRight = new JoystickButton(m_rightJoystick, 4);
+	private Button m_finesseRightRight = new JoystickButton(m_rightJoystick, 5);
+
 
 	/**
 	 * Gets button state OR
@@ -32,6 +39,37 @@ public class IO
 	public boolean getShift()
 	{
 		return m_shiftLeft.get() || m_shiftRight.get();
+	}
+	
+	public boolean getLeftShift()
+	{
+		return m_shiftLeft.get();
+	}
+	
+	public boolean getRightShift()
+	{
+		return m_shiftRight.get();
+	}
+	
+	public boolean[][] getFinesse() {
+		return new boolean[][]
+			{
+				{
+					m_finesseLeftLeft.get(),
+					m_finesseRightLeft.get(),
+				},
+				{
+					m_finesseLeftRight.get(),
+					m_finesseRightRight.get(),
+				}
+			};
+	}
+	
+	public int getFinesseMode() {
+		if ((m_finesseLeftLeft.get() || m_finesseLeftRight.get()) && (m_finesseRightLeft.get() || m_finesseRightRight.get())) return 0;
+		else if (m_finesseLeftLeft.get() || m_finesseLeftRight.get()) return 1;
+		else if (m_finesseRightLeft.get() || m_finesseRightRight.get()) return 2;
+		else return 0;
 	}
 	
 	/**

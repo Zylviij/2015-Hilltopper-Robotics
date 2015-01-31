@@ -1,18 +1,66 @@
 package org.usfirst.frc.team1732.systems;
 
+import edu.wpi.first.wpilibj.BuiltInAccelerometer;
+import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.RobotDrive.MotorType;
-import edu.wpi.first.wpilibj.Talon;
 
 public class Drive
 {
-	private final double SHIFT_SPEED = 0.4;
-	// motors
-	private Talon m_leftFrontMotor = new Talon(3);
-	private Talon m_rightFrontMotor = new Talon(2);
-	private Talon m_leftBackMotor = new Talon(1);
-	private Talon m_rightBackMotor = new Talon(0);
 
+	// motors
+	private CANTalon m_leftFrontMotor = new CANTalon(3);
+	private CANTalon m_rightFrontMotor = new CANTalon(2);
+	private CANTalon m_leftBackMotor = new CANTalon(1);
+	private CANTalon m_rightBackMotor = new CANTalon(0);
+	
+	// encoders
+	private Encoder m_leftFrontEncoder = new Encoder(0, 1);
+	private Encoder m_rightFrontEncoder = new Encoder(2, 3);
+	private Encoder m_leftBackEncoder = new Encoder(4, 5);
+	private Encoder m_rightBackEncoder = new Encoder(6, 7);
+
+	// accel
+	BuiltInAccelerometer m_accelerometer = new BuiltInAccelerometer();
+
+	// gyro
+	Gyro m_gyro = new Gyro(0);
+	
+	public double[] getEncoders() {
+		return new double[]{
+				m_leftFrontEncoder.getDistance(), 
+				m_rightFrontEncoder.getDistance(),
+				m_leftBackEncoder.getDistance(), 
+				m_rightBackEncoder.getDistance()};
+	}
+	
+	/*public double[][] getCANTalon() {
+		return {
+			{
+				m_leftFrontMotor
+			},
+			{
+					
+			},
+			{
+				
+			},
+			{
+				
+			}
+		};
+	}*/
+	
+	public double getGyro() {
+		return m_gyro.getAngle();
+	}
+	
+	public double[] getAccels() {
+		return new double[]{m_accelerometer.getX(), m_accelerometer.getY(), m_accelerometer.getZ()};
+	}
+	
 	// drive
 	private RobotDrive m_drive = new RobotDrive(m_leftFrontMotor, m_leftBackMotor, m_rightFrontMotor, m_rightBackMotor);
 	
@@ -38,37 +86,45 @@ public class Drive
 	 * @param io: all input
 	 */
 	public void drive(IO io)
-	{		
-		if (!io.getShift())
-		{
-			// drive mecanum full speed
-			if (io.getLeftArcade())
-			{
-			m_drive.mecanumDrive_Polar(io.getLeftMagnitude(), io.getLeftDirection(), io.getLeftRotation());
-			} 
-			else if (io.getRightArcade())
-			{
-				m_drive.mecanumDrive_Polar(io.getRightMagnitude(), io.getRightDirection(), io.getRightRotation());
-			}
-			else
-			{
-				m_drive.mecanumDrive_Polar(io.getMagnitude(), io.getDirection(), io.getRotation());
-			}
+	{	
+		if (io.getFinesseMode() == 1) {
+			m_drive.mecanumDrive_Polar(0.3, 180, 0);
+		} 
+		else if (io.getFinesseMode() == 2) {
+			m_drive.mecanumDrive_Polar(0.3, 0, 0);
 		}
-		else 
-		{
-			// drive mecanum full speed
-			if (io.getLeftArcade())
+		else {
+			if (!io.getShift())
 			{
-			m_drive.mecanumDrive_Polar(io.getLeftMagnitude() * SHIFT_SPEED, io.getLeftDirection(), io.getLeftRotation());
-			} 
-			else if (io.getRightArcade())
-			{
-				m_drive.mecanumDrive_Polar(io.getRightMagnitude() * SHIFT_SPEED, io.getRightDirection(), io.getRightRotation());
+				// drive mecanum full speed
+				if (io.getLeftArcade())
+				{
+					m_drive.arcadeDrive(io.getLeftX(), io.getLeftY());
+				} 
+				else if (io.getRightArcade())
+				{
+					m_drive.arcadeDrive(io.getRightX(), io.getRightY());
+				}
+				else
+				{
+					m_drive.tankDrive(io.getLeftY(), io.getRightY());
+				}
 			}
-			else
+			else 
 			{
-				m_drive.mecanumDrive_Polar(io.getMagnitude() * SHIFT_SPEED, io.getDirection(), io.getRotation());
+				// drive mecanum full speed
+				if (io.getLeftArcade())
+				{
+				m_drive.mecanumDrive_Polar(io.getLeftMagnitude(), io.getLeftDirection(), io.getLeftRotation());
+				} 
+				else if (io.getRightArcade())
+				{
+					m_drive.mecanumDrive_Polar(io.getRightMagnitude(), io.getRightDirection(), io.getRightRotation());
+				}
+				else
+				{
+					m_drive.mecanumDrive_Polar(io.getMagnitude(), io.getDirection(), io.getRotation());
+				}
 			}
 		}
 	}
@@ -79,20 +135,15 @@ public class Drive
 	public void makeSafe()
 	{
 		m_leftFrontMotor.set(0);
-		m_leftFrontMotor.free();
 		m_leftFrontMotor.disable();
 		
 		m_rightFrontMotor.set(0);
-		m_rightFrontMotor.free();
 		m_rightFrontMotor.disable();
 
 		m_leftBackMotor.set(0);
-		m_leftBackMotor.free();
 		m_leftBackMotor.disable();
 		
 		m_rightBackMotor.set(0);
-		m_rightBackMotor.free();
 		m_rightBackMotor.disable();
 	}
-
 }
