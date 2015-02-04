@@ -2,6 +2,7 @@
 package org.usfirst.frc.team1732.robot;
 
 import org.usfirst.frc.team1732.systems.IO;
+import org.usfirst.frc.team1732.systems.Intake;
 import org.usfirst.frc.team1732.systems.RobotMap;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -82,12 +83,44 @@ public class Robot extends IterativeRobot
     {
     	if(m_autonMode == 1)
     	{
+    		/*
+    		m_robotMap.m_intake.setrightIntakeMotor(1);
+    		m_robotMap.m_intake.setleftIntakeSolenoid(true);
+    		m_robotMap.m_intake.setleftIntakeMotor(1);
+    		m_robotMap.m_intake.classsetrightIntakeSolenoid(true);
+    		
+    		m_robotMap.m_drive.drive(.5, 180, 1.5);
+    		m_robotMap.m_drive.drive(1, 270, 2.5);
+    		m_robotMap.m_drive.drive(.5, 0, 1.5);
+    		m_robotMap.m_drive.drive(.5, 270, .2);
+    		
+    		<RAISE TOTE>
+    		m_robotMap.m_intake.setrightIntakeMotor(1);
+    		m_robotMap.m_intake.setleftIntakeSolenoid(true);
+    		m_robotMap.m_intake.setleftIntakeMotor(1);
+    		m_robotMap.m_intake.classsetrightIntakeSolenoid(true);
+    		
+    		m_robotMap.m_drive.drive(.5, 180, 1.5);
+    		m_robotMap.m_drive.drive(1, 270, 2.5);
+    		m_robotMap.m_drive.drive(.5, 0, 1.5);
+    		m_robotMap.m_drive.drive(.5, 270, .2);
+    		
+    		<RAISE TOTE>
+    		m_robotMap.m_intake.setrightIntakeMotor(1);
+    		m_robotMap.m_intake.setleftIntakeSolenoid(true);
+    		m_robotMap.m_intake.setleftIntakeMotor(1);
+    		m_robotMap.m_intake.setrightIntakeSolenoid(true);
+    		
+    		m_robotMap.m_drive.drive(1, 180, 3.5);
+    		*/
+    		
     		//Grab tote, strafe away from wall, drive forward, strafe toward wall, repeat.
     		//https://docs.google.com/file/d/0B9czK-IAVhjLMkx3enNrVmVwRHBnaHFnSDEzZlVlZ0ttN01j/edit
     	}
     	
     	else if(m_autonMode == 2)
     	{
+    		
     		//Pick up tote then strafe toward wall. Drive forward a bit then strafe into can to bash it. Drive forward to tote then repeat 2x.
     		//https://docs.google.com/file/d/0B9czK-IAVhjLYWJHeFRCVG5iaVd2NUhRSGItU1hfTjNkd1Jn/edit
     		
