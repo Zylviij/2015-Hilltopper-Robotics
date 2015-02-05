@@ -159,6 +159,13 @@ public class Robot extends IterativeRobot
     	
     	else if(m_autonMode == 3)
     	{
+    		/* not sure if workerino
+    		double derkaderp=90;
+    		while(derkaderp<270){
+    			m_robotMap.m_drive.drive(.9, derkaderp, .01);
+    			derkaderp+=(1/50);
+    		*/
+    		}
     		//Grab tote then proceed with parabolic motion (toward wall) in order to shove cans and pick up more totes
     		//https://docs.google.com/file/d/0B9czK-IAVhjLLW1YZVViSWE1dnNzMkNKc0J2cWlFS3NYZmhZ/edit
     		
