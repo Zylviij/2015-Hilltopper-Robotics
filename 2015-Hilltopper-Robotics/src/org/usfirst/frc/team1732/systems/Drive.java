@@ -49,12 +49,24 @@ public class Drive
 	//*/
 	
 	//*/
-	public double[] getCANTalon() {
-		return new double[]{
-			m_leftFrontMotor.get(),
-			m_leftBackMotor.get(),
-			m_rightFrontMotor.get(),
-			m_rightBackMotor.get()
+	public double[][] getCANTalon() {
+		return new double[][]{
+			{
+				m_leftFrontMotor.getOutputCurrent(),
+				m_leftFrontMotor.getTemp()
+			},
+			{
+				m_rightFrontMotor.getOutputCurrent(),
+				m_rightFrontMotor.getTemp()
+			},
+			{
+				m_leftBackMotor.getOutputCurrent(),
+				m_leftBackMotor.getTemp()
+			},
+			{
+				m_rightBackMotor.getOutputCurrent(),
+				m_rightBackMotor.getTemp()
+			}
 		};
 	}
 	//*/
@@ -105,15 +117,15 @@ public class Drive
 	public void drive(IO io)
 	{	
 		//*/
-		if (io.getFinesseMode() == 1) {
-			m_drive.mecanumDrive_Polar(0.3, 180, 0);
+		if (io.getFinesseMode() == -1) {
+			m_drive.mecanumDrive_Polar(0.3, 270, 0);
 			//m_shift.set(true);
 			m_drive.setInvertedMotor(MotorType.kFrontLeft, true);
 			m_drive.setInvertedMotor(MotorType.kRearLeft, true);
 
 		} 
-		else if (io.getFinesseMode() == 2) {
-			m_drive.mecanumDrive_Polar(0.3, 0, 0);
+		else if (io.getFinesseMode() == 1) {
+			m_drive.mecanumDrive_Polar(0.3, 90, 0);
 			//m_shift.set(true);
 			m_drive.setInvertedMotor(MotorType.kFrontLeft, true);
 			m_drive.setInvertedMotor(MotorType.kRearLeft, true);

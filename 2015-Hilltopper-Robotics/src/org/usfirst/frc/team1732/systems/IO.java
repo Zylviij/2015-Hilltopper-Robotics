@@ -67,8 +67,8 @@ public class IO
 	
 	public int getFinesseMode() {
 		if ((m_finesseLeftLeft.get() || m_finesseLeftRight.get()) && (m_finesseRightLeft.get() || m_finesseRightRight.get())) return 0;
-		else if (m_finesseLeftLeft.get() || m_finesseLeftRight.get()) return 1;
-		else if (m_finesseRightLeft.get() || m_finesseRightRight.get()) return 2;
+		else if (m_finesseLeftLeft.get() || m_finesseLeftRight.get()) return -1;
+		else if (m_finesseRightLeft.get() || m_finesseRightRight.get()) return 1;
 		else return 0;
 	}
 	

@@ -2,6 +2,7 @@
 package org.usfirst.frc.team1732.robot;
 
 import org.usfirst.frc.team1732.systems.IO;
+import org.usfirst.frc.team1732.systems.Intake;
 import org.usfirst.frc.team1732.systems.RobotMap;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -82,12 +83,44 @@ public class Robot extends IterativeRobot
     {
     	if(m_autonMode == 1)
     	{
+    		/*
+    		m_robotMap.m_intake.setrightIntakeMotor(1);
+    		m_robotMap.m_intake.setleftIntakeSolenoid(true);
+    		m_robotMap.m_intake.setleftIntakeMotor(1);
+    		m_robotMap.m_intake.classsetrightIntakeSolenoid(true);
+    		
+    		m_robotMap.m_drive.drive(.5, 180, 1.5);
+    		m_robotMap.m_drive.drive(1, 270, 2.5);
+    		m_robotMap.m_drive.drive(.5, 0, 1.5);
+    		m_robotMap.m_drive.drive(.5, 270, .2);
+    		
+    		<RAISE TOTE>
+    		m_robotMap.m_intake.setrightIntakeMotor(1);
+    		m_robotMap.m_intake.setleftIntakeSolenoid(true);
+    		m_robotMap.m_intake.setleftIntakeMotor(1);
+    		m_robotMap.m_intake.classsetrightIntakeSolenoid(true);
+    		
+    		m_robotMap.m_drive.drive(.5, 180, 1.5);
+    		m_robotMap.m_drive.drive(1, 270, 2.5);
+    		m_robotMap.m_drive.drive(.5, 0, 1.5);
+    		m_robotMap.m_drive.drive(.5, 270, .2);
+    		
+    		<RAISE TOTE>
+    		m_robotMap.m_intake.setrightIntakeMotor(1);
+    		m_robotMap.m_intake.setleftIntakeSolenoid(true);
+    		m_robotMap.m_intake.setleftIntakeMotor(1);
+    		m_robotMap.m_intake.setrightIntakeSolenoid(true);
+    		
+    		m_robotMap.m_drive.drive(1, 180, 3.5);
+    		*/
+    		
     		//Grab tote, strafe away from wall, drive forward, strafe toward wall, repeat.
     		//https://docs.google.com/file/d/0B9czK-IAVhjLMkx3enNrVmVwRHBnaHFnSDEzZlVlZ0ttN01j/edit
     	}
     	
     	else if(m_autonMode == 2)
     	{
+    		
     		//Pick up tote then strafe toward wall. Drive forward a bit then strafe into can to bash it. Drive forward to tote then repeat 2x.
     		//https://docs.google.com/file/d/0B9czK-IAVhjLYWJHeFRCVG5iaVd2NUhRSGItU1hfTjNkd1Jn/edit
     		
@@ -158,7 +191,7 @@ public class Robot extends IterativeRobot
     	m_robotMap.m_drive.periodicInit();
     }
     
-    int m_slower = 0;
+    int test = 0;
     /**
      * This function is called periodically during teleop mode.
      */
@@ -166,9 +199,11 @@ public class Robot extends IterativeRobot
     {
     	//* drive
     	m_robotMap.m_drive.drive(m_io);
-    	//*
-    	setDashboard();
     	//*/
+    	
+    	//*/
+   		setDashboard();
+       	//*/
     }
     
     /*
@@ -207,28 +242,28 @@ public class Robot extends IterativeRobot
     	SmartDashboard.putBoolean("Right Joystick Arcade", m_io.getRightArcade());
     	SmartDashboard.putBoolean("Left Joystick Shift", m_io.getLeftShift());
     	SmartDashboard.putBoolean("Right Joystick Shift", m_io.getRightShift());
-    	SmartDashboard.putNumber("Front Left Motor", m_robotMap.m_drive.getCANTalon()[0]);
-    	SmartDashboard.putNumber("Front Right Motor", m_robotMap.m_drive.getCANTalon()[2]);
-    	SmartDashboard.putNumber("Rear Left Motor", m_robotMap.m_drive.getCANTalon()[1]);
-    	SmartDashboard.putNumber("Rear Right Motor", m_robotMap.m_drive.getCANTalon()[3]);
-    	SmartDashboard.putBoolean("Left Joystick, Left Finesse", m_io.getFinesse()[0][0]);
-    	SmartDashboard.putBoolean("Left Joystick, Right Finesse", m_io.getFinesse()[0][1]);
-    	SmartDashboard.putBoolean("Right Joystick, Left Finesse", m_io.getFinesse()[1][0]);
-    	SmartDashboard.putBoolean("Right Joystick, Right Finesse", m_io.getFinesse()[1][1]);
+    	
+    	double[][] talonInfo = m_robotMap.m_drive.getCANTalon();
+    	SmartDashboard.putNumber("Front Left Motor Output Current", talonInfo[0][0]);
+    	SmartDashboard.putNumber("Front Right Motor Output Current", talonInfo[1][0]);
+    	SmartDashboard.putNumber("Rear Left Motor Output Current", talonInfo[2][0]);
+    	SmartDashboard.putNumber("Rear Right Motor Output Current", talonInfo[3][0]);
+    	SmartDashboard.putNumber("Front Left Motor Temperature", talonInfo[0][1]);
+    	SmartDashboard.putNumber("Front Right Motor Temperature", talonInfo[1][1]);
+    	SmartDashboard.putNumber("Rear Left Motor Temperature", talonInfo[2][1]);
+    	SmartDashboard.putNumber("Rear Right Motor Temperature", talonInfo[3][1]);
+    	
     	SmartDashboard.putNumber("Finesse Mode", m_io.getFinesseMode());
     	SmartDashboard.putNumber("Lift Pot", m_robotMap.m_lift.getLiftPot());
     	SmartDashboard.putNumber("Drive Gryo", m_robotMap.m_drive.getGyro()%360);
-    	SmartDashboard.putNumber("Accelerometer X", m_robotMap.m_drive.getAccels()[0]);
-    	SmartDashboard.putNumber("Accelerometer Y", m_robotMap.m_drive.getAccels()[1]);
-    	SmartDashboard.putNumber("Accelerometer Z", m_robotMap.m_drive.getAccels()[2]);
-    	SmartDashboard.putBoolean("Craaa Top Limit", m_robotMap.m_craaa.getLimits()[0]);
-    	SmartDashboard.putBoolean("Craaa Bottom Limit", m_robotMap.m_craaa.getLimits()[1]);
-
     	
-    	//SmartDashboard.putNumber("Endocer Left Front", m_robotMap.m_drive.getEncoders()[0]);
-    	//SmartDashboard.putNumber("Endocer Right Front", m_robotMap.m_drive.getEncoders()[1]);
-    	//SmartDashboard.putNumber("Endocer Left Back", m_robotMap.m_drive.getEncoders()[2]);
-    	//SmartDashboard.putNumber("Endocer Right Back", m_robotMap.m_drive.getEncoders()[3]);
-    	//SmartDashboard.putNumber("Craaa Encoder", m_robotMap.m_craaa.getEncoderValue());
+    	double[] accels = m_robotMap.m_drive.getAccels();
+    	SmartDashboard.putNumber("Accelerometer X", accels[0]);
+    	SmartDashboard.putNumber("Accelerometer Y", accels[1]);
+    	SmartDashboard.putNumber("Accelerometer Z", accels[2]);
+    	
+    	boolean[] limits = m_robotMap.m_craaa.getLimits();
+    	SmartDashboard.putBoolean("Craaa Top Limit", limits[0]);
+    	SmartDashboard.putBoolean("Craaa Bottom Limit", limits[1]);
     }//*/
 }
