@@ -79,20 +79,21 @@ public class Robot extends IterativeRobot
     /**
      * This function is called periodically during autonomous mode.
      */
+    //*/
     public void autonomousPeriodic()
     {
     	if(m_autonMode == 1)
     	{
-    		/*
+    		/*/
     		m_robotMap.m_intake.setrightIntakeMotor(1);
     		m_robotMap.m_intake.setleftIntakeSolenoid(true);
     		m_robotMap.m_intake.setleftIntakeMotor(1);
     		m_robotMap.m_intake.classsetrightIntakeSolenoid(true);
     		
-    		m_robotMap.m_drive.drive(.5, 270, 1.5);
-    		m_robotMap.m_drive.drive(1, 180, 2.5);
-    		m_robotMap.m_drive.drive(.5, 90, 1.5);
-    		m_robotMap.m_drive.drive(.5, 180, .2);
+    		m_robotMap.m_drive.drive(.5, 270, 0);
+    		m_robotMap.m_drive.drive(1, 180, 0);
+    		m_robotMap.m_drive.drive(.5, 90, 0);
+    		m_robotMap.m_drive.drive(.5, 180, 0);
     		
     		<RAISE TOTE>
     		m_robotMap.m_intake.setrightIntakeMotor(1);
@@ -100,10 +101,10 @@ public class Robot extends IterativeRobot
     		m_robotMap.m_intake.setleftIntakeMotor(1);
     		m_robotMap.m_intake.classsetrightIntakeSolenoid(true);
     		
-    		m_robotMap.m_drive.drive(.5, 270, 1.5);
-    		m_robotMap.m_drive.drive(1, 180, 2.5);
-    		m_robotMap.m_drive.drive(.5, 90, 1.5);
-    		m_robotMap.m_drive.drive(.5, 180, .2);
+    		m_robotMap.m_drive.drive(.5, 270, 0);
+    		m_robotMap.m_drive.drive(1, 180, 0);
+    		m_robotMap.m_drive.drive(.5, 90, 0);
+    		m_robotMap.m_drive.drive(.5, 180, 0);
     		
     		<RAISE TOTE>
     		m_robotMap.m_intake.setrightIntakeMotor(1);
@@ -111,76 +112,81 @@ public class Robot extends IterativeRobot
     		m_robotMap.m_intake.setleftIntakeMotor(1);
     		m_robotMap.m_intake.setrightIntakeSolenoid(true);
     		
-    		m_robotMap.m_drive.drive(1, 270, 3.5);
-    		*/
+    		m_robotMap.m_drive.drive(1, 270, 0);
+    		
     		
     		//Grab tote, strafe away from wall, drive forward, strafe toward wall, repeat.
     		//https://docs.google.com/file/d/0B9czK-IAVhjLMkx3enNrVmVwRHBnaHFnSDEzZlVlZ0ttN01j/edit
+    		
+    		//*/
     	}
     	
     	else if(m_autonMode == 2)
     	{
-    		/*
+    		/*/
     		m_robotMap.m_intake.setrightIntakeMotor(1);
     		m_robotMap.m_intake.setleftIntakeSolenoid(true);
     		m_robotMap.m_intake.setleftIntakeMotor(1);
     		m_robotMap.m_intake.classsetrightIntakeSolenoid(true);
     		
-    		m_robotMap.m_drive.drive(.3, 90, .5);
-    		m_robotMap.m_drive.drive(1, 180, 1);
-    		m_robotMap.m_drive.drive(1, 270, .7);
-    		m_robotMap.m_drive.drive(.7, 180, .7);
+    		m_robotMap.m_drive.drive(.3, 90, 0);
+    		m_robotMap.m_drive.drive(1, 180, 0);
+    		m_robotMap.m_drive.drive(1, 270, 0);
+    		m_robotMap.m_drive.drive(.7, 180, 0);
     		
-    		<RAISE TOTE>
+    		//<RAISE TOTE>
     		m_robotMap.m_intake.setrightIntakeMotor(1);
     		m_robotMap.m_intake.setleftIntakeSolenoid(true);
     		m_robotMap.m_intake.setleftIntakeMotor(1);
     		m_robotMap.m_intake.classsetrightIntakeSolenoid(true);
     		
-    		m_robotMap.m_drive.drive(.3, 90, .5);
-    		m_robotMap.m_drive.drive(1, 180, 1);
-    		m_robotMap.m_drive.drive(1, 270, .7);
-    		m_robotMap.m_drive.drive(.7, 180, .7);
+    		m_robotMap.m_drive.drive(.3, 90, 0);
+    		m_robotMap.m_drive.drive(1, 180, 0);
+    		m_robotMap.m_drive.drive(1, 270, 0);
+    		m_robotMap.m_drive.drive(.7, 180, 0);
     		
-    		<RAISE TOTE>
+    		//<RAISE TOTE>
     		m_robotMap.m_intake.setrightIntakeMotor(1);
     		m_robotMap.m_intake.setleftIntakeSolenoid(true);
     		m_robotMap.m_intake.setleftIntakeMotor(1);
     		m_robotMap.m_intake.classsetrightIntakeSolenoid(true);
     		
-    		m_robotMap.m_drive.drive(.3, 90, .5);
-    		m_robotMap.m_drive.drive(1, 180, 1);
-    		m_robotMap.m_drive.drive(1, 270, 2);
-    		*/
+    		m_robotMap.m_drive.drive(.3, 90, 0);
+    		m_robotMap.m_drive.drive(1, 180, 0);
+    		m_robotMap.m_drive.drive(1, 270, 0);
+    		
     		//Pick up tote then strafe toward wall. Drive forward a bit then strafe into can to bash it. Drive forward to tote then repeat 2x.
     		//https://docs.google.com/file/d/0B9czK-IAVhjLYWJHeFRCVG5iaVd2NUhRSGItU1hfTjNkd1Jn/edit
     		
+    		//*/
     	}
     	
     	else if(m_autonMode == 3)
     	{
-    		/* not sure if workerino
+    		/*/
     		double derkaderp=90;
     		while(derkaderp<270){
     			m_robotMap.m_drive.drive(.9, derkaderp, .01);
     			derkaderp+=(1/50);
-    		*/
+    		
     		}
     		//Grab tote then proceed with parabolic motion (toward wall) in order to shove cans and pick up more totes
     		//https://docs.google.com/file/d/0B9czK-IAVhjLLW1YZVViSWE1dnNzMkNKc0J2cWlFS3NYZmhZ/edit
-    		
+    		//*/
     	}
     	
     	else if(m_autonMode == 4)
     	{
+    		/*/
     		//Grab first tote, rotate 180deg, grab can then strafe into auto zone
     		//https://docs.google.com/file/d/0B9czK-IAVhjLdWJETm1UT3VzRWxzZXZDM1dwSVpXemRxOTJN/edit
-    		
+    		//*/
     	}
     	
     	else if(m_autonMode == 5)
     	{
-    		/*Grab tote in front of bot then back up and grab can behind it, then strafe into auto zone
+    		/*/
+    		//Grab tote in front of bot then back up and grab can behind it, then strafe into auto zone
     		//https://docs.google.com/file/d/0B9czK-IAVhjLREdkN3FDRnZKVm9NRFhOSXlfcnhVQzlVT2NZ/edit
     		m_robotMap.m_intake.setleftIntakeMotor(0);
     		m_robotMap.m_intake.setrightIntakeMotor(0);
@@ -190,20 +196,22 @@ public class Robot extends IterativeRobot
     		while(System.currentTimeMillis() - startTime < 500) 
     		{
     			m_robotMap.m_drive.drive(.2, 270, 0);
-    		}//*/
-    		
+    		}
+    		//*/
        	}
     	
     	
     	else if(m_autonMode == 6)
     	{
+    		/*/
     		//Pick up first tote, bash first can, drive forward and pick up second tote, then push the second can into the auto zone
     		//https://docs.google.com/file/d/0B9czK-IAVhjLOFBCbkJaaTB4QldQMTYtWG45dHBCZXlVMko0/edit
-    		
+    		//*/
     	}
     	else
     	{
-    		/*Drive forward anyway.
+    		//*/
+    		//Drive forward anyway.
     		if (System.currentTimeMillis() - startTime < 3000) 
     		{
     			m_robotMap.m_drive.drive(1, 90, 0);
@@ -211,10 +219,12 @@ public class Robot extends IterativeRobot
     		else
     		{
     			m_robotMap.m_drive.drive(0, 0, 0);
-    		}//*/
+    		}
+    		//*/
     	}
+    	
     }
-    
+    //*/
     
     
     /*
