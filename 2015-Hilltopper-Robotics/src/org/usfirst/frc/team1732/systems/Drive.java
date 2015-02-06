@@ -38,13 +38,13 @@ public class Drive
 	Solenoid m_shift = new Solenoid(0);
 	//*/
 	
-	/*/
+	//*/
 	public double[] getEncoders() {
 		return new double[]{
-				m_leftFrontEncoder.getDistance(), 
-				m_rightFrontEncoder.getDistance(),
-				m_leftBackEncoder.getDistance(), 
-				m_rightBackEncoder.getDistance()};
+			m_leftFrontMotor.getEncPosition(), 
+			m_rightFrontMotor.getEncPosition(),
+			m_leftBackMotor.getEncPosition(), 
+			m_rightBackMotor.getEncPosition()};
 	}
 	//*/
 	
