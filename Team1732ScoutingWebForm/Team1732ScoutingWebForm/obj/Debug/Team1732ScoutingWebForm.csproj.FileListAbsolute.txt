@@ -2,3 +2,7 @@ D:\Users\Matthew\Documents\Visual Studio\Team1732ScoutingWebForm\Team1732Scoutin
 D:\Users\Matthew\Documents\Visual Studio\Team1732ScoutingWebForm\Team1732ScoutingWebForm\bin\Team1732ScoutingWebForm.pdb
 D:\Users\Matthew\Documents\Visual Studio\Team1732ScoutingWebForm\Team1732ScoutingWebForm\obj\Debug\Team1732ScoutingWebForm.dll
 D:\Users\Matthew\Documents\Visual Studio\Team1732ScoutingWebForm\Team1732ScoutingWebForm\obj\Debug\Team1732ScoutingWebForm.pdb
+C:\Users\mduffy\Downloads\Team1732ScoutingWebForm\Team1732ScoutingWebForm\bin\Team1732ScoutingWebForm.dll
+C:\Users\mduffy\Downloads\Team1732ScoutingWebForm\Team1732ScoutingWebForm\bin\Team1732ScoutingWebForm.pdb
+C:\Users\mduffy\Downloads\Team1732ScoutingWebForm\Team1732ScoutingWebForm\obj\Debug\Team1732ScoutingWebForm.dll
+C:\Users\mduffy\Downloads\Team1732ScoutingWebForm\Team1732ScoutingWebForm\obj\Debug\Team1732ScoutingWebForm.pdb

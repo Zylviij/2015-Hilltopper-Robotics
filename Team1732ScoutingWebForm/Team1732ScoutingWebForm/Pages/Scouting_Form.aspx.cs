@@ -13,5 +13,18 @@ namespace Team1732ScoutingWebForm
         {
 
         }
+
+        protected void dllAutoSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (dllAutoSelect.SelectedItem.Equals("Other"))
+            {
+
+            }
+        }
+
+        protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
