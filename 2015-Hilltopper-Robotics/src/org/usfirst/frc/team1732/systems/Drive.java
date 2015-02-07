@@ -29,8 +29,19 @@ public class Drive
 	Solenoid m_shift = new Solenoid(0);
 	//*/
 	
+<<<<<<< HEAD
 	//*/ drive
 	private RobotDrive m_drive = new RobotDrive(m_leftFrontMotor, m_leftBackMotor, m_rightFrontMotor, m_rightBackMotor);
+=======
+	//*/
+	public double[] getEncoders() {
+		return new double[]{
+			m_leftFrontMotor.getEncPosition(), 
+			m_rightFrontMotor.getEncPosition(),
+			m_leftBackMotor.getEncPosition(), 
+			m_rightBackMotor.getEncPosition()};
+	}
+>>>>>>> origin/master
 	//*/
 	
 	/**

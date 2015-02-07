@@ -26,6 +26,9 @@ public class Robot extends IterativeRobot
 	// auto start time
 	long startTime;
 	
+	// allows us to multiply distances (distances will assume cm)
+	double distanceConstant;
+	
 	/**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -164,13 +167,16 @@ public class Robot extends IterativeRobot
     	
     	else if(m_autonMode == 3)
     	{
-    		/*/
-    		double derkaderp=90;
-    		while(derkaderp<270){
-    			m_robotMap.m_drive.drive(.9, derkaderp, .01);
-    			derkaderp+=(1/50);
-    		
+    		/*
+    		 * THIS IS MADNESS!
+    		 * (A.K.A. something beyond Brandon's desire to attempt
+    		double[] herpderp=m_robotMap.m_drive.getEncoders();
+    		double derkahurp=herpderp[0];
+    		while (m_robotMap.m_drive.getEncoders()[0] < 700){
+    			m_robotMap.m_drive.drive(.9, 0, 0);
     		}
+    		*/
+    		
     		//Grab tote then proceed with parabolic motion (toward wall) in order to shove cans and pick up more totes
     		//https://docs.google.com/file/d/0B9czK-IAVhjLLW1YZVViSWE1dnNzMkNKc0J2cWlFS3NYZmhZ/edit
     		//*/
@@ -179,6 +185,29 @@ public class Robot extends IterativeRobot
     	else if(m_autonMode == 4)
     	{
     		/*/
+    		m_robotMap.m_intake.setrightIntakeMotor(1);
+    		m_robotMap.m_intake.setleftIntakeSolenoid(true);
+    		m_robotMap.m_intake.setleftIntakeMotor(1);
+    		m_robotMap.m_intake.classsetrightIntakeSolenoid(true);
+    		
+    		if (m_robotMap.m_drive.getEncoders()[0] < 20){
+    			m_robotMap.m_drive.drive(.5, 0, 0);
+    		}
+    		
+    		if (m_robotMap.m_drive.getEncoders()[0] < 70){
+    			m_robotMap.m_drive.drive(0, 0, 1);
+    		}
+    		
+    		if (m_robotMap.m_drive.getEncoders()[0] < 110){
+    			m_robotMap.m_drive.drive(.5, 180, 0);
+    		}
+    		
+    		//<GRAB WITH CRAäæ
+    		 
+    		 if (m_robotMap.m_drive.getEncoders()[0] < 410){
+    			m_robotMap.m_drive.drive(1, 270, 0);
+    		}
+    		
     		//Grab first tote, rotate 180deg, grab can then strafe into auto zone
     		//https://docs.google.com/file/d/0B9czK-IAVhjLdWJETm1UT3VzRWxzZXZDM1dwSVpXemRxOTJN/edit
     		//*/
@@ -194,7 +223,7 @@ public class Robot extends IterativeRobot
     		m_robotMap.m_intake.setleftIntakeSolenoid(true);
     		m_robotMap.m_intake.setrightIntakeSolenoid(true);
     		
-    		while(System.currentTimeMillis() - startTime < 500) 
+    		if(System.currentTimeMillis() - startTime < 500) 
     		{
     			m_robotMap.m_drive.drive(.2, 270, 0);
     		}
