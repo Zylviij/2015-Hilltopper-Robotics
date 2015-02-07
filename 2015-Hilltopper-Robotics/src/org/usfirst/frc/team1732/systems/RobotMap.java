@@ -10,9 +10,10 @@ public class RobotMap
 	 * creates robot subsystems
 	 */
 	public Drive m_drive = new Drive();
-	public Lift m_lift = new Lift();
-	public Intake m_intake = new Intake();
-	public Craaa m_craaa = new Craaa();
+	//public Lift m_lift = new Lift();
+	//public Intake m_intake = new Intake();
+	//public Craaa m_craaa = new Craaa();
+	//public Gate m_gate = new Gate();
 	
 	/**
 	 * Make safe the robot.
@@ -23,5 +24,6 @@ public class RobotMap
 		//m_lift.makeSafe();
 		//m_intake.makeSafe();
 		//m_craaa.makeSafe();
+		//m_gate.makeSafe();
 	}
 }

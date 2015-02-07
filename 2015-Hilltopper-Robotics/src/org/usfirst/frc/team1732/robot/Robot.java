@@ -2,7 +2,6 @@
 package org.usfirst.frc.team1732.robot;
 
 import org.usfirst.frc.team1732.systems.IO;
-import org.usfirst.frc.team1732.systems.Intake;
 import org.usfirst.frc.team1732.systems.RobotMap;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -34,7 +33,9 @@ public class Robot extends IterativeRobot
     public void robotInit()
     {
     	m_io = new IO();
+    	
     	m_robotMap = new RobotMap();
+    	m_robotMap.m_drive.init();
     }
 
     /*
@@ -236,7 +237,7 @@ public class Robot extends IterativeRobot
      */
     public void teleopInit()
     {
-    	m_robotMap.m_drive.periodicInit();
+    	m_robotMap.m_drive.init();
     }
     
     int test = 0;
@@ -288,8 +289,7 @@ public class Robot extends IterativeRobot
     	SmartDashboard.putNumber("Right Joystick Y", m_io.getRightY());
     	SmartDashboard.putBoolean("Left Joystick Arcade", m_io.getLeftArcade());
     	SmartDashboard.putBoolean("Right Joystick Arcade", m_io.getRightArcade());
-    	SmartDashboard.putBoolean("Left Joystick Shift", m_io.getLeftShift());
-    	SmartDashboard.putBoolean("Right Joystick Shift", m_io.getRightShift());
+    	SmartDashboard.putBoolean("Shift", m_io.getShift());
     	
     	double[][] talonInfo = m_robotMap.m_drive.getCANTalon();
     	SmartDashboard.putNumber("Front Left Motor Output Current", talonInfo[0][0]);
@@ -302,7 +302,7 @@ public class Robot extends IterativeRobot
     	SmartDashboard.putNumber("Rear Right Motor Temperature", talonInfo[3][1]);
     	
     	SmartDashboard.putNumber("Finesse Mode", m_io.getFinesseMode());
-    	SmartDashboard.putNumber("Lift Pot", m_robotMap.m_lift.getLiftPot());
+    	//SmartDashboard.putNumber("Lift Pot", m_robotMap.m_lift.getLiftPot());
     	SmartDashboard.putNumber("Drive Gryo", m_robotMap.m_drive.getGyro()%360);
     	
     	double[] accels = m_robotMap.m_drive.getAccels();
@@ -310,8 +310,8 @@ public class Robot extends IterativeRobot
     	SmartDashboard.putNumber("Accelerometer Y", accels[1]);
     	SmartDashboard.putNumber("Accelerometer Z", accels[2]);
     	
-    	boolean[] limits = m_robotMap.m_craaa.getLimits();
-    	SmartDashboard.putBoolean("Craaa Top Limit", limits[0]);
-    	SmartDashboard.putBoolean("Craaa Bottom Limit", limits[1]);
+    	//boolean[] limits = m_robotMap.m_craaa.getLimits();
+    	//SmartDashboard.putBoolean("Craaa Top Limit", limits[0]);
+    	//SmartDashboard.putBoolean("Craaa Bottom Limit", limits[1]);
     }//*/
 }

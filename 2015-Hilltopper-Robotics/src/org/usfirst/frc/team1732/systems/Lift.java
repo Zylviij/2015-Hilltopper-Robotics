@@ -2,20 +2,31 @@ package org.usfirst.frc.team1732.systems;
 
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.CANTalon;
-import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.DigitalInput;
 
 public class Lift
 {
 	/*
 	 * Make Actuators
 	 */
-	/*/
+	//*/
 	private CANTalon m_motor = new CANTalon(16);
 	//*/
 	
 	/*/
-	private Solenoid m_releaseStackSolenoid = new Solenoid(4);
+	private Solenoid m_solenoid = new Solenoid(4);
+	//*/
+	
+	//*/
+	private DigitalInput m_topLimit = new DigitalInput(0);
+	private DigitalInput m_botLimit = new DigitalInput(1);
+	//*/
+	
+	//*/
+	private static final double FORWARD = 0.5;
+	private static final double BACKWARD = -0.5;
+	private static final int TOP_LIMIT = 4000;
+	private static final int BOT_LIMIT = 5;
 	//*/
 	
 	/*
@@ -26,57 +37,46 @@ public class Lift
 	//*/
 	
 	/**
-	 * Create Lift and set Encoder Samples
+	 * control the lift from joysticks
+	 * @param io
 	 */
-	Lift()
-	{
-
+	public void controlLift(IO io) {
+		if (io.getLift() || m_pot.getAverageValue() > TOP_LIMIT) {
+			if (m_topLimit.get()) {
+				m_motor.set(0);
+			} else {
+				m_motor.set(FORWARD);
+			}
+		} else {
+			if (m_botLimit.get() || m_pot.getAverageValue() < BOT_LIMIT) {
+				m_motor.set(0);
+			} else {
+				m_motor.set(BACKWARD);
+			}
+		}
 	}
 	
 	/**
-	 * Set Lift Motor speed
-	 * @param speed
+	 * distance of pot
+	 * @return pot [5...4000]
 	 */
-	/*/
-	public void setLift(double speed)
-	{
-		m_motor.set(speed);
+	public int getLiftPot() {
+		return m_pot.getAverageValue();
 	}
-	//*/
-	
-	/**
-	 * Set Hook Solenoid
-	 * @param input
-	 */
-	/*/
-	public void setHooks(boolean input)
-	{
-		m_releaseStackSolenoid.set(input);
-	}
-	//*/
-	
-	/**
-	 * Gets Pot Values
-	 * @return distance of pot
-	 */
-	//*/
-	public double getLiftPot()
-	{
-		return m_pot.getAverageVoltage();
-	}
-	//*/
 	
 	/**
 	 * Makes the robot Lift safe
 	 */
-	/*/
+	//*/
 	public void makeSafe()
 	{
 		m_motor.set(0);
 		m_motor.disable();
 
-		//m_releaseStackSolenoid.set(false);
-		//m_releaseStackSolenoid.free();
+		/*/
+		m_solenoid.set(false);
+		m_solenoid.free();
+		//*/
 	}
 	//*/
 }

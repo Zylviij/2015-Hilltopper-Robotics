@@ -2,8 +2,6 @@ package org.usfirst.frc.team1732.systems;
 
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.CANTalon;
-import edu.wpi.first.wpilibj.CANTalon.ControlMode;
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.RobotDrive.MotorType;
@@ -18,13 +16,6 @@ public class Drive
 	private CANTalon m_leftBackMotor = new CANTalon(11);
 	private CANTalon m_rightBackMotor = new CANTalon(10);
 	//*/
-	
-	/*/ encoders
-	private Encoder m_leftFrontEncoder = new Encoder(0, 1);
-	private Encoder m_rightFrontEncoder = new Encoder(2, 3);
-	private Encoder m_leftBackEncoder = new Encoder(4, 5);
-	private Encoder m_rightBackEncoder = new Encoder(6, 7);
-	//*/
 
 	//*/ accel
 	BuiltInAccelerometer m_accelerometer = new BuiltInAccelerometer();
@@ -34,20 +25,18 @@ public class Drive
 	Gyro m_gyro = new Gyro(0);
 	//*/
 	
-	/*/ shifter
+	//*/ shifter
 	Solenoid m_shift = new Solenoid(0);
 	//*/
 	
-	/*/
-	public double[] getEncoders() {
-		return new double[]{
-				m_leftFrontEncoder.getDistance(), 
-				m_rightFrontEncoder.getDistance(),
-				m_leftBackEncoder.getDistance(), 
-				m_rightBackEncoder.getDistance()};
-	}
+	//*/ drive
+	private RobotDrive m_drive = new RobotDrive(m_leftFrontMotor, m_leftBackMotor, m_rightFrontMotor, m_rightBackMotor);
 	//*/
 	
+	/**
+	 * organizes values of talons for dashboard
+	 * @return values for dashboard
+	 */
 	//*/
 	public double[][] getCANTalon() {
 		return new double[][]{
@@ -71,25 +60,35 @@ public class Drive
 	}
 	//*/
 	
-	
+	/**
+	 * gets gyro value for dashboard and catestian
+	 * @return gyro value
+	 */
 	//*/
 	public double getGyro() {
 		return m_gyro.getAngle();
 	}
 	//*/
 	
+	/**
+	 * gets and oraganizes values for dashboard
+	 * @return oraganized values for dashboard
+	 */
 	//*/
 	public double[] getAccels() {
 		return new double[]{m_accelerometer.getX(), m_accelerometer.getY(), m_accelerometer.getZ()};
 	}
 	//*/
+		
+	public void resetGyro() {
+		m_gyro.reset();
+	}
 	
-	//*/ drive
-	private RobotDrive m_drive = new RobotDrive(m_leftFrontMotor, m_leftBackMotor, m_rightFrontMotor, m_rightBackMotor);
+	/**
+	 * start the motors
+	 */
 	//*/
-	
-	//*/
-	public void periodicInit() {
+	public void init() {
 		m_leftFrontMotor.enableControl();
 		m_rightFrontMotor.enableControl();
 		m_leftBackMotor.enableControl();
@@ -105,7 +104,7 @@ public class Drive
 	 */
 	public void drive(double mag, double dir, double rot)
 	{
-		//m_drive.mecanumDrive_Polar(mag, dir, rot);
+		m_drive.mecanumDrive_Polar(mag, dir, rot);
 	}
 	//*/
 	
@@ -116,17 +115,19 @@ public class Drive
 	//*/
 	public void drive(IO io)
 	{	
+		if (io.getResetGyro()) resetGyro();
+		
 		//*/
 		if (io.getFinesseMode() == -1) {
 			m_drive.mecanumDrive_Polar(0.3, 270, 0);
-			//m_shift.set(true);
+			m_shift.set(true);
 			m_drive.setInvertedMotor(MotorType.kFrontLeft, true);
 			m_drive.setInvertedMotor(MotorType.kRearLeft, true);
 
 		} 
 		else if (io.getFinesseMode() == 1) {
 			m_drive.mecanumDrive_Polar(0.3, 90, 0);
-			//m_shift.set(true);
+			m_shift.set(true);
 			m_drive.setInvertedMotor(MotorType.kFrontLeft, true);
 			m_drive.setInvertedMotor(MotorType.kRearLeft, true);
 
@@ -134,7 +135,8 @@ public class Drive
 		else {
 			if (!io.getShift())
 			{
-				//m_shift.set(false);
+				m_shift.set(false);
+				
 				m_drive.setInvertedMotor(MotorType.kFrontLeft, false);
 				m_drive.setInvertedMotor(MotorType.kRearLeft, false);
 
@@ -155,22 +157,23 @@ public class Drive
 			}
 			else 
 			{
-				//m_shift.set(true);
+				m_shift.set(true);
+				
 				m_drive.setInvertedMotor(MotorType.kFrontLeft, true);
 				m_drive.setInvertedMotor(MotorType.kRearLeft, true);
 
 				// drive mecanum full speed
 				if (io.getLeftArcade())
 				{
-				m_drive.mecanumDrive_Polar(io.getLeftMagnitude(), io.getLeftDirection(), io.getLeftRotation());
+				m_drive.mecanumDrive_Cartesian(io.getLeftX(), io.getLeftY(), io.getLeftRotation(), m_gyro.getAngle());
 				} 
 				else if (io.getRightArcade())
 				{
-					m_drive.mecanumDrive_Polar(io.getRightMagnitude(), io.getRightDirection(), io.getRightRotation());
+					m_drive.mecanumDrive_Cartesian(io.getRightX(), io.getRightY(), io.getRightRotation(), m_gyro.getAngle());
 				}
 				else
 				{
-					m_drive.mecanumDrive_Polar(io.getMagnitude(), io.getDirection(), io.getRotation());
+					m_drive.mecanumDrive_Cartesian(((io.getLeftX() + io.getRightX()) / 2), ((io.getLeftY() + io.getRightY()) / 2), io.getRotation(), m_gyro.getAngle());
 				}
 			}
 		}
@@ -194,6 +197,9 @@ public class Drive
 		
 		m_rightBackMotor.set(0);
 		m_rightBackMotor.disable();
+		
+		m_shift.set(false);
+		m_shift.free();
 	}
 	//*/
 }

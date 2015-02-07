@@ -6,71 +6,47 @@ import edu.wpi.first.wpilibj.Solenoid;
 public class Intake 
 {
 	// motors
-	/*/
-	private CANTalon m_rightIntakeMotor = new CANTalon(15);
-	private CANTalon m_leftIntakeMotor = new CANTalon(16);
+	//*/
+	private CANTalon m_motor = new CANTalon(15);
 	//*/
 	
 	// solenoids
-	/*/
-	private Solenoid m_rightIntakeSolenoid = new Solenoid(2);
-	private Solenoid m_leftIntakeSolenoid = new Solenoid(3);
+	//*/
+	private Solenoid m_solenoid = new Solenoid(2);
+	//*/
+	
+	//*/
+	private static final double IN_SPEED = 1;
+	private static final double OUT_SPEED = -1;
 	//*/
 	
 	/**
-	 * @param speed boolean for solenoid setter
+	 * control the intake with joysticks and buttons
+	 * @param io
 	 */
-	/*/
-	public void setrightIntakeMotor(double speed)
-	{
-		m_rightIntakeMotor.set(speed);	
+	public void controlIntake(IO io) {
+		if (io.getIntakeIn()) {
+			m_motor.set(IN_SPEED);
+		} else if (io.getIntakeOut()) {
+			m_motor.set(OUT_SPEED);
+		} else {
+			m_motor.set(0);
+		}
+		
+		m_solenoid.set(io.getIntakeDirection());
+			
 	}
-	//*/
-	
-	/**
-	 * @param speed double for motor setter
-	 */
-	/*/
-	public void setleftIntakeMotor(double speed)
-	{
-		m_leftIntakeMotor.set(speed);
-	}
-	//*/
-	
-	/**
-	 * @param input boolean for solenoid setter
-	 */
-	/*/
-	public void setrightIntakeSolenoid(boolean input)
-	{
-		m_rightIntakeSolenoid.set(input);
-	}
-	//*/
-	
-	/**
-	 * @param input boolean for solenoid setter
-	 */
-	/*/
-	public void setleftIntakeSolenoid(boolean input)
-	{
-		m_leftIntakeSolenoid.set(input);
-	}
-	//*/
 	
 	/**
 	 * make safe the intake
 	 */
-	/*/
+	//*/
 	public void makeSafe()
 	{
-		m_rightIntakeMotor.set(0);
-		m_rightIntakeMotor.disable();
-		m_leftIntakeMotor.set(0);
-		m_leftIntakeMotor.disable();
-		m_rightIntakeSolenoid.set(false);
-		m_rightIntakeSolenoid.free();
-		m_leftIntakeSolenoid.set(false);
-		m_leftIntakeSolenoid.free();
+		m_motor.set(0);
+		m_motor.disable();
+		m_solenoid.set(false);
+		m_solenoid.free();
 	}
 	//*/
 }
