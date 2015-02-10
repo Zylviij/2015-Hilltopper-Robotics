@@ -281,6 +281,21 @@ public class Robot extends IterativeRobot
     	else if(m_autonMode == 6)
     	{
     		/*/
+    		m_robotMap.m_intake.classsetrightIntakeSolenoid(true);
+    		m_robotMap.m_intake.setleftIntakeSolenoid(true);
+    		m_robotMap.m_intake.setrightIntakeMotor(1);
+    		m_robotMap.m_intake.setleftIntakeMotor(1);
+    		
+    		if (m_robotMap.m_drive.getEncoders()[0] < 40 * distanceConstant){
+    			m_robotMap.m_drive.drive(.5, 90, 0);
+    		}
+    		if (m_robotMap.m_drive.getEncoders()[0] < 130 * distanceConstant){
+    			m_robotMap.m_drive.drive(1, 180, 0);
+    		}
+    		if (m_robotMap.m_drive.getEncoders()[0] < 170 * distanceConstant){
+    			m_robotMap.m_drive.drive(.5, 9, 0);
+    		}
+    		
     		//Pick up first tote, bash first can, drive forward and pick up second tote, then push the second can into the auto zone
     		//https://docs.google.com/file/d/0B9czK-IAVhjLOFBCbkJaaTB4QldQMTYtWG45dHBCZXlVMko0/edit
     		//*/
