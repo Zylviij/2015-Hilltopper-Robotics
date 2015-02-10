@@ -2,6 +2,7 @@ package org.usfirst.frc.team1732.systems;
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.Ultrasonic;
 
 public class Intake 
 {
@@ -16,25 +17,59 @@ public class Intake
 	//*/
 	
 	//*/
+	private Ultrasonic left = new Ultrasonic(0, 1);
+	private Ultrasonic right = new Ultrasonic(2, 3);
+	private Ultrasonic front = new Ultrasonic(4, 5);
+	//*/
+	
+	//*/
+	private static final double STOP = 0;
 	private static final double IN_SPEED = 1;
 	private static final double OUT_SPEED = -1;
 	//*/
+	
+	private boolean intake = false;
 	
 	/**
 	 * control the intake with joysticks and buttons
 	 * @param io
 	 */
 	public void controlIntake(IO io) {
-		if (io.getIntakeIn()) {
-			m_motor.set(IN_SPEED);
-		} else if (io.getIntakeOut()) {
-			m_motor.set(OUT_SPEED);
-		} else {
-			m_motor.set(0);
+		// checks to see if the tote is in the robot
+		if (front.getRangeMM() < 30) {
+			intake = false;
 		}
 		
-		m_solenoid.set(io.getIntakeDirection());
-			
+		// direction control
+		//override (both)
+		if (io.getIntakeIn() && io.getIntakeOut()) {
+			m_motor.set(STOP);
+			intake = false;
+		}
+		// in
+		else if (intake || io.getIntakeIn()) {
+			m_motor.set(IN_SPEED);
+			intake = true;
+		}
+		// out
+		else if (io.getIntakeOut()) {
+			m_motor.set(OUT_SPEED);
+			intake = false;
+		}
+		// stop / do nothing
+		else {
+			m_motor.set(IN_SPEED);
+		}
+		
+		// extends intakes
+		m_solenoid.set(io.getIntakeInOut());
+	}
+	
+	public Direction where() {
+		if (front.getRangeMM() < 30) return Direction.FRONT;
+		else if (right.getRangeMM() > left.getRangeMM()) return Direction.LEFT;
+		else if (right.getRangeMM() < left.getRangeMM()) return Direction.RIGHT;
+		return Direction.STOP;
 	}
 	
 	/**

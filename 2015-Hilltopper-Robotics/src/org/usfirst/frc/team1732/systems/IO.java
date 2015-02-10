@@ -40,21 +40,48 @@ public class IO
 	 * Buttons
 	 */
 	private Button m_craaa = new JoystickButton(m_buttons, 0);
+	
 	private Button m_craaa0 = new JoystickButton(m_buttons, 1);
 	private Button m_craaa1 = new JoystickButton(m_buttons, 2);
 	private Button m_craaa2 = new JoystickButton(m_buttons, 3);
 	private Button m_craaa3 = new JoystickButton(m_buttons, 4);
 	private Button m_craaa4 = new JoystickButton(m_buttons, 5);
+	
+	private Button m_craaaToleranceDown = new JoystickButton(m_buttons, 12);
+	
+	private Button m_craaaToleranceUp = new JoystickButton(m_buttons, 13);
+	
 	private Button m_intakeOut = new JoystickButton(m_buttons, 6);
+	
 	private Button m_intakeIn = new JoystickButton(m_buttons, 7);
-	private Button m_intakeDirection = new JoystickButton(m_buttons, 8);
+	
+	private Button m_intakeInOut = new JoystickButton(m_buttons, 8);
+	
 	private Button m_gate = new JoystickButton(m_buttons, 9);
+	
 	private Button m_lift = new JoystickButton(m_buttons, 10);
+	
 	private Button m_drop = new JoystickButton(m_buttons, 11);
 	
 	/**
+	 * to move craaa up
+	 * @return true if button is depressed
+	 */
+	public boolean getCraaaToleranceUp() {
+		return m_craaaToleranceUp.get();
+	}
+	
+	/**
+	 * to move craaa down
+	 * @return true if button is depressed
+	 */
+	public boolean getCraaaToleranceDown() {
+		return m_craaaToleranceDown.get();
+	}
+	
+	/**
 	 * reset gyro angle
-	 * @return if either button is pressed
+	 * @return if either button is depressed
 	 */
 	public boolean getResetGyro() {
 		return m_resetGyroLeft.get() || m_resetGyroRight.get();
@@ -88,8 +115,8 @@ public class IO
 	 * open or close intake arms
 	 * @return true if button is depressed
 	 */
-	public boolean getIntakeDirection() {
-		return m_intakeDirection.get();
+	public boolean getIntakeInOut() {
+		return m_intakeInOut.get();
 	}
 	
 	/**

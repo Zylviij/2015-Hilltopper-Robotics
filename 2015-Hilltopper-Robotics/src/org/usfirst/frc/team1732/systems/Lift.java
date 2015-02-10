@@ -3,6 +3,7 @@ package org.usfirst.frc.team1732.systems;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Solenoid;
 
 public class Lift
 {
@@ -13,9 +14,7 @@ public class Lift
 	private CANTalon m_motor = new CANTalon(16);
 	//*/
 	
-	/*/
-	private Solenoid m_solenoid = new Solenoid(4);
-	//*/
+	private Solenoid m_drop = new Solenoid(4);
 	
 	//*/
 	private DigitalInput m_topLimit = new DigitalInput(0);
@@ -41,19 +40,22 @@ public class Lift
 	 * @param io
 	 */
 	public void controlLift(IO io) {
+		
 		if (io.getLift() || m_pot.getAverageValue() > TOP_LIMIT) {
 			if (m_topLimit.get()) {
 				m_motor.set(0);
 			} else {
-				m_motor.set(FORWARD);
+				m_motor.set(BACKWARD);
 			}
 		} else {
 			if (m_botLimit.get() || m_pot.getAverageValue() < BOT_LIMIT) {
 				m_motor.set(0);
 			} else {
-				m_motor.set(BACKWARD);
+				m_motor.set(FORWARD);
 			}
 		}
+		
+		m_drop.set(io.getDrop());
 	}
 	
 	/**
@@ -72,11 +74,6 @@ public class Lift
 	{
 		m_motor.set(0);
 		m_motor.disable();
-
-		/*/
-		m_solenoid.set(false);
-		m_solenoid.free();
-		//*/
 	}
 	//*/
 }

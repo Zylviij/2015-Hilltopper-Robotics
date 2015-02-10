@@ -19,33 +19,76 @@ public class Craaa
 	private DigitalInput m_limitBottom = new DigitalInput(1);
 	//*/
 	
-	private static int LIMIT;
+	private static final double SPEED_LIMIT = 0.5;
+	private static final double STOP = 0;
+	private static final double ELEVATOR_SPEED = 0.4;
 	
-	/**
-	 * Constructs the Craaa
-	 */
-	//*/
-	Craaa()
-	{
-		// TODO: REDO the next line
-		LIMIT = m_motor.getEncPosition();
-	}
-	//*/
+	private static int SPOT_GROUND = 0;
+	private static int SPOT_ONE_TOTE = 50;
+	private static int SPOT_STEP = 70;
+	private static int SPOT_TWO_TOTE = 100;
+	private static int SPOT_THREE_TOTE = 150;
+	private static int SPOT_FOUR_TOTE = 200;
+	private static int SPOT_FIVE_TOTE = 250;
+
 	
 	/**
 	 * use the joysticks and buttons to control the craaa
 	 * @param io
 	 */
 	public void controlCraaa(IO io) {
+		
 		m_solenoid.set(io.getCraaaOpen());
-		if (!(m_limitTop.get() || m_limitBottom.get())) {
-			m_motor.set(
-					((LIMIT / 5) * io.getCraaaPos()) -
-					(m_motor.getEncPosition())
-					);
+		
+		if (io.getCraaaToleranceUp()) {
+			SPOT_GROUND++;
+			SPOT_ONE_TOTE++;
+			SPOT_STEP++;
+			SPOT_TWO_TOTE++;
+			SPOT_THREE_TOTE++;
+			SPOT_FOUR_TOTE++;
+			SPOT_FIVE_TOTE++;
+		}
+		if (io.getCraaaToleranceDown()) {
+			SPOT_GROUND--;
+			SPOT_ONE_TOTE--;
+			SPOT_STEP--;
+			SPOT_TWO_TOTE--;
+			SPOT_THREE_TOTE--;
+			SPOT_FOUR_TOTE--;
+			SPOT_FIVE_TOTE--;
+		}
+		
+		if (m_limitTop.get()) {
+			m_motor.set(-1 * SPEED_LIMIT);
+		}
+		else if (m_limitBottom.get()) {
+			m_motor.set(SPEED_LIMIT);
 		}
 		else {
-			m_motor.set(0);
+			if (io.getCraaaPos() == 0) {
+				m_motor.set((m_motor.getEncPosition() - SPOT_GROUND) * ELEVATOR_SPEED);
+			}
+			else if (io.getCraaaPos() == 1) {
+				m_motor.set((m_motor.getEncPosition() - SPOT_ONE_TOTE) * ELEVATOR_SPEED);
+			}
+			else if (io.getCraaaPos() == 2) {
+				m_motor.set((m_motor.getEncPosition() - SPOT_STEP) * ELEVATOR_SPEED);
+			}
+			else if (io.getCraaaPos() == 3) {
+				m_motor.set((m_motor.getEncPosition() - SPOT_TWO_TOTE) * ELEVATOR_SPEED);
+			}
+			else if (io.getCraaaPos() == 4) {
+				m_motor.set((m_motor.getEncPosition() - SPOT_THREE_TOTE) * ELEVATOR_SPEED);
+			}
+			else if (io.getCraaaPos() == 5) {
+				m_motor.set((m_motor.getEncPosition() - SPOT_FOUR_TOTE) * ELEVATOR_SPEED);
+			}
+			else if (io.getCraaaPos() == 6){
+				m_motor.set((m_motor.getEncPosition() - SPOT_FIVE_TOTE) * ELEVATOR_SPEED);
+			} else {
+				m_motor.set(STOP);
+			}
 		}
 	}
 	
