@@ -76,9 +76,11 @@ public class Robot extends IterativeRobot
      */
     public void autonomousInit()
     {
-    	//startTime = System.currentTimeMillis();
-    	//m_autonMode = (int) SmartDashboard.getNumber("auton mode");
-    	//distanceConstant=1;
+    	/*
+    	startTime = System.currentTimeMillis();
+    	m_autonMode = (int) SmartDashboard.getNumber("auton mode");
+    	distanceConstant=1;
+    	*/
     }
     
     /**
@@ -90,7 +92,15 @@ public class Robot extends IterativeRobot
     {
     	if(m_autonMode == 1)
     	{
-    		/*/
+    		if (m_robotMap.m_drive.getEncoders()[0] < 95 * distanceConstant) 
+    		{
+    			m_robotMap.m_drive.drive(1, 90, 0);
+    		}
+    	}
+    	
+    	else if(m_autonMode == 1)
+    	{
+    		/*
     		m_robotMap.m_intake.classsetrightIntakeSolenoid(true);
     		m_robotMap.m_intake.setleftIntakeSolenoid(true);
     		m_robotMap.m_intake.setrightIntakeMotor(1);
@@ -211,10 +221,10 @@ public class Robot extends IterativeRobot
     		/*
     		 * THIS IS MADNESS!
     		 * (A.K.A. something beyond Brandon's desire to attempt)
-    		double[] herpderp=m_robotMap.m_drive.getEncoders();
-    		double derkahurp=herpderp[0];
-    		while (m_robotMap.m_drive.getEncoders()[0] < 700 * distanceConstant){
-    			m_robotMap.m_drive.drive(.9, 0, 0);
+    		double derkahurp=90;
+    		if (m_robotMap.m_drive.getEncoders()[0] < 180 * distanceConstant && derkahurp<=270){
+    			m_robotMap.m_drive.drive(1, derkahurp, 0);
+    			derkahurp++;
     		}
     		*/
     		
@@ -292,8 +302,27 @@ public class Robot extends IterativeRobot
     		if (m_robotMap.m_drive.getEncoders()[0] < 130 * distanceConstant){
     			m_robotMap.m_drive.drive(1, 180, 0);
     		}
-    		if (m_robotMap.m_drive.getEncoders()[0] < 170 * distanceConstant){
-    			m_robotMap.m_drive.drive(.5, 9, 0);
+    		if (m_robotMap.m_drive.getEncoders()[0] < 170 * distanceConstant){j
+    			m_robotMap.m_drive.drive(1, 0, 0);
+    		}
+    		if (m_robotMap.m_drive.getEncoders()[0] < 210 * distanceConstant){
+    			m_robotMap.m_drive.drive(.35, 180, 0);
+    		}
+    		
+    		//<RAISE TOTE>7
+    		m_robotMap.m_intake.classsetrightIntakeSolenoid(true);
+    		m_robotMap.m_intake.setleftIntakeSolenoid(true);
+    		m_robotMap.m_intake.setrightIntakeMotor(1);
+    		m_robotMap.m_intake.setleftIntakeMotor(1);
+    		
+    		if (m_robotMap.m_drive.getEncoders()[0] < 250 * distanceConstant){
+    			m_robotMap.m_drive.drive(.5, 90, 0);
+    		}
+    		if (m_robotMap.m_drive.getEncoders()[0] < 340 * distanceConstant){
+    			m_robotMap.m_drive.drive(1, 180, 0);
+    		}
+    		if (m_robotMap.m_drive.getEncoders()[0] < 500 * distanceConstant){j
+    			m_robotMap.m_drive.drive(1, 0, 0);
     		}
     		
     		//Pick up first tote, bash first can, drive forward and pick up second tote, then push the second can into the auto zone
@@ -304,14 +333,11 @@ public class Robot extends IterativeRobot
     	{
     		//*/
     		//Drive forward anyway.
-    		if (System.currentTimeMillis() - startTime < 3000) 
+    		if (m_robotMap.m_drive.getEncoders()[0] < 95 * distanceConstant) 
     		{
     			m_robotMap.m_drive.drive(1, 90, 0);
     		}
-    		else
-    		{
-    			m_robotMap.m_drive.drive(0, 0, 0);
-    		}
+    		
     		//*/
     	}
     	
