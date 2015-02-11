@@ -38,7 +38,6 @@ public class Robot extends IterativeRobot
     	m_io = new IO();
     	
     	m_robotMap = new RobotMap();
-    	m_robotMap.m_drive.init();
     }
 
     /*
@@ -354,7 +353,7 @@ public class Robot extends IterativeRobot
      */
     public void teleopInit()
     {
-    	m_robotMap.m_drive.init();
+    	m_robotMap.m_drive.teleopInit();
     }
     
     int test = 0;
@@ -420,7 +419,7 @@ public class Robot extends IterativeRobot
     	
     	SmartDashboard.putNumber("Finesse Mode", m_io.getFinesseMode());
     	//SmartDashboard.putNumber("Lift Pot", m_robotMap.m_lift.getLiftPot());
-    	SmartDashboard.putNumber("Drive Gryo", m_robotMap.m_drive.getGyro()%360);
+    	SmartDashboard.putNumber("Drive Gyro", m_robotMap.m_drive.getGyro()%360);
     	
     	double[] accels = m_robotMap.m_drive.getAccels();
     	SmartDashboard.putNumber("Accelerometer X", accels[0]);

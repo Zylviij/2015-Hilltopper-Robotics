@@ -2,6 +2,7 @@ package org.usfirst.frc.team1732.systems;
 
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.CANTalon.ControlMode;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.RobotDrive.MotorType;
@@ -81,13 +82,20 @@ public class Drive
 	 * start the motors
 	 */
 	//*/
-	public void init() {
+	public void teleopInit() {
 		m_leftFrontMotor.enableControl();
 		m_rightFrontMotor.enableControl();
 		m_leftBackMotor.enableControl();
 		m_rightBackMotor.enableControl();
+		
+		m_leftFrontMotor.changeControlMode(ControlMode.Speed);
+		m_rightFrontMotor.changeControlMode(ControlMode.Speed);
+		m_leftBackMotor.changeControlMode(ControlMode.Speed);
+		m_rightBackMotor.changeControlMode(ControlMode.Speed);
+		
 		m_drive.setInvertedMotor(MotorType.kFrontLeft, true);
 		m_drive.setInvertedMotor(MotorType.kRearLeft, true);
+	
 	}
 	//*/
 	
