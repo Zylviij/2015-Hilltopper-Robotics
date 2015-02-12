@@ -1,5 +1,7 @@
 package org.usfirst.frc.team1732.systems;
 
+import java.util.Collections;
+
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CANTalon.ControlMode;
@@ -24,6 +26,20 @@ public class Drive
 	//*/ gyro
 	Gyro m_gyro = new Gyro(0);
 	//*/
+	
+	public double getAveEncoder() {
+		double[] encoders=getEncoders();
+		return (encoders[0] + encoders[1] + encoders[2] + encoders[3]) / 4;
+	}
+	
+	public double[] getEncoders() {
+		return new double[]{
+				m_leftFrontMotor.getEncPosition(),
+				m_rightFrontMotor.getEncPosition(),
+				m_leftBackMotor.getEncPosition(),
+				m_rightBackMotor.getEncPosition()
+		};
+	}
 	
 	//*/ drive
 	private RobotDrive m_drive = new RobotDrive(m_leftFrontMotor, m_leftBackMotor, m_rightFrontMotor, m_rightBackMotor);

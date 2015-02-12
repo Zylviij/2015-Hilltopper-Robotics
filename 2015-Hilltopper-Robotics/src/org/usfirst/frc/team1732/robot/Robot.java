@@ -22,13 +22,7 @@ public class Robot extends IterativeRobot
 		
 	// creates all robot parts (motors, solenoids, sensors)
 	static RobotMap m_robotMap;
-	
-	// auto start time
-	long startTime;
-	
-	// allows us to multiply distances (distances will assume cm)
-	double distanceConstant;
-	
+		
 	/**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -91,9 +85,9 @@ public class Robot extends IterativeRobot
     {
     	if(m_autonMode == 1)
     	{
-    		if (m_robotMap.m_drive.getEncoders()[0] < 95 * distanceConstant) 
+    		if (m_robotMap.m_drive.getAveEncoder() < 95 * distanceConstant) 
     		{
-    			m_robotMap.m_drive.drive(1, 90, 0);
+    			m_robotMap.m_drive.drive(0.4, 90, 0);
     		}
     	}
     	
@@ -332,9 +326,9 @@ public class Robot extends IterativeRobot
     	{
     		//*/
     		//Drive forward anyway.
-    		if (m_robotMap.m_drive.getEncoders()[0] < 95 * distanceConstant) 
+    		if (m_robotMap.m_drive.getAveEncoder() < 95 * distanceConstant) 
     		{
-    			m_robotMap.m_drive.drive(1, 90, 0);
+    			m_robotMap.m_drive.drive(0.4, 90, 0);
     		}
     		
     		//*/
