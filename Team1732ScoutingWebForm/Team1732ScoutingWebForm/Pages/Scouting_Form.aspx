@@ -7,12 +7,70 @@
     <h2>
         Team 1732 Scouting Web Form
     </h2>
-    <p>
-        Team:
-        <asp:TextBox ID="tbTeamNumber" runat="server" Height="16px" Width="214px"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-        KEY:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N/A = Not Applicable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-        N.E.I. = Not Enough Information&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HP = 
-        Human Player&nbsp; </p>
+    <div id="Team_Info" align="center">
+        <asp:Table ID="Table1" runat="server" Height="50px" Width="100%" 
+            Font-Size="Large">
+            <asp:TableRow>
+                <asp:TableCell>
+                    <asp:Label ID="Label1" runat="server" Text="Team # "></asp:Label><asp:TextBox ID="TextBox1"
+                        runat="server" ForeColor="#FF0066"></asp:TextBox></asp:TableCell>
+                <asp:TableCell>
+                    <asp:Label ID="Label2" runat="server" Text="Match # "></asp:Label><asp:TextBox ID="TextBox2"
+                        runat="server" ForeColor="#FF0066"></asp:TextBox></asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+    </div>
+    <div id="Autonomous">
+        <asp:Label ID="Label3" runat="server" Text="Autonomous" Font-Bold></asp:Label>
+        <br />
+        <asp:Table ID="autonomousBlock" runat="server">
+            <asp:TableRow>
+            <asp:TableCell>
+            <asp:Table ID="autonomousTable" runat="server" CellPadding="10" CellSpacing="0" Font-Size="Large" GridLines="Both">
+                <asp:TableRow>
+                    <asp:TableCell>&nbsp;</asp:TableCell>
+                    <asp:TableCell>Yes</asp:TableCell>
+                    <asp:TableCell>No</asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>Tote-set</asp:TableCell>
+                    <asp:TableCell>
+                        <asp:RadioButton ID="toteSet_Yes" runat="server" /></asp:TableCell>
+                    <asp:TableCell>
+                        <asp:RadioButton ID="toteSet_No" runat="server" /></asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>Tote-stack</asp:TableCell>
+                    <asp:TableCell>
+                        <asp:RadioButton ID="toteStack_Yes" runat="server" /></asp:TableCell>
+                    <asp:TableCell>
+                        <asp:RadioButton ID="toteStack_No" runat="server" /></asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>Robot-set</asp:TableCell>
+                    <asp:TableCell>
+                        <asp:RadioButton ID="robotSet_Yes" runat="server" /></asp:TableCell>
+                    <asp:TableCell>
+                        <asp:RadioButton ID="robotSet_No" runat="server" /></asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>Mobility</asp:TableCell>
+                    <asp:TableCell>
+                        <asp:RadioButton ID="mobility_Yes" runat="server" /></asp:TableCell>
+                    <asp:TableCell>
+                        <asp:RadioButton ID="mobility_No" runat="server" /></asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+            </asp:TableCell>                                         
+            <asp:TableCell><asp:Label ID="Label4" runat="server" Text="Co-op" Font-Bold></asp:Label></asp:TableCell>
+            </asp:TableRow>
+            
+        </asp:Table>
+    </div>
+    <div id="Co-op">
+    </div>
+    <div id="Tote_Stacks">
+    </div>
     <p>
         Alliance:
         <asp:DropDownList ID="dllAlliance" runat="server">
@@ -22,8 +80,7 @@
     </p>
     <p>
         What did they do during Autonomous?
-        <asp:DropDownList ID="dllAutoSelect" runat="server" 
-            onselectedindexchanged="dllAutoSelect_SelectedIndexChanged">
+        <asp:DropDownList ID="dllAutoSelect" runat="server" OnSelectedIndexChanged="dllAutoSelect_SelectedIndexChanged">
             <asp:ListItem>No Autonomous</asp:ListItem>
             <asp:ListItem>Stack&#39;d Totes</asp:ListItem>
             <asp:ListItem>Grabs Bins</asp:ListItem>
@@ -35,23 +92,21 @@
         </asp:DropDownList>
     </p>
     <p>
-        Do they pick up totes from the HP or the Landfill Zone?<asp:CheckBoxList 
-            ID="CheckBoxList3" runat="server" style="margin-right: 46px">
+        Do they pick up totes from the HP or the Landfill Zone?<asp:CheckBoxList ID="CheckBoxList3"
+            runat="server" Style="margin-right: 46px">
             <asp:ListItem>Human Player</asp:ListItem>
             <asp:ListItem>Landfill Zone</asp:ListItem>
         </asp:CheckBoxList>
     </p>
     <p>
-        Can they pick up totes?<asp:RadioButtonList ID="RadioButtonList1" 
-            runat="server">
+        Can they pick up totes?<asp:RadioButtonList ID="RadioButtonList1" runat="server">
             <asp:ListItem>Yes</asp:ListItem>
             <asp:ListItem>NO</asp:ListItem>
             <asp:ListItem>N.E.I.</asp:ListItem>
         </asp:RadioButtonList>
     </p>
     <p>
-        How many totes can they hold ?<asp:DropDownList ID="DropDownList1" 
-            runat="server">
+        How many totes can they hold ?<asp:DropDownList ID="DropDownList1" runat="server">
             <asp:ListItem>1</asp:ListItem>
             <asp:ListItem>2</asp:ListItem>
             <asp:ListItem>3</asp:ListItem>
@@ -59,20 +114,19 @@
             <asp:ListItem>5</asp:ListItem>
             <asp:ListItem>6</asp:ListItem>
         </asp:DropDownList>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; And do they hold the totes on the interior or 
-        exterior of the robot?<asp:DropDownList ID="DropDownList2" runat="server">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; And do they hold the totes on the interior
+        or exterior of the robot?<asp:DropDownList ID="DropDownList2" runat="server">
             <asp:ListItem>Interior</asp:ListItem>
             <asp:ListItem>Exterior</asp:ListItem>
         </asp:DropDownList>
     </p>
     <p>
-        Can they pick up bins?<asp:RadioButtonList ID="RadioButtonList2" runat="server" 
-            Height="16px">
+        Can they pick up bins?<asp:RadioButtonList ID="RadioButtonList2" runat="server" Height="16px">
             <asp:ListItem>Yes</asp:ListItem>
             <asp:ListItem>NO</asp:ListItem>
             <asp:ListItem>N.E.I.</asp:ListItem>
         </asp:RadioButtonList>
-&nbsp; And can they stack them?
+        &nbsp; And can they stack them?
         <asp:RadioButtonList ID="RadioButtonList3" runat="server" Height="16px">
             <asp:ListItem>Yes</asp:ListItem>
             <asp:ListItem>NO</asp:ListItem>
@@ -88,7 +142,7 @@
             <asp:ListItem>Good</asp:ListItem>
             <asp:ListItem>Very Good</asp:ListItem>
         </asp:DropDownList>
-&nbsp;</p>
+        &nbsp;</p>
     <p>
         Did the robot meander (wander aimlessly?)
         <asp:RadioButtonList ID="RadioButtonList4" runat="server" Height="16px">
@@ -104,10 +158,10 @@
             <asp:ListItem>Coopertition Set</asp:ListItem>
             <asp:ListItem>Did not attempt</asp:ListItem>
         </asp:DropDownList>
-&nbsp;
+        &nbsp;
     </p>
     <p>
-    &nbsp;&nbsp; Were they able to complete it?
+        &nbsp;&nbsp; Were they able to complete it?
         <asp:RadioButtonList ID="RadioButtonList6" runat="server">
             <asp:ListItem>Yes</asp:ListItem>
             <asp:ListItem>No</asp:ListItem>
@@ -121,13 +175,12 @@
             <asp:ListItem>NO</asp:ListItem>
             <asp:ListItem>N.E.I.</asp:ListItem>
         </asp:RadioButtonList>
-&nbsp;&nbsp; Was the robot impeded by stray pool noodles?<asp:RadioButton 
-            ID="RadioButton26" runat="server" Text="Yes" />
+        &nbsp;&nbsp; Was the robot impeded by stray pool noodles?<asp:RadioButton ID="RadioButton26"
+            runat="server" Text="Yes" />
         <asp:RadioButton ID="RadioButton27" runat="server" Text="No" />
     </p>
     <p>
-        How good is HP (Human Player)??<asp:DropDownList ID="DropDownList5" 
-            runat="server">
+        How good is HP (Human Player)??<asp:DropDownList ID="DropDownList5" runat="server">
             <asp:ListItem>Pretty Bad</asp:ListItem>
             <asp:ListItem>Meh</asp:ListItem>
             <asp:ListItem>Eh, alright</asp:ListItem>
@@ -144,8 +197,8 @@
             <asp:ListItem>Torque</asp:ListItem>
             <asp:ListItem>Not noticeable</asp:ListItem>
         </asp:DropDownList>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; How good is their grip on the object they&#39;re holding?<asp:CheckBoxList 
-            ID="CheckBoxList2" runat="server">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; How good is their grip on the object they&#39;re
+        holding?<asp:CheckBoxList ID="CheckBoxList2" runat="server">
             <asp:ListItem>Tote slips</asp:ListItem>
             <asp:ListItem>Bin slips</asp:ListItem>
             <asp:ListItem>Pretty Secure</asp:ListItem>
