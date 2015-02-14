@@ -4,6 +4,10 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">  
+    <ContentTemplate>
     <h2>
         Team 1732 Scouting Web Form
     </h2>
@@ -197,7 +201,8 @@
     </div>
     <div id="moreToteStacks">
         <asp:CheckBox ID="enableMoarStacks" runat="server" 
-            oncheckedchanged="enableMoarStacks_CheckedChanged" Text="Enable Moar Stacks" />
+            oncheckedchanged="enableMoarStacks_CheckedChanged" 
+            Text="Enable Moar Stacks" AutoPostBack="True" />
             <div id="moreToteStacksTable">
             <asp:Table ID="toteStacksSixPlus" runat="server" CellPadding="5" 
                 HorizontalAlign="Center" Visible="False">
@@ -292,4 +297,9 @@
             </asp:Table>
         </div>
     </div>
+    <div id="Notes">
+    
+    </div>
+    </ContentTemplate>
+</asp:UpdatePanel>  
 </asp:Content>

@@ -13,8 +13,7 @@ namespace Team1732ScoutingWebForm
 
         protected void enableMoarStacks_CheckedChanged(object sender, EventArgs e)
         {
-            toteStacksSixPlus.Visible = true;
-            Response.Redirect("http://localhost:3401/Pages/Scouting_Form.aspx");
+            toteStacksSixPlus.Visible = !toteStacksSixPlus.Visible;
         }
     }
 }
