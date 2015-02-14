@@ -115,6 +115,10 @@ public class Drive
 	}
 	//*/
 	
+	public void driveToTote(Direction direction) {
+		m_drive.mecanumDrive_Polar(direction.getDist(), direction.getDirection(), 0);
+	}
+	
 	/**
 	 * Set the drive for auto.
 	 * @param mag Magnitude

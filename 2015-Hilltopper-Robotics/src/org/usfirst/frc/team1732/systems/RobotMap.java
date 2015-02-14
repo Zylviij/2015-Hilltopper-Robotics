@@ -11,7 +11,7 @@ public class RobotMap
 	 */
 	public Drive m_drive = new Drive();
 	//public Lift m_lift = new Lift();
-	//public Intake m_intake = new Intake();
+	public Intake m_intake = new Intake();
 	//public Craaa m_craaa = new Craaa();
 	//public Gate m_gate = new Gate();
 	

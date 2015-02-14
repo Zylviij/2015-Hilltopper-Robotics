@@ -27,6 +27,9 @@ public class IO
 	private Button m_shiftLeft = new JoystickButton(m_leftJoystick, 1);
 	private Button m_shiftRight = new JoystickButton(m_rightJoystick, 1);
 	
+	private Button m_centerLeft = new JoystickButton(m_leftJoystick, 2);
+	private Button m_centerRight = new JoystickButton(m_rightJoystick, 2);
+	
 	private Button m_finesseLeftLeft = new JoystickButton(m_leftJoystick, 5);
 	private Button m_finesseRightLeft = new JoystickButton(m_leftJoystick, 6);
 	private Button m_finesseLeftRight = new JoystickButton(m_rightJoystick, 5);
@@ -62,6 +65,10 @@ public class IO
 	private Button m_lift = new JoystickButton(m_buttons, 10);
 	
 	private Button m_drop = new JoystickButton(m_buttons, 11);
+	
+	public boolean getCentering() {
+		return m_centerLeft.get() || m_centerRight.get();
+	}
 	
 	/**
 	 * to move craaa up

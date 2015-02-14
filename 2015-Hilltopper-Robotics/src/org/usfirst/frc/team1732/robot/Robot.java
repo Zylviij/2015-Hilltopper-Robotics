@@ -112,7 +112,11 @@ public class Robot extends IterativeRobot
     public void teleopPeriodic()
     {
     	//* drive
-    	m_robotMap.m_drive.drive(m_io);
+    	if (m_io.getCentering()) {
+    		m_robotMap.m_drive.driveToTote(m_robotMap.m_intake.where());
+    	} else {
+    		m_robotMap.m_drive.drive(m_io);
+    	}
     	//*/
     	
     	//*/

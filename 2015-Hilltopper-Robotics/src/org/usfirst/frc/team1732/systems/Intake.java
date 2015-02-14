@@ -66,10 +66,7 @@ public class Intake
 	}
 	
 	public Direction where() {
-		if (front.getRangeMM() < 30) return Direction.FRONT;
-		else if (right.getRangeMM() > left.getRangeMM()) return Direction.LEFT;
-		else if (right.getRangeMM() < left.getRangeMM()) return Direction.RIGHT;
-		return Direction.STOP;
+		return new Direction(left.getRangeInches() - right.getRangeInches(), front.getRangeInches());
 	}
 	
 	/**
