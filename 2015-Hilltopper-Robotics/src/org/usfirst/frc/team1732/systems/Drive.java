@@ -123,7 +123,7 @@ public class Drive
 	 */
 	public void drive(double mag, double dir, double rot)
 	{
-		m_drive.mecanumDrive_Polar(mag, dir, rot);
+		m_drive.mecanumDrive_Cartesian(mag, dir, rot, getGyro());
 	}
 	//*/
 	

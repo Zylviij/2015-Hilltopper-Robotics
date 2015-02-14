@@ -9,5 +9,5 @@ public enum Direction {
 	REAR,
 	REARLEFT,
 	LEFT,
-	FRONTLEFT
+	FRONTLEFT;
 }
