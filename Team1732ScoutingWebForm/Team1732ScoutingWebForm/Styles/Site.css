@@ -31,7 +31,7 @@ p
 {
     margin-bottom: 10px;
     line-height: 1.6em;
-    height: 48px;
+    height: 186px;
     width: 884px;
 }
 
@@ -293,4 +293,9 @@ div.accountInfo
 {
     text-align: right;
     padding-right: 10px;
+}
+
+.teleopTotes
+{
+     text-align:center
 }
