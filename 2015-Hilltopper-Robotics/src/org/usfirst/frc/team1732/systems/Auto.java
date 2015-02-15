@@ -178,8 +178,6 @@ else if(m_autonMode == 4)
 	if (m_robotMap.m_drive.getEncoders()[0] < 110 * distanceConstant){
 		m_robotMap.m_drive.drive(.5, 180, 0);
 	}
-	
-	//<GRAB WITH CRAäæ>
 	 
 	 if (m_robotMap.m_drive.getEncoders()[0] < 410 * distanceConstant){
 		m_robotMap.m_drive.drive(1, 270, 0);
@@ -201,9 +199,7 @@ else if(m_autonMode == 5)
 	if (m_robotMap.m_drive.getEncoders()[0] < 20 * distanceConstant){
 		m_robotMap.m_drive.drive(.35, 0, 0);
 	}
-	
-	//<GRAB WITH Craäæ>
-	
+		
 	if (m_robotMap.m_drive.getEncoders()[0] < 320 * distanceConstant){
 		m_robotMap.m_drive.drive(1, 270, 0);
 	}

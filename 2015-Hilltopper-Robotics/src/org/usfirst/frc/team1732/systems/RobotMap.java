@@ -10,9 +10,9 @@ public class RobotMap
 	 * creates robot subsystems
 	 */
 	public Drive m_drive = new Drive();
-	//public Lift m_lift = new Lift();
+	public Lift m_lift = new Lift();
 	public Intake m_intake = new Intake();
-	//public Craaa m_craaa = new Craaa();
+	public Craaa m_craaa = new Craaa();
 	//public Gate m_gate = new Gate();
 	
 	/**

@@ -7,14 +7,15 @@ import edu.wpi.first.wpilibj.Solenoid;
 public class Craaa
 {
 	//*/
-	private Solenoid m_solenoid = new Solenoid(1);
+	//private Solenoid m_solenoidAngle = new Solenoid(3);
+	private Solenoid m_solenoidOpen = new Solenoid(0);
 	//*/
 	
 	//*/
 	private CANTalon m_motor = new CANTalon(14);
 	//*/
 	
-	//*/
+	/*/
 	private DigitalInput m_limitTop = new DigitalInput(0);
 	private DigitalInput m_limitBottom = new DigitalInput(1);
 	//*/
@@ -23,6 +24,7 @@ public class Craaa
 	private static final double STOP = 0;
 	private static final double ELEVATOR_SPEED = 0.4;
 	
+	/*/
 	private static int SPOT_GROUND = 0;
 	private static int SPOT_ONE_TOTE = 50;
 	private static int SPOT_STEP = 70;
@@ -30,12 +32,13 @@ public class Craaa
 	private static int SPOT_THREE_TOTE = 150;
 	private static int SPOT_FOUR_TOTE = 200;
 	private static int SPOT_FIVE_TOTE = 250;
-
+	//*/
 	
 	/**
 	 * use the joysticks and buttons to control the craaa
 	 * @param io
 	 */
+	/*/
 	public void controlCraaa(IO io) {
 		
 		m_solenoid.set(io.getCraaaOpen());
@@ -91,16 +94,29 @@ public class Craaa
 			}
 		}
 	}
+	//*/
 	
 	/**
 	 * organizes limits for dashboard
 	 * @return craca limit switches for dashboard
 	 */
-	//*/
+	/*/
 	public boolean[] getLimits() {
 		return new boolean[]{m_limitTop.get(), m_limitBottom.get()};
 	}
 	//*/
+	
+	public void testForTheWanagon(boolean solenoid, boolean motorUp, boolean motorDown) {
+		if (motorUp) {
+			m_motor.set(SPEED_LIMIT);
+		} else if (motorDown) {
+			m_motor.set(-1 * SPEED_LIMIT);
+		} else  {
+			m_motor.set(STOP);
+		}
+		
+		m_solenoidOpen.set(solenoid);
+	}
 	
 	/**
 	* Makes the robit not kill people
@@ -111,8 +127,8 @@ public class Craaa
 		m_motor.set(0);
 		m_motor.disable();
 		
-		m_solenoid.set(false);
-		m_solenoid.free();
+		m_solenoidOpen.set(false);
+		m_solenoidOpen.free();
 	}
 	//*/
 }

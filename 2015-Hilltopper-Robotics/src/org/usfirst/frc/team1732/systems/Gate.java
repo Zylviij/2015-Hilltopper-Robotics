@@ -10,8 +10,14 @@ public class Gate {
 	 * controls the gate with joysticks and buttons
 	 * @param io
 	 */
+	/*/
 	public void controlGate(IO io) {
 		m_solenoid.set(io.getGate());
+	}
+	//*/
+	
+	public void testForTheWanagon(boolean gate) {
+		m_solenoid.set(gate);
 	}
 	
 	/**

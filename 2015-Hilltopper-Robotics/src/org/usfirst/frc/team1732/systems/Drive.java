@@ -1,7 +1,5 @@
 package org.usfirst.frc.team1732.systems;
 
-import java.util.Collections;
-
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CANTalon.ControlMode;

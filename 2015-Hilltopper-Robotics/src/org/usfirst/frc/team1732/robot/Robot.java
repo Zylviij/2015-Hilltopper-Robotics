@@ -105,22 +105,27 @@ public class Robot extends IterativeRobot
     	m_robotMap.m_drive.teleopInit();
     }
     
-    int test = 0;
+    byte i = 0; // byte cuz wai naat?
     /**
      * This function is called periodically during teleop mode.
      */
     public void teleopPeriodic()
     {
     	//* drive
-    	if (m_io.getCentering()) {
-    		m_robotMap.m_drive.driveToTote(m_robotMap.m_intake.where());
-    	} else {
+    	//if (m_io.getCentering()) {
+    	//	m_robotMap.m_drive.driveToTote(m_robotMap.m_intake.where());
+    	//} else {
     		m_robotMap.m_drive.drive(m_io);
-    	}
+    		m_robotMap.m_craaa.testForTheWanagon(SmartDashboard.getBoolean("Craaa Solenoid", false), SmartDashboard.getBoolean("Craaa Motor +", false), SmartDashboard.getBoolean("Craaa Motor -", false));
+    		m_robotMap.m_intake.testFortTheWanagon(SmartDashboard.getBoolean("Intake Solenoid", false), SmartDashboard.getBoolean("Intake Motor +", false), SmartDashboard.getBoolean("Intake Motor -", false));
+    		m_robotMap.m_lift.testForTheWanagon(SmartDashboard.getBoolean("Lift Motor +", false), SmartDashboard.getBoolean("Lift Motor -", false), SmartDashboard.getBoolean("Lift Servo +", false), SmartDashboard.getBoolean("Lift Servo -", false));
+    	//}
     	//*/
     	
     	//*/
-   		setDashboard();
+   		if (i++ % 10 == 0) {
+    		setDashboard();
+   		}
        	//*/
     }
     
@@ -172,7 +177,7 @@ public class Robot extends IterativeRobot
     	
     	SmartDashboard.putNumber("Finesse Mode", m_io.getFinesseMode());
     	//SmartDashboard.putNumber("Lift Pot", m_robotMap.m_lift.getLiftPot());
-    	SmartDashboard.putNumber("Drive Gyro", m_robotMap.m_drive.getGyro()%360);
+    	//SmartDashboard.putNumber("Drive Gyro", m_robotMap.m_drive.getGyro()%360);
     	
     	double[] accels = m_robotMap.m_drive.getAccels();
     	SmartDashboard.putNumber("Accelerometer X", accels[0]);

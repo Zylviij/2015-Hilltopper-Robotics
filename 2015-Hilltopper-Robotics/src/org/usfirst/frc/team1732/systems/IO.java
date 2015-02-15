@@ -42,6 +42,7 @@ public class IO
 	/*
 	 * Buttons
 	 */
+	/*/
 	private Button m_craaa = new JoystickButton(m_buttons, 0);
 	
 	private Button m_craaa0 = new JoystickButton(m_buttons, 1);
@@ -65,26 +66,39 @@ public class IO
 	private Button m_lift = new JoystickButton(m_buttons, 10);
 	
 	private Button m_drop = new JoystickButton(m_buttons, 11);
+	//*/
 	
+	/**
+	 * centering buttons are depressed?
+	 * @return true as OR
+	 */
+	//*/
 	public boolean getCentering() {
 		return m_centerLeft.get() || m_centerRight.get();
 	}
+	//*/
 	
 	/**
 	 * to move craaa up
 	 * @return true if button is depressed
 	 */
+	/*/
 	public boolean getCraaaToleranceUp() {
 		return m_craaaToleranceUp.get();
 	}
+	//*/
+
 	
 	/**
 	 * to move craaa down
 	 * @return true if button is depressed
 	 */
+	/*/
 	public boolean getCraaaToleranceDown() {
 		return m_craaaToleranceDown.get();
 	}
+	//*/
+
 	
 	/**
 	 * reset gyro angle
@@ -98,38 +112,47 @@ public class IO
 	 * WARNING WARNING THIS IS A NUCLEAR STARTER
 	 * @return true if button is deceased
 	 */
+	/*/
 	public boolean getDrop() {
 		return m_drop.get();
 	}
+	//*/
 	
 	/**
 	 * intake in button
 	 * @return true if button is depressed
 	 */
+	/*/
 	public boolean getIntakeIn() {
 		return m_intakeIn.get();
 	}
+	//*/
 	
 	/**
 	 * intake out button
 	 * @return true if button is depressed
 	 */
+	/*/
 	public boolean getIntakeOut() {
 		return m_intakeOut.get();
 	}
+	//*/
 	
 	/**
 	 * open or close intake arms
 	 * @return true if button is depressed
 	 */
+	/*/
 	public boolean getIntakeInOut() {
 		return m_intakeInOut.get();
 	}
+	//*/
 	
 	/**
 	 * Gets Craaa position
 	 * @return position [0...4]
 	 */
+	/*/
 	public int getCraaaPos() {
 		if (m_craaa0.get()) return 0;
 		else if (m_craaa1.get()) return 1;
@@ -138,6 +161,7 @@ public class IO
 		else if (m_craaa4.get()) return 4;
 		else return 0;
 	}
+	//*/
 	
 	/**
 	 * Gets button state OR
@@ -200,9 +224,11 @@ public class IO
 	 * gets craaa opening button
 	 * @return true if button is depressed
 	 */
+	/*/
 	public boolean getCraaaOpen() {
 		return m_craaa.get();
 	}
+	//*/
 	
 	/**
 	 * Gets left magnitude
@@ -328,16 +354,20 @@ public class IO
 	 * gets the gate button
 	 * @return true if button is depressed
 	 */
+	/*/
 	public boolean getGate() {
 		return m_gate.get();
 	}
+	//*/
 	
 	/**
 	 * gets the lift button
 	 * @return true if button is depressed
 	 */
+	/*/
 	public boolean getLift() {
 		return m_lift.get();
 	}
+	//*/
 	
 }
