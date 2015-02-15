@@ -4,10 +4,14 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">  
+    <ContentTemplate>
     <h2>
         Team 1732 Scouting Web Form
     </h2>
-    <div id="Team_Info" align="center">
+    <div id="Team_Info" align="Center">
         <asp:Table ID="Table1" runat="server" Height="50px" Width="100%" 
             Font-Size="Large">
             <asp:TableRow>
@@ -20,195 +24,282 @@
             </asp:TableRow>
         </asp:Table>
     </div>
-    <div id="Autonomous">
-        <asp:Label ID="Label3" runat="server" Text="Autonomous" Font-Bold></asp:Label>
-        <br />
-        <asp:Table ID="autonomousBlock" runat="server">
-            <asp:TableRow>
-            <asp:TableCell>
-            <asp:Table ID="autonomousTable" runat="server" CellPadding="10" CellSpacing="0" Font-Size="Large" GridLines="Both">
-                <asp:TableRow>
-                    <asp:TableCell>&nbsp;</asp:TableCell>
-                    <asp:TableCell>Yes</asp:TableCell>
-                    <asp:TableCell>No</asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>Tote-set</asp:TableCell>
-                    <asp:TableCell>
-                        <asp:RadioButton ID="toteSet_Yes" runat="server" /></asp:TableCell>
-                    <asp:TableCell>
-                        <asp:RadioButton ID="toteSet_No" runat="server" /></asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>Tote-stack</asp:TableCell>
-                    <asp:TableCell>
-                        <asp:RadioButton ID="toteStack_Yes" runat="server" /></asp:TableCell>
-                    <asp:TableCell>
-                        <asp:RadioButton ID="toteStack_No" runat="server" /></asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>Robot-set</asp:TableCell>
-                    <asp:TableCell>
-                        <asp:RadioButton ID="robotSet_Yes" runat="server" /></asp:TableCell>
-                    <asp:TableCell>
-                        <asp:RadioButton ID="robotSet_No" runat="server" /></asp:TableCell>
-                </asp:TableRow>
-                <asp:TableRow>
-                    <asp:TableCell>Mobility</asp:TableCell>
-                    <asp:TableCell>
-                        <asp:RadioButton ID="mobility_Yes" runat="server" /></asp:TableCell>
-                    <asp:TableCell>
-                        <asp:RadioButton ID="mobility_No" runat="server" /></asp:TableCell>
-                </asp:TableRow>
-            </asp:Table>
-            </asp:TableCell>                                         
-            <asp:TableCell><asp:Label ID="Label4" runat="server" Text="Co-op" Font-Bold></asp:Label></asp:TableCell>
+    <br />
+    <div id="Autonomous">     
+        <asp:Table ID="autonomousBlock" runat="server" Width="100%">
+            <asp:TableRow Height="25px">
+                <asp:TableCell HorizontalAlign="Center">
+                    <asp:Label ID="Label3" runat="server" Text="Autonomous" Font-Bold Font-Size=Large></asp:Label>
+                    <br />
+                </asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center">
+                    <asp:Label ID="Label5" runat="server" Text="Co-op" Font-Bold Font-Size=Large></asp:Label>
+                    <br />
+                </asp:TableCell>
             </asp:TableRow>
-            
+            <asp:TableRow>
+                <asp:TableCell VerticalAlign="Middle" HorizontalAlign="Center">
+                    <asp:Table ID="autonomousTable" runat="server" CellPadding="5" Font-Size="Large" GridLines="Both">
+                        <asp:TableRow>
+                            <asp:TableCell>&nbsp;</asp:TableCell>
+                            <asp:TableCell>Yes</asp:TableCell>
+                            <asp:TableCell>No</asp:TableCell>
+                        </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell>Tote-set</asp:TableCell>
+                            <asp:TableCell>
+                                <asp:RadioButton ID="toteSet_Yes" runat="server" /></asp:TableCell>
+                            <asp:TableCell>
+                                <asp:RadioButton ID="toteSet_No" runat="server" /></asp:TableCell>
+                        </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell>Tote-stack</asp:TableCell>
+                            <asp:TableCell>
+                                <asp:RadioButton ID="toteStack_Yes" runat="server" /></asp:TableCell>
+                            <asp:TableCell>
+                                <asp:RadioButton ID="toteStack_No" runat="server" /></asp:TableCell>
+                        </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell>Robot-set</asp:TableCell>
+                            <asp:TableCell>
+                                <asp:RadioButton ID="robotSet_Yes" runat="server" /></asp:TableCell>
+                            <asp:TableCell>
+                                <asp:RadioButton ID="robotSet_No" runat="server" /></asp:TableCell>
+                        </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell>Mobility</asp:TableCell>
+                            <asp:TableCell>
+                                <asp:RadioButton ID="mobility_Yes" runat="server" /></asp:TableCell>
+                            <asp:TableCell>
+                                <asp:RadioButton ID="mobility_No" runat="server" /></asp:TableCell>
+                        </asp:TableRow>
+                    </asp:Table>
+                </asp:TableCell>
+                <asp:TableCell VerticalAlign="Top">
+                    <asp:Table ID="coopTable" runat="server" GridLines="Both" CellPadding="5" Font-Size="Large" HorizontalAlign="Center">
+                        <asp:TableRow>
+                            <asp:TableCell>&nbsp;</asp:TableCell>
+                            <asp:TableCell>Stack</asp:TableCell>
+                            <asp:TableCell>Set</asp:TableCell>
+                        </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell>Success</asp:TableCell>
+                            <asp:TableCell><asp:RadioButton ID="RadioButton1" runat="server" /></asp:TableCell>
+                            <asp:TableCell><asp:RadioButton ID="RadioButton2" runat="server" /></asp:TableCell>                   
+                        </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell>Attempted</asp:TableCell>
+                            <asp:TableCell><asp:RadioButton ID="RadioButton3" runat="server" /></asp:TableCell>
+                            <asp:TableCell><asp:RadioButton ID="RadioButton4" runat="server" /></asp:TableCell>                    
+                        </asp:TableRow>
+                    </asp:Table>        
+                </asp:TableCell>
+            </asp:TableRow>            
         </asp:Table>
+        <br />
     </div>
-    <div id="Co-op">
+    <div id="Teleop">
+        &nbsp;&nbsp;
+        <asp:Label ID="Label4" runat="server" Text="Teleop" Font-Bold Font-Size=Large></asp:Label>
+        <br />
+        <asp:Table ID="teleopTable" runat="server" CellPadding="5" 
+            HorizontalAlign="Center">
+        <asp:TableRow>
+        <asp:TableCell Width="20%" VerticalAlign="Bottom">
+        <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/tote_bin_stack.jpg" 
+            style="margin-bottom: 0px" />
+        </asp:TableCell>
+        <asp:TableCell Width="90%"  VerticalAlign="Bottom" HorizontalAlign="Center">
+            <asp:Table ID="teleopTotes" runat="server" GridLines="Both" CellPadding="8" HorizontalAlign="Left">
+            <asp:TableRow>
+                <asp:TableCell HorizontalAlign="Center">&nbsp;</asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label6" runat="server" Text="Stack 1" Font-Bold></asp:Label></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label7" runat="server" Text="Stack 2" Font-Bold></asp:Label> </asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label8" runat="server" Text="Stack 3" Font-Bold></asp:Label> </asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label9" runat="server" Text="Stack 4" Font-Bold></asp:Label> </asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label10" runat="server" Text="Stack 5" Font-Bold></asp:Label> </asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label11" runat="server" Text="Stack 6" Font-Bold></asp:Label> </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>            
+                <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label12" runat="server" Text="Noood" Font-Bold></asp:Label></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox7" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox8" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox9" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox10" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox11" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox12" runat="server"/></asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell HorizontalAlign="Center" Height="80px"><asp:Label ID="Label13" runat="server" Text="Bin" Font-Bold></asp:Label></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox13" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox14" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox15" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox16" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox17" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox18" runat="server"/></asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label14" runat="server" Text="TT6" Font-Bold></asp:Label></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox19" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox20" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox21" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox22" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox23" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox24" runat="server"/></asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label15" runat="server" Text="TT5" Font-Bold></asp:Label></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox25" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox26" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox27" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox28" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox29" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox30" runat="server"/></asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label16" runat="server" Text="TT4" Font-Bold></asp:Label></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox31" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox32" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox33" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox34" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox35" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox36" runat="server"/></asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label17" runat="server" Text="TT3" Font-Bold></asp:Label></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox37" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox38" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox39" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox40" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox41" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox42" runat="server"/></asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label18" runat="server" Text="TT2" Font-Bold></asp:Label></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox43" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox44" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox45" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox46" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox47" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox48" runat="server"/></asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label19" runat="server" Text="TT1" Font-Bold></asp:Label></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox49" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox50" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox51" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox52" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox53" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox54" runat="server"/></asp:TableCell>
+            </asp:TableRow>
+            </asp:Table>
+        </asp:TableCell>
+
+        </asp:TableRow>
+        </asp:Table>
+        <br />
     </div>
-    <div id="Tote_Stacks">
+    <div id="moreToteStacks">
+        <asp:CheckBox ID="enableMoarStacks" runat="server" 
+            oncheckedchanged="enableMoarStacks_CheckedChanged" 
+            Text="Enable Moar Stacks" AutoPostBack="True" />
+            <div id="moreToteStacksTable">
+            <asp:Table ID="toteStacksSixPlus" runat="server" CellPadding="5" 
+                HorizontalAlign="Center" Visible="False">
+            <asp:TableRow>
+            <asp:TableCell Width="90%"  VerticalAlign="Bottom" HorizontalAlign="Center">
+                <asp:Table ID="Table3" runat="server" GridLines="Both" CellPadding="8" HorizontalAlign="Left">
+                <asp:TableRow>
+                    <asp:TableCell HorizontalAlign="Center">&nbsp;</asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label20" runat="server" Text="Stack 7" Font-Bold></asp:Label></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label21" runat="server" Text="Stack 8" Font-Bold></asp:Label> </asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label22" runat="server" Text="Stack 9" Font-Bold></asp:Label> </asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label23" runat="server" Text="Stack 10" Font-Bold></asp:Label> </asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label24" runat="server" Text="Stack 11" Font-Bold></asp:Label> </asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label25" runat="server" Text="Stack 12" Font-Bold></asp:Label> </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>            
+                    <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label26" runat="server" Text="Noood" Font-Bold></asp:Label></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox55" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox56" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox57" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox58" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox59" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox60" runat="server"/></asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell HorizontalAlign="Center" Height="80px"><asp:Label ID="Label27" runat="server" Text="Bin" Font-Bold></asp:Label></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox61" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox62" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox63" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox64" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox65" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox66" runat="server"/></asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label28" runat="server" Text="TT6" Font-Bold></asp:Label></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox67" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox68" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox69" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox70" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox71" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox72" runat="server"/></asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label29" runat="server" Text="TT5" Font-Bold></asp:Label></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox73" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox74" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox75" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox76" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox77" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox78" runat="server"/></asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label30" runat="server" Text="TT4" Font-Bold></asp:Label></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox79" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox80" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox81" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox82" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox83" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox84" runat="server"/></asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label31" runat="server" Text="TT3" Font-Bold></asp:Label></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox85" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox86" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox87" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox88" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox89" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox90" runat="server"/></asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label32" runat="server" Text="TT2" Font-Bold></asp:Label></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox91" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox92" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox93" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox94" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox95" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox96" runat="server"/></asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label33" runat="server" Text="TT1" Font-Bold></asp:Label></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox97" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox98" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox99" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox100" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox101" runat="server"/></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox102" runat="server"/></asp:TableCell>
+                </asp:TableRow>
+                </asp:Table>
+            </asp:TableCell>
+
+            </asp:TableRow>
+            </asp:Table>
+        </div>
     </div>
-    <p>
-        Alliance:
-        <asp:DropDownList ID="dllAlliance" runat="server">
-            <asp:ListItem>Blue</asp:ListItem>
-            <asp:ListItem>Red</asp:ListItem>
-        </asp:DropDownList>
-    </p>
-    <p>
-        What did they do during Autonomous?
-        <asp:DropDownList ID="dllAutoSelect" runat="server" OnSelectedIndexChanged="dllAutoSelect_SelectedIndexChanged">
-            <asp:ListItem>No Autonomous</asp:ListItem>
-            <asp:ListItem>Stack&#39;d Totes</asp:ListItem>
-            <asp:ListItem>Grabs Bins</asp:ListItem>
-            <asp:ListItem>Removes Bins from step</asp:ListItem>
-            <asp:ListItem>Drives Forward</asp:ListItem>
-            <asp:ListItem>Collected Gray Totes</asp:ListItem>
-            <asp:ListItem>Got Stuck</asp:ListItem>
-            <asp:ListItem>Other</asp:ListItem>
-        </asp:DropDownList>
-    </p>
-    <p>
-        Do they pick up totes from the HP or the Landfill Zone?<asp:CheckBoxList ID="CheckBoxList3"
-            runat="server" Style="margin-right: 46px">
-            <asp:ListItem>Human Player</asp:ListItem>
-            <asp:ListItem>Landfill Zone</asp:ListItem>
-        </asp:CheckBoxList>
-    </p>
-    <p>
-        Can they pick up totes?<asp:RadioButtonList ID="RadioButtonList1" runat="server">
-            <asp:ListItem>Yes</asp:ListItem>
-            <asp:ListItem>NO</asp:ListItem>
-            <asp:ListItem>N.E.I.</asp:ListItem>
-        </asp:RadioButtonList>
-    </p>
-    <p>
-        How many totes can they hold ?<asp:DropDownList ID="DropDownList1" runat="server">
-            <asp:ListItem>1</asp:ListItem>
-            <asp:ListItem>2</asp:ListItem>
-            <asp:ListItem>3</asp:ListItem>
-            <asp:ListItem>4</asp:ListItem>
-            <asp:ListItem>5</asp:ListItem>
-            <asp:ListItem>6</asp:ListItem>
-        </asp:DropDownList>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; And do they hold the totes on the interior
-        or exterior of the robot?<asp:DropDownList ID="DropDownList2" runat="server">
-            <asp:ListItem>Interior</asp:ListItem>
-            <asp:ListItem>Exterior</asp:ListItem>
-        </asp:DropDownList>
-    </p>
-    <p>
-        Can they pick up bins?<asp:RadioButtonList ID="RadioButtonList2" runat="server" Height="16px">
-            <asp:ListItem>Yes</asp:ListItem>
-            <asp:ListItem>NO</asp:ListItem>
-            <asp:ListItem>N.E.I.</asp:ListItem>
-        </asp:RadioButtonList>
-        &nbsp; And can they stack them?
-        <asp:RadioButtonList ID="RadioButtonList3" runat="server" Height="16px">
-            <asp:ListItem>Yes</asp:ListItem>
-            <asp:ListItem>NO</asp:ListItem>
-            <asp:ListItem>N.E.I.</asp:ListItem>
-        </asp:RadioButtonList>
-    </p>
-    <p>
-        How good is their maneuvering?
-        <asp:DropDownList ID="DropDownList3" runat="server">
-            <asp:ListItem>Poor</asp:ListItem>
-            <asp:ListItem>Okay</asp:ListItem>
-            <asp:ListItem>Average</asp:ListItem>
-            <asp:ListItem>Good</asp:ListItem>
-            <asp:ListItem>Very Good</asp:ListItem>
-        </asp:DropDownList>
-        &nbsp;</p>
-    <p>
-        Did the robot meander (wander aimlessly?)
-        <asp:RadioButtonList ID="RadioButtonList4" runat="server" Height="16px">
-            <asp:ListItem>Yes</asp:ListItem>
-            <asp:ListItem>NO</asp:ListItem>
-            <asp:ListItem>N.E.I.</asp:ListItem>
-        </asp:RadioButtonList>
-    </p>
-    <p>
-        What kind of Coopertition do they attempt/complete?
-        <asp:DropDownList ID="DropDownList4" runat="server">
-            <asp:ListItem>Coopertition Stack</asp:ListItem>
-            <asp:ListItem>Coopertition Set</asp:ListItem>
-            <asp:ListItem>Did not attempt</asp:ListItem>
-        </asp:DropDownList>
-        &nbsp;
-    </p>
-    <p>
-        &nbsp;&nbsp; Were they able to complete it?
-        <asp:RadioButtonList ID="RadioButtonList6" runat="server">
-            <asp:ListItem>Yes</asp:ListItem>
-            <asp:ListItem>No</asp:ListItem>
-            <asp:ListItem>N/A</asp:ListItem>
-        </asp:RadioButtonList>
-    </p>
-    <p>
-        Can they insert pool noodles in the bin?
-        <asp:RadioButtonList ID="RadioButtonList7" runat="server" Height="16px">
-            <asp:ListItem>Yes</asp:ListItem>
-            <asp:ListItem>NO</asp:ListItem>
-            <asp:ListItem>N.E.I.</asp:ListItem>
-        </asp:RadioButtonList>
-        &nbsp;&nbsp; Was the robot impeded by stray pool noodles?<asp:RadioButton ID="RadioButton26"
-            runat="server" Text="Yes" />
-        <asp:RadioButton ID="RadioButton27" runat="server" Text="No" />
-    </p>
-    <p>
-        How good is HP (Human Player)??<asp:DropDownList ID="DropDownList5" runat="server">
-            <asp:ListItem>Pretty Bad</asp:ListItem>
-            <asp:ListItem>Meh</asp:ListItem>
-            <asp:ListItem>Eh, alright</asp:ListItem>
-            <asp:ListItem>I could work with this</asp:ListItem>
-            <asp:ListItem>Yeah he&#39;s alright</asp:ListItem>
-            <asp:ListItem>Considerable</asp:ListItem>
-            <asp:ListItem>Aw yissss</asp:ListItem>
-        </asp:DropDownList>
-    </p>
-    <p>
-        Do they have more speed or torque?
-        <asp:DropDownList ID="DropDownList6" runat="server">
-            <asp:ListItem>Speed</asp:ListItem>
-            <asp:ListItem>Torque</asp:ListItem>
-            <asp:ListItem>Not noticeable</asp:ListItem>
-        </asp:DropDownList>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; How good is their grip on the object they&#39;re
-        holding?<asp:CheckBoxList ID="CheckBoxList2" runat="server">
-            <asp:ListItem>Tote slips</asp:ListItem>
-            <asp:ListItem>Bin slips</asp:ListItem>
-            <asp:ListItem>Pretty Secure</asp:ListItem>
-            <asp:ListItem>N.E.I.</asp:ListItem>
-            <asp:ListItem>Not good at maneuvering while holding the bin/tote</asp:ListItem>
-        </asp:CheckBoxList>
-    </p>
-    <p>
-        Is the robot easily damaged?
-        <asp:RadioButton ID="RadioButton28" runat="server" Text="Yasssss" />
-        <asp:RadioButton ID="RadioButton29" runat="server" Text="Nah" />
-    </p>
+    <div id="Notes">
+    
+    </div>
+    </ContentTemplate>
+</asp:UpdatePanel>  
 </asp:Content>
