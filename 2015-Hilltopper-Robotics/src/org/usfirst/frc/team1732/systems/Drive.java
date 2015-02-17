@@ -11,10 +11,10 @@ public class Drive
 {
 
 	//*/ motors
-	private CANTalon m_leftFrontMotor = new CANTalon(13);
-	private CANTalon m_rightFrontMotor = new CANTalon(12);
-	private CANTalon m_leftBackMotor = new CANTalon(11);
-	private CANTalon m_rightBackMotor = new CANTalon(10);
+	private CANTalon m_leftFrontMotor = new CANTalon(24);
+	private CANTalon m_rightFrontMotor = new CANTalon(21);
+	private CANTalon m_leftBackMotor = new CANTalon(13);
+	private CANTalon m_rightBackMotor = new CANTalon(22);
 	//*/
 
 	//*/ accel
@@ -102,10 +102,10 @@ public class Drive
 		m_leftBackMotor.enableControl();
 		m_rightBackMotor.enableControl();
 		
-		m_leftFrontMotor.changeControlMode(ControlMode.Speed);
-		m_rightFrontMotor.changeControlMode(ControlMode.Speed);
-		m_leftBackMotor.changeControlMode(ControlMode.Speed);
-		m_rightBackMotor.changeControlMode(ControlMode.Speed);
+		//m_leftFrontMotor.changeControlMode(ControlMode.Speed);
+		//m_rightFrontMotor.changeControlMode(ControlMode.Speed);
+		//m_leftBackMotor.changeControlMode(ControlMode.Speed);
+		//m_rightBackMotor.changeControlMode(ControlMode.Speed);
 		
 		m_drive.setInvertedMotor(MotorType.kFrontLeft, true);
 		m_drive.setInvertedMotor(MotorType.kRearLeft, true);

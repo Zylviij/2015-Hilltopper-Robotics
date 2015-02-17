@@ -19,10 +19,10 @@ public class Robot extends IterativeRobot
 {
 	
 	// creates all buttons and joysticks
-	static IO m_io;
+	IO m_io;
 		
 	// creates all robot parts (motors, solenoids, sensors)
-	static RobotMap m_robotMap;
+	RobotMap m_robotMap;
 		
 	/**
      * This function is run when the robot is first started up and should be
@@ -47,17 +47,12 @@ public class Robot extends IterativeRobot
     	m_robotMap.makeSafe();
     }
     
-    private boolean m_dpFirstRun = true;
     /**
      * This function is called periodically during disabled mode.
      */
     public void disabledPeriodic()
     {
-    	if (m_dpFirstRun)
-    	{
-            System.out.println("In disabled Periodic mode!");
-            m_dpFirstRun = false;
-        }
+
     }
     
     Auto auto;
@@ -72,11 +67,6 @@ public class Robot extends IterativeRobot
      */
     public void autonomousInit()
     {
-    	/*
-    	startTime = System.currentTimeMillis();
-    	m_autonMode = (int) SmartDashboard.getNumber("auton mode");
-    	distanceConstant=1;
-    	*/
     	auto = new Auto();
     	mode = (int) SmartDashboard.getNumber("Auton Mode", 0);
     }
@@ -105,22 +95,13 @@ public class Robot extends IterativeRobot
     	m_robotMap.m_drive.teleopInit();
     }
     
-    byte i = 0; // byte cuz wai naat?
+    byte i = 0;
     /**
      * This function is called periodically during teleop mode.
      */
     public void teleopPeriodic()
     {
-    	//* drive
-    	//if (m_io.getCentering()) {
-    	//	m_robotMap.m_drive.driveToTote(m_robotMap.m_intake.where());
-    	//} else {
-    		m_robotMap.m_drive.drive(m_io);
-    		m_robotMap.m_craaa.testForTheWanagon(SmartDashboard.getBoolean("Craaa Solenoid", false), SmartDashboard.getBoolean("Craaa Motor +", false), SmartDashboard.getBoolean("Craaa Motor -", false));
-    		m_robotMap.m_intake.testFortTheWanagon(SmartDashboard.getBoolean("Intake Solenoid", false), SmartDashboard.getBoolean("Intake Motor +", false), SmartDashboard.getBoolean("Intake Motor -", false));
-    		m_robotMap.m_lift.testForTheWanagon(SmartDashboard.getBoolean("Lift Motor +", false), SmartDashboard.getBoolean("Lift Motor -", false), SmartDashboard.getBoolean("Lift Servo +", false), SmartDashboard.getBoolean("Lift Servo -", false));
-    	//}
-    	//*/
+  		m_robotMap.teleop(m_io);
     	
     	//*/
    		if (i++ % 10 == 0) {
@@ -142,17 +123,12 @@ public class Robot extends IterativeRobot
     	
     }
     
-    private boolean tpFirstRun = true;
     /**
      * This function is called periodically during test mode
      */
     public void testPeriodic()
     {
-    	if (tpFirstRun)
-    	{
-            System.out.println("In test Periodic mode!");
-            tpFirstRun = false;
-        }
+    	
     }
     
     //*
