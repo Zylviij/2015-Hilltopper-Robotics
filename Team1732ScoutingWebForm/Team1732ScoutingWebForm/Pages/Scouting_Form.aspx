@@ -6,6 +6,7 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">  
     <ContentTemplate>
     <h2>
@@ -48,30 +49,30 @@
                         <asp:TableRow>
                             <asp:TableCell>Tote-set</asp:TableCell>
                             <asp:TableCell>
-                                <asp:RadioButton ID="toteSet_Yes" runat="server" /></asp:TableCell>
-                            <asp:TableCell>
-                                <asp:RadioButton ID="toteSet_No" runat="server" /></asp:TableCell>
+                                <asp:RadioButton ID="toteSet_Yes" runat="server" AutoPostBack="True" GroupName="tote_set" /></asp:TableCell>
+                            <asp:TableCell AutoPostBack="True">
+                                <asp:RadioButton ID="toteSet_No" runat="server" AutoPostBack="True" GroupName="tote_set" /></asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow>
                             <asp:TableCell>Tote-stack</asp:TableCell>
                             <asp:TableCell>
-                                <asp:RadioButton ID="toteStack_Yes" runat="server" /></asp:TableCell>
+                                <asp:RadioButton ID="toteStack_Yes" runat="server" AutoPostBack="True" GroupName="tote_stack" /></asp:TableCell>
                             <asp:TableCell>
-                                <asp:RadioButton ID="toteStack_No" runat="server" /></asp:TableCell>
+                                <asp:RadioButton ID="toteStack_No" runat="server" AutoPostBack="True" GroupName="tote_stack" /></asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow>
                             <asp:TableCell>Robot-set</asp:TableCell>
                             <asp:TableCell>
-                                <asp:RadioButton ID="robotSet_Yes" runat="server" /></asp:TableCell>
+                                <asp:RadioButton ID="robotSet_Yes" runat="server" AutoPostBack="True" GroupName="robot_set" /></asp:TableCell>
                             <asp:TableCell>
-                                <asp:RadioButton ID="robotSet_No" runat="server" /></asp:TableCell>
+                                <asp:RadioButton ID="robotSet_No" runat="server" AutoPostBack="True" GroupName="robot_set" /></asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow>
                             <asp:TableCell>Mobility</asp:TableCell>
                             <asp:TableCell>
-                                <asp:RadioButton ID="mobility_Yes" runat="server" /></asp:TableCell>
+                                <asp:RadioButton ID="mobility_Yes" runat="server" AutoPostBack="True" GroupName="mobility" /></asp:TableCell>
                             <asp:TableCell>
-                                <asp:RadioButton ID="mobility_No" runat="server" /></asp:TableCell>
+                                <asp:RadioButton ID="mobility_No" runat="server" AutoPostBack="True" GroupName="mobility" /></asp:TableCell>
                         </asp:TableRow>
                     </asp:Table>
                 </asp:TableCell>
@@ -84,13 +85,13 @@
                         </asp:TableRow>
                         <asp:TableRow>
                             <asp:TableCell>Success</asp:TableCell>
-                            <asp:TableCell><asp:RadioButton ID="RadioButton1" runat="server" /></asp:TableCell>
-                            <asp:TableCell><asp:RadioButton ID="RadioButton2" runat="server" /></asp:TableCell>                   
+                            <asp:TableCell><asp:RadioButton ID="coop_Stack_Success" runat="server" AutoPostBack="True" GroupName="coop_stack" /></asp:TableCell>
+                            <asp:TableCell><asp:RadioButton ID="coop_Set_Success" runat="server" AutoPostBack="True" GroupName="coop_set" /></asp:TableCell>                   
                         </asp:TableRow>
                         <asp:TableRow>
                             <asp:TableCell>Attempted</asp:TableCell>
-                            <asp:TableCell><asp:RadioButton ID="RadioButton3" runat="server" /></asp:TableCell>
-                            <asp:TableCell><asp:RadioButton ID="RadioButton4" runat="server" /></asp:TableCell>                    
+                            <asp:TableCell><asp:RadioButton ID="coop_Stack_Attempted" runat="server" AutoPostBack="True" GroupName="coop_stack" /></asp:TableCell>
+                            <asp:TableCell><asp:RadioButton ID="coop_Set_Attempted" runat="server" AutoPostBack="True" GroupName="coop_set"/></asp:TableCell>                    
                         </asp:TableRow>
                     </asp:Table>        
                 </asp:TableCell>
@@ -127,7 +128,7 @@
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox9" runat="server"/></asp:TableCell>
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox10" runat="server"/></asp:TableCell>
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox11" runat="server"/></asp:TableCell>
-                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox12" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox12" runat="server" oncheckedchanged="enableMoarStacks_CheckedChanged" AutoPostBack="True"/></asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell HorizontalAlign="Center" Height="80px"><asp:Label ID="Label13" runat="server" Text="Bin" Font-Bold></asp:Label></asp:TableCell>
@@ -136,7 +137,7 @@
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox15" runat="server"/></asp:TableCell>
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox16" runat="server"/></asp:TableCell>
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox17" runat="server"/></asp:TableCell>
-                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox18" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox18" runat="server" oncheckedchanged="enableMoarStacks_CheckedChanged" AutoPostBack="True"/></asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label14" runat="server" Text="TT6" Font-Bold></asp:Label></asp:TableCell>
@@ -145,7 +146,7 @@
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox21" runat="server"/></asp:TableCell>
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox22" runat="server"/></asp:TableCell>
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox23" runat="server"/></asp:TableCell>
-                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox24" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox24" runat="server" oncheckedchanged="enableMoarStacks_CheckedChanged" AutoPostBack="True"/></asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label15" runat="server" Text="TT5" Font-Bold></asp:Label></asp:TableCell>
@@ -154,7 +155,7 @@
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox27" runat="server"/></asp:TableCell>
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox28" runat="server"/></asp:TableCell>
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox29" runat="server"/></asp:TableCell>
-                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox30" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox30" runat="server" oncheckedchanged="enableMoarStacks_CheckedChanged" AutoPostBack="True"/></asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label16" runat="server" Text="TT4" Font-Bold></asp:Label></asp:TableCell>
@@ -163,7 +164,7 @@
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox33" runat="server"/></asp:TableCell>
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox34" runat="server"/></asp:TableCell>
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox35" runat="server"/></asp:TableCell>
-                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox36" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox36" runat="server" oncheckedchanged="enableMoarStacks_CheckedChanged" AutoPostBack="True"/></asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label17" runat="server" Text="TT3" Font-Bold></asp:Label></asp:TableCell>
@@ -172,7 +173,7 @@
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox39" runat="server"/></asp:TableCell>
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox40" runat="server"/></asp:TableCell>
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox41" runat="server"/></asp:TableCell>
-                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox42" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox42" runat="server" oncheckedchanged="enableMoarStacks_CheckedChanged" AutoPostBack="True"/></asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label18" runat="server" Text="TT2" Font-Bold></asp:Label></asp:TableCell>
@@ -181,7 +182,7 @@
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox45" runat="server"/></asp:TableCell>
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox46" runat="server"/></asp:TableCell>
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox47" runat="server"/></asp:TableCell>
-                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox48" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox48" runat="server" oncheckedchanged="enableMoarStacks_CheckedChanged" AutoPostBack="True"/></asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell HorizontalAlign="Center"><asp:Label ID="Label19" runat="server" Text="TT1" Font-Bold></asp:Label></asp:TableCell>
@@ -190,7 +191,7 @@
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox51" runat="server"/></asp:TableCell>
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox52" runat="server"/></asp:TableCell>
                 <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox53" runat="server"/></asp:TableCell>
-                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox54" runat="server"/></asp:TableCell>
+                <asp:TableCell HorizontalAlign="Center"><asp:CheckBox ID="CheckBox54" runat="server" oncheckedchanged="enableMoarStacks_CheckedChanged" AutoPostBack="True"/></asp:TableCell>
             </asp:TableRow>
             </asp:Table>
         </asp:TableCell>
@@ -200,9 +201,6 @@
         <br />
     </div>
     <div id="moreToteStacks">
-        <asp:CheckBox ID="enableMoarStacks" runat="server" 
-            oncheckedchanged="enableMoarStacks_CheckedChanged" 
-            Text="Enable Moar Stacks" AutoPostBack="True" />
             <div id="moreToteStacksTable">
             <asp:Table ID="toteStacksSixPlus" runat="server" CellPadding="5" 
                 HorizontalAlign="Center" Visible="False">
@@ -298,7 +296,16 @@
         </div>
     </div>
     <div id="Notes">
-    
+    <asp:Label ID="Label34" runat="server" Text="Match notes " Font-Bold Font-Size=Large></asp:Label>
+    <asp:Label ID="Label35" runat="server" 
+            Text="(No bullets/hyphens, will be saved as one block of text)" Font-Size=Small></asp:Label>
+    <br />
+    <asp:TextBox ID="TextBox3" runat="server" TextMode="MultiLine" Height="300px" Width="100%"></asp:TextBox>
+    </div>
+    <div id="Submit" align="center" dir="ltr">
+    <br />
+        <asp:Button ID="btn_Submit" runat="server" Text="Submit" Height="50px" 
+            Width="100px" onclick="btn_Submit_Click" />
     </div>
     </ContentTemplate>
 </asp:UpdatePanel>  

@@ -10,3 +10,7 @@ C:\Users\mduffy\Documents\Visual Studio 2010\Projects\Team1732ScoutingWebForm\Te
 C:\Users\mduffy\Documents\Visual Studio 2010\Projects\Team1732ScoutingWebForm\Team1732ScoutingWebForm\bin\Team1732ScoutingWebForm.pdb
 C:\Users\mduffy\Documents\Visual Studio 2010\Projects\Team1732ScoutingWebForm\Team1732ScoutingWebForm\obj\Debug\Team1732ScoutingWebForm.dll
 C:\Users\mduffy\Documents\Visual Studio 2010\Projects\Team1732ScoutingWebForm\Team1732ScoutingWebForm\obj\Debug\Team1732ScoutingWebForm.pdb
+C:\github\2015-Hilltopper-Robotics\Team1732ScoutingWebForm\Team1732ScoutingWebForm\bin\Team1732ScoutingWebForm.dll
+C:\github\2015-Hilltopper-Robotics\Team1732ScoutingWebForm\Team1732ScoutingWebForm\bin\Team1732ScoutingWebForm.pdb
+C:\github\2015-Hilltopper-Robotics\Team1732ScoutingWebForm\Team1732ScoutingWebForm\obj\Debug\Team1732ScoutingWebForm.dll
+C:\github\2015-Hilltopper-Robotics\Team1732ScoutingWebForm\Team1732ScoutingWebForm\obj\Debug\Team1732ScoutingWebForm.pdb
