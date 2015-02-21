@@ -8,69 +8,52 @@ public class Intake
 {
 	// motors
 	//*/
-	private CANTalon m_motor = new CANTalon(15);
+	private CANTalon m_motorLeft = new CANTalon(12);
+	private CANTalon m_motorRight = new CANTalon(23);
 	//*/
 	
 	// solenoids
 	//*/
-	private Solenoid m_solenoid = new Solenoid(2);
-	//*/
-	
-	//*/
-	private Ultrasonic left = new Ultrasonic(0, 1);
-	private Ultrasonic right = new Ultrasonic(2, 3);
-	private Ultrasonic front = new Ultrasonic(4, 5);
+	private Solenoid m_solenoidRight = new Solenoid(2);
+	private Solenoid m_solenoidLeft = new Solenoid(1);
 	//*/
 	
 	//*/
 	private static final double STOP = 0;
-	private static final double IN_SPEED = 1;
-	private static final double OUT_SPEED = -1;
+	private static final double SPEED = 1;
+	private static final double LEFT = -1;
+	private static final double RIGHT = 1;
 	//*/
-	
-	private boolean intake = false;
-	
+		
 	/**
 	 * control the intake with joysticks and buttons
 	 * @param io
 	 */
+	//*/
 	public void controlIntake(IO io) {
-		// checks to see if the tote is in the robot
-		if (front.getRangeMM() < 30) {
-			intake = false;
-		}
-		
-		// direction control
-		//override (both)
 		if (io.getIntakeIn() && io.getIntakeOut()) {
-			m_motor.set(STOP);
-			intake = false;
+			m_motorLeft.set(LEFT * STOP);
+			m_motorRight.set(RIGHT * STOP);
 		}
-		// in
-		else if (intake || io.getIntakeIn()) {
-			m_motor.set(IN_SPEED);
-			intake = true;
+		else if (io.getIntakeIn()) {
+			m_motorLeft.set(LEFT * SPEED);
+			m_motorRight.set(RIGHT * SPEED);
 		}
-		// out
 		else if (io.getIntakeOut()) {
-			m_motor.set(OUT_SPEED);
-			intake = false;
+			m_motorLeft.set(LEFT * SPEED);
+			m_motorRight.set(RIGHT * SPEED);
 		}
-		// stop / do nothing
 		else {
-			m_motor.set(IN_SPEED);
+			m_motorLeft.set(LEFT * STOP);
+			m_motorRight.set(RIGHT * STOP);
 		}
 		
 		// extends intakes
-		m_solenoid.set(io.getIntakeInOut());
+		boolean solenoid = io.getIntakeInOut();
+		m_solenoidLeft.set(solenoid);
+		m_solenoidRight.set(solenoid);
 	}
-	
-	public Direction where() {
-		if (front.getRangeMM() < 30) return Direction.FRONT;
-		else if (right.getRangeMM() > left.getRangeMM()) return Direction.LEFT;
-		else if (right.getRangeMM() < left.getRangeMM()) return Direction.RIGHT;
-		return Direction.STOP;
-	}
+	//*/
 	
 	/**
 	 * make safe the intake
@@ -78,10 +61,14 @@ public class Intake
 	//*/
 	public void makeSafe()
 	{
-		m_motor.set(0);
-		m_motor.disable();
-		m_solenoid.set(false);
-		m_solenoid.free();
+		m_motorLeft.set(0);
+		m_motorLeft.disable();
+		m_motorRight.set(0);
+		m_motorRight.disable();
+		m_solenoidLeft.set(false);
+		m_solenoidRight.set(false);
+		m_solenoidLeft.free();
+		m_solenoidRight.free();
 	}
 	//*/
 }

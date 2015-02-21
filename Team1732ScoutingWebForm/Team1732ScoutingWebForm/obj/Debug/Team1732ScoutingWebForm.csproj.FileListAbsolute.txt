@@ -6,3 +6,7 @@ C:\Users\mduffy\Downloads\Team1732ScoutingWebForm\Team1732ScoutingWebForm\bin\Te
 C:\Users\mduffy\Downloads\Team1732ScoutingWebForm\Team1732ScoutingWebForm\bin\Team1732ScoutingWebForm.pdb
 C:\Users\mduffy\Downloads\Team1732ScoutingWebForm\Team1732ScoutingWebForm\obj\Debug\Team1732ScoutingWebForm.dll
 C:\Users\mduffy\Downloads\Team1732ScoutingWebForm\Team1732ScoutingWebForm\obj\Debug\Team1732ScoutingWebForm.pdb
+C:\Users\mduffy\Documents\Visual Studio 2010\Projects\Team1732ScoutingWebForm\Team1732ScoutingWebForm\bin\Team1732ScoutingWebForm.dll
+C:\Users\mduffy\Documents\Visual Studio 2010\Projects\Team1732ScoutingWebForm\Team1732ScoutingWebForm\bin\Team1732ScoutingWebForm.pdb
+C:\Users\mduffy\Documents\Visual Studio 2010\Projects\Team1732ScoutingWebForm\Team1732ScoutingWebForm\obj\Debug\Team1732ScoutingWebForm.dll
+C:\Users\mduffy\Documents\Visual Studio 2010\Projects\Team1732ScoutingWebForm\Team1732ScoutingWebForm\obj\Debug\Team1732ScoutingWebForm.pdb

@@ -2,6 +2,7 @@ package org.usfirst.frc.team1732.systems;
 
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.CANTalon.ControlMode;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.RobotDrive.MotorType;
@@ -10,10 +11,10 @@ public class Drive
 {
 
 	//*/ motors
-	private CANTalon m_leftFrontMotor = new CANTalon(13);
-	private CANTalon m_rightFrontMotor = new CANTalon(12);
-	private CANTalon m_leftBackMotor = new CANTalon(11);
-	private CANTalon m_rightBackMotor = new CANTalon(10);
+	private CANTalon m_leftFrontMotor = new CANTalon(24);
+	private CANTalon m_rightFrontMotor = new CANTalon(21);
+	private CANTalon m_leftBackMotor = new CANTalon(13);
+	private CANTalon m_rightBackMotor = new CANTalon(22);
 	//*/
 
 	//*/ accel
@@ -23,6 +24,20 @@ public class Drive
 	//*/ gyro
 	Gyro m_gyro = new Gyro(0);
 	//*/
+	
+	public double getAveEncoder() {
+		double[] encoders=getEncoders();
+		return (encoders[0] + encoders[1] + encoders[2] + encoders[3]) / 4;
+	}
+	
+	public double[] getEncoders() {
+		return new double[]{
+				m_leftFrontMotor.getEncPosition(),
+				m_rightFrontMotor.getEncPosition(),
+				m_leftBackMotor.getEncPosition(),
+				m_rightBackMotor.getEncPosition()
+		};
+	}
 	
 	//*/ drive
 	private RobotDrive m_drive = new RobotDrive(m_leftFrontMotor, m_leftBackMotor, m_rightFrontMotor, m_rightBackMotor);
@@ -81,15 +96,26 @@ public class Drive
 	 * start the motors
 	 */
 	//*/
-	public void init() {
+	public void teleopInit() {
 		m_leftFrontMotor.enableControl();
 		m_rightFrontMotor.enableControl();
 		m_leftBackMotor.enableControl();
 		m_rightBackMotor.enableControl();
+		
+		//m_leftFrontMotor.changeControlMode(ControlMode.Speed);
+		//m_rightFrontMotor.changeControlMode(ControlMode.Speed);
+		//m_leftBackMotor.changeControlMode(ControlMode.Speed);
+		//m_rightBackMotor.changeControlMode(ControlMode.Speed);
+		
 		m_drive.setInvertedMotor(MotorType.kFrontLeft, true);
 		m_drive.setInvertedMotor(MotorType.kRearLeft, true);
+	
 	}
 	//*/
+	
+	public void driveToTote(Direction direction) {
+		m_drive.mecanumDrive_Polar(direction.getDist(), direction.getDirection(), 0);
+	}
 	
 	/**
 	 * Set the drive for auto.
@@ -99,7 +125,7 @@ public class Drive
 	 */
 	public void drive(double mag, double dir, double rot)
 	{
-		m_drive.mecanumDrive_Polar(mag, dir, rot);
+		m_drive.mecanumDrive_Cartesian(mag, dir, rot, getGyro());
 	}
 	//*/
 	
