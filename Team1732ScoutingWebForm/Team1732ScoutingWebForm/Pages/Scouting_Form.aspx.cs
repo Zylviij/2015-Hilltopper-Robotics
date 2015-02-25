@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Team1732ScoutingWebForm
 {
-    enum bool Auto_Info
-    {
-        bool tote_set { get; set;}
+    //enum Auto_Info
+    //{
+    //    tote_set { get; set;}
         
-    }
+    //}
 
     public partial class _Default : System.Web.UI.Page
     {
