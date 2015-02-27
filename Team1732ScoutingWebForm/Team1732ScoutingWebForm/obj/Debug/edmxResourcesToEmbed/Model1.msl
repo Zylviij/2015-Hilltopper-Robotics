@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="Matches">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Matches)">
+        <MappingFragment StoreEntitySet="Matches">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+          <ScalarProperty Name="Match" ColumnName="Match" />
+          <ScalarProperty Name="Auto_tote_set" ColumnName="Auto_tote_set" />
+          <ScalarProperty Name="Auto_tote_stack" ColumnName="Auto_tote_stack" />
+          <ScalarProperty Name="Auto_robot_set" ColumnName="Auto_robot_set" />
+          <ScalarProperty Name="Auto_mobility" ColumnName="Auto_mobility" />
+          <ScalarProperty Name="Coop_stack" ColumnName="Coop_stack" />
+          <ScalarProperty Name="Coop_Set" ColumnName="Coop_Set" />
+          <ScalarProperty Name="Match_notes" ColumnName="Match_notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_1_Totes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_1_Totes)">
+        <MappingFragment StoreEntitySet="Stack_1_Totes">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="TT1" ColumnName="TT1" />
+          <ScalarProperty Name="TT2" ColumnName="TT2" />
+          <ScalarProperty Name="TT3" ColumnName="TT3" />
+          <ScalarProperty Name="TT4" ColumnName="TT4" />
+          <ScalarProperty Name="TT5" ColumnName="TT5" />
+          <ScalarProperty Name="TT6" ColumnName="TT6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_1_Toppers">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_1_Toppers)">
+        <MappingFragment StoreEntitySet="Stack_1_Toppers">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="Bin" ColumnName="Bin" />
+          <ScalarProperty Name="Noodle" ColumnName="Noodle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_2_Totes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_2_Totes)">
+        <MappingFragment StoreEntitySet="Stack_2_Totes">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="TT1" ColumnName="TT1" />
+          <ScalarProperty Name="TT2" ColumnName="TT2" />
+          <ScalarProperty Name="TT3" ColumnName="TT3" />
+          <ScalarProperty Name="TT4" ColumnName="TT4" />
+          <ScalarProperty Name="TT5" ColumnName="TT5" />
+          <ScalarProperty Name="TT6" ColumnName="TT6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_3_Totes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_3_Totes)">
+        <MappingFragment StoreEntitySet="Stack_3_Totes">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="TT1" ColumnName="TT1" />
+          <ScalarProperty Name="TT2" ColumnName="TT2" />
+          <ScalarProperty Name="TT3" ColumnName="TT3" />
+          <ScalarProperty Name="TT4" ColumnName="TT4" />
+          <ScalarProperty Name="TT5" ColumnName="TT5" />
+          <ScalarProperty Name="TT6" ColumnName="TT6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_4_Totes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_4_Totes)">
+        <MappingFragment StoreEntitySet="Stack_4_Totes">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="TT1" ColumnName="TT1" />
+          <ScalarProperty Name="TT2" ColumnName="TT2" />
+          <ScalarProperty Name="TT3" ColumnName="TT3" />
+          <ScalarProperty Name="TT4" ColumnName="TT4" />
+          <ScalarProperty Name="TT5" ColumnName="TT5" />
+          <ScalarProperty Name="TT6" ColumnName="TT6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_5_Totes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_5_Totes)">
+        <MappingFragment StoreEntitySet="Stack_5_Totes">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="TT1" ColumnName="TT1" />
+          <ScalarProperty Name="TT2" ColumnName="TT2" />
+          <ScalarProperty Name="TT3" ColumnName="TT3" />
+          <ScalarProperty Name="TT4" ColumnName="TT4" />
+          <ScalarProperty Name="TT5" ColumnName="TT5" />
+          <ScalarProperty Name="TT6" ColumnName="TT6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_6_Totes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_6_Totes)">
+        <MappingFragment StoreEntitySet="Stack_6_Totes">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="TT1" ColumnName="TT1" />
+          <ScalarProperty Name="TT2" ColumnName="TT2" />
+          <ScalarProperty Name="TT3" ColumnName="TT3" />
+          <ScalarProperty Name="TT4" ColumnName="TT4" />
+          <ScalarProperty Name="TT5" ColumnName="TT5" />
+          <ScalarProperty Name="TT6" ColumnName="TT6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_2_Toppers">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_2_Toppers)">
+        <MappingFragment StoreEntitySet="Stack_2_Toppers">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="Bin" ColumnName="Bin" />
+          <ScalarProperty Name="Noodle" ColumnName="Noodle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_3_Toppers">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_3_Toppers)">
+        <MappingFragment StoreEntitySet="Stack_3_Toppers">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="Bin" ColumnName="Bin" />
+          <ScalarProperty Name="Noodle" ColumnName="Noodle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_4_Toppers">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_4_Toppers)">
+        <MappingFragment StoreEntitySet="Stack_4_Toppers">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="Bin" ColumnName="Bin" />
+          <ScalarProperty Name="Noodle" ColumnName="Noodle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_5_Toppers">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_5_Toppers)">
+        <MappingFragment StoreEntitySet="Stack_5_Toppers">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="Bin" ColumnName="Bin" />
+          <ScalarProperty Name="Noodle" ColumnName="Noodle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_6_Toppers">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_6_Toppers)">
+        <MappingFragment StoreEntitySet="Stack_6_Toppers">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="Bin" ColumnName="Bin" />
+          <ScalarProperty Name="Noodle" ColumnName="Noodle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_10_Totes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_10_Totes)">
+        <MappingFragment StoreEntitySet="Stack_10_Totes">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="TT1" ColumnName="TT1" />
+          <ScalarProperty Name="TT2" ColumnName="TT2" />
+          <ScalarProperty Name="TT3" ColumnName="TT3" />
+          <ScalarProperty Name="TT4" ColumnName="TT4" />
+          <ScalarProperty Name="TT5" ColumnName="TT5" />
+          <ScalarProperty Name="TT6" ColumnName="TT6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_7_Toppers">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_7_Toppers)">
+        <MappingFragment StoreEntitySet="Stack_7_Toppers">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="Bin" ColumnName="Bin" />
+          <ScalarProperty Name="Noodle" ColumnName="Noodle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_8_Toppers">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_8_Toppers)">
+        <MappingFragment StoreEntitySet="Stack_8_Toppers">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="Bin" ColumnName="Bin" />
+          <ScalarProperty Name="Noodle" ColumnName="Noodle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_9_Toppers">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_9_Toppers)">
+        <MappingFragment StoreEntitySet="Stack_9_Toppers">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="Bin" ColumnName="Bin" />
+          <ScalarProperty Name="Noodle" ColumnName="Noodle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_10_Toppers">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_10_Toppers)">
+        <MappingFragment StoreEntitySet="Stack_10_Toppers">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="Bin" ColumnName="Bin" />
+          <ScalarProperty Name="Noodle" ColumnName="Noodle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_7_Totes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_7_Totes)">
+        <MappingFragment StoreEntitySet="Stack_7_Totes">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="TT1" ColumnName="TT1" />
+          <ScalarProperty Name="TT2" ColumnName="TT2" />
+          <ScalarProperty Name="TT3" ColumnName="TT3" />
+          <ScalarProperty Name="TT4" ColumnName="TT4" />
+          <ScalarProperty Name="TT5" ColumnName="TT5" />
+          <ScalarProperty Name="TT6" ColumnName="TT6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_8_Totes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_8_Totes)">
+        <MappingFragment StoreEntitySet="Stack_8_Totes">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="TT1" ColumnName="TT1" />
+          <ScalarProperty Name="TT2" ColumnName="TT2" />
+          <ScalarProperty Name="TT3" ColumnName="TT3" />
+          <ScalarProperty Name="TT4" ColumnName="TT4" />
+          <ScalarProperty Name="TT5" ColumnName="TT5" />
+          <ScalarProperty Name="TT6" ColumnName="TT6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_9_Totes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_9_Totes)">
+        <MappingFragment StoreEntitySet="Stack_9_Totes">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="TT1" ColumnName="TT1" />
+          <ScalarProperty Name="TT2" ColumnName="TT2" />
+          <ScalarProperty Name="TT3" ColumnName="TT3" />
+          <ScalarProperty Name="TT4" ColumnName="TT4" />
+          <ScalarProperty Name="TT5" ColumnName="TT5" />
+          <ScalarProperty Name="TT6" ColumnName="TT6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_11_Totes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_11_Totes)">
+        <MappingFragment StoreEntitySet="Stack_11_Totes">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="TT1" ColumnName="TT1" />
+          <ScalarProperty Name="TT2" ColumnName="TT2" />
+          <ScalarProperty Name="TT3" ColumnName="TT3" />
+          <ScalarProperty Name="TT4" ColumnName="TT4" />
+          <ScalarProperty Name="TT5" ColumnName="TT5" />
+          <ScalarProperty Name="TT6" ColumnName="TT6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_12_Totes">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_12_Totes)">
+        <MappingFragment StoreEntitySet="Stack_12_Totes">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="TT1" ColumnName="TT1" />
+          <ScalarProperty Name="TT2" ColumnName="TT2" />
+          <ScalarProperty Name="TT3" ColumnName="TT3" />
+          <ScalarProperty Name="TT4" ColumnName="TT4" />
+          <ScalarProperty Name="TT5" ColumnName="TT5" />
+          <ScalarProperty Name="TT6" ColumnName="TT6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_11_Toppers">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_11_Toppers)">
+        <MappingFragment StoreEntitySet="Stack_11_Toppers">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="Bin" ColumnName="Bin" />
+          <ScalarProperty Name="Noodle" ColumnName="Noodle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stack_12_Toppers">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Stack_12_Toppers)">
+        <MappingFragment StoreEntitySet="Stack_12_Toppers">
+          <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+          <ScalarProperty Name="Bin" ColumnName="Bin" />
+          <ScalarProperty Name="Noodle" ColumnName="Noodle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="MatchesStack_1_Totes" TypeName="Model1.MatchesStack_1_Totes" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_1_Totes">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_1_Totes_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MatchesStack_1_Toppers" TypeName="Model1.MatchesStack_1_Toppers" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_1_Toppers">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_1_Toppers_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MatchesStack_10_Toppers" TypeName="Model1.MatchesStack_10_Toppers" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_10_Toppers">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_10_Toppers_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MatchesStack_10_Totes" TypeName="Model1.MatchesStack_10_Totes" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_10_Totes">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_10_Totes_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MatchesStack_11_Toppers" TypeName="Model1.MatchesStack_11_Toppers" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_11_Toppers">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_11_Toppers_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MatchesStack_11_Totes" TypeName="Model1.MatchesStack_11_Totes" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_11_Totes">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_11_Totes_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MatchesStack_12_Toppers" TypeName="Model1.MatchesStack_12_Toppers" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_12_Toppers">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_12_Toppers_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MatchesStack_12_Totes" TypeName="Model1.MatchesStack_12_Totes" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_12_Totes">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_12_Totes_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MatchesStack_2_Toppers" TypeName="Model1.MatchesStack_2_Toppers" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_2_Toppers">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_2_Toppers_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MatchesStack_2_Totes" TypeName="Model1.MatchesStack_2_Totes" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_2_Totes">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_2_Totes_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MatchesStack_3_Toppers" TypeName="Model1.MatchesStack_3_Toppers" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_3_Toppers">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_3_Toppers_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MatchesStack_3_Totes" TypeName="Model1.MatchesStack_3_Totes" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_3_Totes">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_3_Totes_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MatchesStack_4_Toppers" TypeName="Model1.MatchesStack_4_Toppers" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_4_Toppers">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_4_Toppers_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MatchesStack_4_Totes" TypeName="Model1.MatchesStack_4_Totes" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_4_Totes">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_4_Totes_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MatchesStack_5_Toppers" TypeName="Model1.MatchesStack_5_Toppers" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_5_Toppers">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_5_Toppers_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MatchesStack_5_Totes" TypeName="Model1.MatchesStack_5_Totes" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_5_Totes">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_5_Totes_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MatchesStack_6_Toppers" TypeName="Model1.MatchesStack_6_Toppers" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_6_Toppers">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_6_Toppers_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MatchesStack_6_Totes" TypeName="Model1.MatchesStack_6_Totes" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_6_Totes">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_6_Totes_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MatchesStack_7_Toppers" TypeName="Model1.MatchesStack_7_Toppers" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_7_Toppers">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_7_Toppers_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MatchesStack_7_Totes" TypeName="Model1.MatchesStack_7_Totes" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_7_Totes">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_7_Totes_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MatchesStack_8_Toppers" TypeName="Model1.MatchesStack_8_Toppers" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_8_Toppers">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_8_Toppers_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MatchesStack_9_Toppers" TypeName="Model1.MatchesStack_9_Toppers" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_9_Toppers">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_9_Toppers_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MatchesStack_8_Totes" TypeName="Model1.MatchesStack_8_Totes" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_8_Totes">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_8_Totes_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MatchesStack_9_Totes" TypeName="Model1.MatchesStack_9_Totes" StoreEntitySet="Matches">
+      <EndProperty Name="Stack_9_Totes">
+        <ScalarProperty Name="Team_Match" ColumnName="Stack_9_Totes_Team_Match" />
+      </EndProperty>
+      <EndProperty Name="Matches">
+        <ScalarProperty Name="Team_Match" ColumnName="Team_Match" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
