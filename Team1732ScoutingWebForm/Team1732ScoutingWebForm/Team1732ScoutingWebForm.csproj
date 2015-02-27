@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\tote_bin_stack.jpg" />
+    <Content Include="Model1.edmx.sql" />
     <Content Include="Pages\Dashboard.aspx" />
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\ChangePasswordSuccess.aspx" />

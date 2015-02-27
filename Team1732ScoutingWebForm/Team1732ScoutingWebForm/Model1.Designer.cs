@@ -719,7 +719,7 @@ namespace Team1732ScoutingWebForm
         /// <summary>
         /// Create a new Matches object.
         /// </summary>
-        /// <param name="pK">Initial value of the PK property.</param>
+        /// <param name="team_Match">Initial value of the Team_Match property.</param>
         /// <param name="team">Initial value of the Team property.</param>
         /// <param name="match">Initial value of the Match property.</param>
         /// <param name="auto_tote_set">Initial value of the Auto_tote_set property.</param>
@@ -729,10 +729,10 @@ namespace Team1732ScoutingWebForm
         /// <param name="coop_stack">Initial value of the Coop_stack property.</param>
         /// <param name="coop_Set">Initial value of the Coop_Set property.</param>
         /// <param name="match_notes">Initial value of the Match_notes property.</param>
-        public static Matches CreateMatches(global::System.String pK, global::System.Int32 team, global::System.Int32 match, global::System.Boolean auto_tote_set, global::System.Boolean auto_tote_stack, global::System.Boolean auto_robot_set, global::System.Boolean auto_mobility, global::System.Boolean coop_stack, global::System.Boolean coop_Set, global::System.String match_notes)
+        public static Matches CreateMatches(global::System.String team_Match, global::System.Int32 team, global::System.Int32 match, global::System.Boolean auto_tote_set, global::System.Boolean auto_tote_stack, global::System.Boolean auto_robot_set, global::System.Boolean auto_mobility, global::System.Boolean coop_stack, global::System.Boolean coop_Set, global::System.String match_notes)
         {
             Matches matches = new Matches();
-            matches.PK = pK;
+            matches.Team_Match = team_Match;
             matches.Team = team;
             matches.Match = match;
             matches.Auto_tote_set = auto_tote_set;
@@ -754,27 +754,27 @@ namespace Team1732ScoutingWebForm
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String PK
+        public global::System.String Team_Match
         {
             get
             {
-                return _PK;
+                return _Team_Match;
             }
             set
             {
-                if (_PK != value)
+                if (_Team_Match != value)
                 {
-                    OnPKChanging(value);
-                    ReportPropertyChanging("PK");
-                    _PK = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("PK");
-                    OnPKChanged();
+                    OnTeam_MatchChanging(value);
+                    ReportPropertyChanging("Team_Match");
+                    _Team_Match = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("Team_Match");
+                    OnTeam_MatchChanged();
                 }
             }
         }
-        private global::System.String _PK;
-        partial void OnPKChanging(global::System.String value);
-        partial void OnPKChanged();
+        private global::System.String _Team_Match;
+        partial void OnTeam_MatchChanging(global::System.String value);
+        partial void OnTeam_MatchChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
