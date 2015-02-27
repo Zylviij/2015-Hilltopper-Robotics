@@ -38,10 +38,15 @@ public class IO
 	private Button m_resetGyroLeft = new JoystickButton(m_leftJoystick, 11);
 	private Button m_resetGyroRight = new JoystickButton(m_rightJoystick, 11);
 	
-	public Button m_test1 = new JoystickButton(m_rightJoystick, 8);
-	public Button m_test2 = new JoystickButton(m_rightJoystick, 10);
-	public Button m_test3 = new JoystickButton(m_rightJoystick, 12);
-	
+	private Button m_dropLeft = new JoystickButton(m_leftJoystick, 12);
+	private Button m_dropRight = new JoystickButton(m_rightJoystick, 12);
+		
+	public Button m_intakeInLeft = new JoystickButton(m_leftJoystick, 9);
+	public Button m_intakeInRight = new JoystickButton(m_rightJoystick, 9);
+	public Button m_intakeOutLeft = new JoystickButton(m_leftJoystick, 10);
+	public Button m_intakeOutRight = new JoystickButton(m_rightJoystick, 10);
+	public Button m_intakeSolenoidLeft = new JoystickButton(m_leftJoystick, 8);
+	public Button m_intakeSolenoidRight = new JoystickButton(m_rightJoystick, 8);
 
 	/*
 	 * Buttons
@@ -63,12 +68,28 @@ public class IO
 	
 	private Button m_intakeIn = new JoystickButton(m_buttons, 7);
 	
-	private Button m_intakeInOut = new JoystickButton(m_buttons, 8);
+	//private Button m_intakeInOut = new JoystickButton(m_buttons, 8);
 		
 	private Button m_lift = new JoystickButton(m_buttons, 9);
 	
 	private Button m_drop = new JoystickButton(m_buttons, 10);
 	//*/
+	
+	public boolean getIntakeInJoy() {
+		return m_intakeInLeft.get() || m_intakeInRight.get();
+	}
+
+	public boolean getIntakeOutJoy() {
+		return m_intakeOutLeft.get() || m_intakeOutRight.get();
+	}
+	
+	public boolean getIntakeSolenoidJoy() {
+		return m_intakeSolenoidLeft.get() || m_intakeSolenoidRight.get();
+	}
+	
+	public boolean getDropJoy() {
+		return m_dropLeft.get() || m_dropRight.get();
+	}
 	
 	/**
 	 * centering buttons are depressed?
@@ -144,7 +165,7 @@ public class IO
 	 * open or close intake arms
 	 * @return true if button is depressed
 	 */
-	//*/
+	/*/
 	public boolean getIntakeInOut() {
 		return m_intakeInOut.get();
 	}
@@ -359,7 +380,7 @@ public class IO
 	 */
 	//*/
 	public boolean getLift() {
-		return m_lift.get();
+		return m_arcadeRight.get();
 	}
 	//*/
 	

@@ -96,7 +96,7 @@ public class Drive
 	 * start the motors
 	 */
 	//*/
-	public void teleopInit() {
+	public void init() {
 		m_leftFrontMotor.enableControl();
 		m_rightFrontMotor.enableControl();
 		m_leftBackMotor.enableControl();

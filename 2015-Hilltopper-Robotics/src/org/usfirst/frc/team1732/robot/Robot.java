@@ -1,7 +1,6 @@
 
 package org.usfirst.frc.team1732.robot;
 
-import org.usfirst.frc.team1732.systems.Auto;
 import org.usfirst.frc.team1732.systems.IO;
 import org.usfirst.frc.team1732.systems.RobotMap;
 
@@ -19,10 +18,11 @@ public class Robot extends IterativeRobot
 {
 	
 	// creates all buttons and joysticks
-	IO m_io;
+	private IO m_io;
 		
 	// creates all robot parts (motors, solenoids, sensors)
-	RobotMap m_robotMap;
+	private RobotMap m_robotMap;
+
 		
 	/**
      * This function is run when the robot is first started up and should be
@@ -47,28 +47,32 @@ public class Robot extends IterativeRobot
     	m_robotMap.makeSafe();
     }
     
+    
+    int a = 0;
     /**
      * This function is called periodically during disabled mode.
      */
     public void disabledPeriodic()
     {
-
+    	if (++a % 100 == 0) {
+    		System.out.println(a);
+    	}
     }
     
-    Auto auto;
+    //Auto auto;
     /*
      * Autonomous Methods
      */
-    int m_autonMode;
-    int mode;
+    //int mode;
     /**
      * This function is run when the robot is first in
      * autonomous mode. 
      */
     public void autonomousInit()
     {
-    	auto = new Auto();
-    	mode = (int) SmartDashboard.getNumber("Auton Mode", 0);
+
+    	//auto = new Auto();
+    	//mode = (int) SmartDashboard.getNumber("Auton Mode", 0);
     }
     
     /**
@@ -78,7 +82,7 @@ public class Robot extends IterativeRobot
     //All distance values are completely wrong.
     public void autonomousPeriodic()
     {
-    	auto.doAuto(m_robotMap, m_io, m_autonMode);
+    	//auto.doAuto(m_robotMap, m_io, m_autonMode);
     }
     //*/
     
@@ -92,7 +96,7 @@ public class Robot extends IterativeRobot
      */
     public void teleopInit()
     {
-    	m_robotMap.m_drive.teleopInit();
+    	m_robotMap.init();
     }
     
     byte i = 0;
@@ -108,6 +112,7 @@ public class Robot extends IterativeRobot
     		setDashboard();
    		}
        	//*/
+
     }
     
     /*
@@ -141,6 +146,7 @@ public class Robot extends IterativeRobot
     	SmartDashboard.putBoolean("Right Joystick Arcade", m_io.getRightArcade());
     	SmartDashboard.putBoolean("Shift", m_io.getShift());
     	
+    	//*/
     	double[][] talonInfo = m_robotMap.m_drive.getCANTalon();
     	SmartDashboard.putNumber("Front Left Motor Output Current", talonInfo[0][0]);
     	SmartDashboard.putNumber("Front Right Motor Output Current", talonInfo[1][0]);
@@ -150,18 +156,16 @@ public class Robot extends IterativeRobot
     	SmartDashboard.putNumber("Front Right Motor Temperature", talonInfo[1][1]);
     	SmartDashboard.putNumber("Rear Left Motor Temperature", talonInfo[2][1]);
     	SmartDashboard.putNumber("Rear Right Motor Temperature", talonInfo[3][1]);
+    	//*/
     	
     	SmartDashboard.putNumber("Finesse Mode", m_io.getFinesseMode());
-    	//SmartDashboard.putNumber("Lift Pot", m_robotMap.m_lift.getLiftPot());
     	//SmartDashboard.putNumber("Drive Gyro", m_robotMap.m_drive.getGyro()%360);
     	
+    	//*/
     	double[] accels = m_robotMap.m_drive.getAccels();
     	SmartDashboard.putNumber("Accelerometer X", accels[0]);
     	SmartDashboard.putNumber("Accelerometer Y", accels[1]);
     	SmartDashboard.putNumber("Accelerometer Z", accels[2]);
-    	
-    	//boolean[] limits = m_robotMap.m_craaa.getLimits();
-    	//SmartDashboard.putBoolean("Craaa Top Limit", limits[0]);
-    	//SmartDashboard.putBoolean("Craaa Bottom Limit", limits[1]);
+    	//*/
     }//*/
 }

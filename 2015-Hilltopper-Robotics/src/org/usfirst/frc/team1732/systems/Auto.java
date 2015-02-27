@@ -17,10 +17,10 @@ public class Auto {
 	}
 	
 	public void doDefAuton(RobotMap robotMap, IO io) {
-		if (robotMap.m_drive.getAveEncoder() < 95 * INCH) 
+		/*if (robotMap.m_drive.getAveEncoder() < 95 * INCH) 
 		{
 			robotMap.m_drive.drive(0.4, 90, 0);
-		}
+		}*/
 	}
 }
 /*

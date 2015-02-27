@@ -14,34 +14,39 @@ public class Intake
 	
 	// solenoids
 	//*/
-	private Solenoid m_solenoidRight = new Solenoid(2);
-	private Solenoid m_solenoidLeft = new Solenoid(1);
+	private Solenoid m_solenoidRight = new Solenoid(1, 2);
+	private Solenoid m_solenoidLeft = new Solenoid(1, 1);
 	//*/
 	
 	//*/
 	private static final double STOP = 0;
-	private static final double SPEED = 1;
+	private static final double SPEED = 0.5;
 	private static final double LEFT = -1;
 	private static final double RIGHT = 1;
 	//*/
 		
+	public void init() {
+		m_motorLeft.enableControl();
+		m_motorRight.enableControl();
+	}
+	
 	/**
 	 * control the intake with joysticks and buttons
 	 * @param io
 	 */
 	//*/
 	public void controlIntake(IO io) {
-		if (io.getIntakeIn() && io.getIntakeOut()) {
+		if (io.getIntakeInJoy() && io.getIntakeOutJoy()) {
 			m_motorLeft.set(LEFT * STOP);
 			m_motorRight.set(RIGHT * STOP);
 		}
-		else if (io.getIntakeIn()) {
+		else if (io.getIntakeInJoy()) {
 			m_motorLeft.set(LEFT * SPEED);
 			m_motorRight.set(RIGHT * SPEED);
 		}
-		else if (io.getIntakeOut()) {
-			m_motorLeft.set(LEFT * SPEED);
-			m_motorRight.set(RIGHT * SPEED);
+		else if (io.getIntakeOutJoy()) {
+			m_motorLeft.set(-1 * LEFT * SPEED);
+			m_motorRight.set(-1 * RIGHT * SPEED);
 		}
 		else {
 			m_motorLeft.set(LEFT * STOP);
@@ -49,9 +54,9 @@ public class Intake
 		}
 		
 		// extends intakes
-		boolean solenoid = io.getIntakeInOut();
-		m_solenoidLeft.set(solenoid);
-		m_solenoidRight.set(solenoid);
+		boolean solenoid = io.getIntakeSolenoidJoy();
+		m_solenoidLeft.set(!solenoid);
+		m_solenoidRight.set(!solenoid);
 	}
 	//*/
 	
