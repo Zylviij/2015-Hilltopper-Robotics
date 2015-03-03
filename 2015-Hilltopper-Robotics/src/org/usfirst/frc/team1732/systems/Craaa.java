@@ -1,127 +1,88 @@
 package org.usfirst.frc.team1732.systems;
 
 import edu.wpi.first.wpilibj.CANTalon;
-import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.Solenoid;
 
 public class Craaa
 {
-	//*/
-	//private Solenoid m_solenoidAngle = new Solenoid(3);
+	/*
+	 * Actuators
+	 */
+	private Solenoid m_solenoidStow = new Solenoid(3);
 	private Solenoid m_solenoidOpen = new Solenoid(0);
-	//*/
 	
-	//*/
 	private CANTalon m_motor = new CANTalon(14);
-	//*/
 	
-	/*/
-	private DigitalInput m_limitTop = new DigitalInput(0);
-	private DigitalInput m_limitBottom = new DigitalInput(1);
-	//*/
+	/*
+	 * Sensors
+	 */
+	private Encoder m_encoder = new Encoder(2, 3);
 	
-	private static final double SPEED_LIMIT = 0.5;
-	private static final double STOP = 0;
-	private static final double ELEVATOR_SPEED = 0.4;
+	/*
+	 * Constants
+	 */
+	private static double minimum = Double.MAX_VALUE;
+	private static double maximum = 2000;
+	private static double UP_SPEED = 0.05;
+	private static double DOWN_SPEED = -0.05;
+	private static double SPEED = 0.5;
 	
-	/*/
-	private static int SPOT_GROUND = 0;
-	private static int SPOT_ONE_TOTE = 50;
-	private static int SPOT_STEP = 70;
-	private static int SPOT_TWO_TOTE = 100;
-	private static int SPOT_THREE_TOTE = 150;
-	private static int SPOT_FOUR_TOTE = 200;
-	private static int SPOT_FIVE_TOTE = 250;
-	//*/
+	Preferences prefs;
+	
+	public void init() {
+		// initalize motor
+		m_motor.enableControl();
+		/*
+		 * Grab from Dashboard
+		 */
+		UP_SPEED = prefs.getDouble("Craaa Up Speed", UP_SPEED);
+		DOWN_SPEED = prefs.getDouble("Craaa Down Speed", DOWN_SPEED);
+		SPEED = prefs.getDouble("Craaa Speed", SPEED);
+		maximum = prefs.getDouble("Craaa Maximum", maximum);
+	}
+	
+	public double getEncoder() {
+		return m_encoder.get();
+	}
+	public double getMinumum() {
+		return minimum;
+	}
+	
+	public double getDistanceFromBot() {
+		return getEncoder() - minimum;
+	}
+	
+	public double getPercentageToTop() {
+		return getDistanceFromBot() / maximum;
+	}
 	
 	/**
 	 * use the joysticks and buttons to control the craaa
 	 * @param io
 	 */
-	/*/
 	public void controlCraaa(IO io) {
-		
-		m_solenoid.set(io.getCraaaOpen());
-		
-		if (io.getCraaaToleranceUp()) {
-			SPOT_GROUND++;
-			SPOT_ONE_TOTE++;
-			SPOT_STEP++;
-			SPOT_TWO_TOTE++;
-			SPOT_THREE_TOTE++;
-			SPOT_FOUR_TOTE++;
-			SPOT_FIVE_TOTE++;
-		}
-		if (io.getCraaaToleranceDown()) {
-			SPOT_GROUND--;
-			SPOT_ONE_TOTE--;
-			SPOT_STEP--;
-			SPOT_TWO_TOTE--;
-			SPOT_THREE_TOTE--;
-			SPOT_FOUR_TOTE--;
-			SPOT_FIVE_TOTE--;
+		/*
+		 * Update Minimum
+		 */
+		if (getEncoder() < minimum) {
+			minimum = getEncoder();
 		}
 		
-		if (m_limitTop.get()) {
-			m_motor.set(-1 * SPEED_LIMIT);
-		}
-		else if (m_limitBottom.get()) {
-			m_motor.set(SPEED_LIMIT);
-		}
-		else {
-			if (io.getCraaaPos() == 0) {
-				m_motor.set((m_motor.getEncPosition() - SPOT_GROUND) * ELEVATOR_SPEED);
-			}
-			else if (io.getCraaaPos() == 1) {
-				m_motor.set((m_motor.getEncPosition() - SPOT_ONE_TOTE) * ELEVATOR_SPEED);
-			}
-			else if (io.getCraaaPos() == 2) {
-				m_motor.set((m_motor.getEncPosition() - SPOT_STEP) * ELEVATOR_SPEED);
-			}
-			else if (io.getCraaaPos() == 3) {
-				m_motor.set((m_motor.getEncPosition() - SPOT_TWO_TOTE) * ELEVATOR_SPEED);
-			}
-			else if (io.getCraaaPos() == 4) {
-				m_motor.set((m_motor.getEncPosition() - SPOT_THREE_TOTE) * ELEVATOR_SPEED);
-			}
-			else if (io.getCraaaPos() == 5) {
-				m_motor.set((m_motor.getEncPosition() - SPOT_FOUR_TOTE) * ELEVATOR_SPEED);
-			}
-			else if (io.getCraaaPos() == 6){
-				m_motor.set((m_motor.getEncPosition() - SPOT_FIVE_TOTE) * ELEVATOR_SPEED);
-			} else {
-				m_motor.set(STOP);
-			}
-		}
-	}
-	//*/
-	
-	/**
-	 * organizes limits for dashboard
-	 * @return craca limit switches for dashboard
-	 */
-	/*/
-	public boolean[] getLimits() {
-		return new boolean[]{m_limitTop.get(), m_limitBottom.get()};
-	}
-	//*/
-	
-	public void testForTheWanagon(boolean solenoid, boolean motorUp, boolean motorDown) {
-		if (motorUp) {
-			m_motor.set(SPEED_LIMIT);
-		} else if (motorDown) {
-			m_motor.set(-1 * SPEED_LIMIT);
-		} else  {
-			m_motor.set(STOP);
+		m_solenoidOpen.set(io.getOpenCraaa());
+		m_solenoidStow.set(io.getCraaaAngle());
+		
+		if (io.getCraaaUp()) {
+			minimum += UP_SPEED;
+		} else if (io.getCraaaDown()) {
+			minimum += DOWN_SPEED;
 		}
 		
-		m_solenoidOpen.set(solenoid);
+		m_motor.set((io.getCraaaHeight() - getPercentageToTop()) * SPEED);
+		
 	}
 	
-	/**
-	* Makes the robit not kill people
-	*/
-	//*/
 	public void makeSafe()
 	{
 		m_motor.set(0);
@@ -129,6 +90,8 @@ public class Craaa
 		
 		m_solenoidOpen.set(false);
 		m_solenoidOpen.free();
+		
+		m_solenoidStow.set(false);
+		m_solenoidStow.free();
 	}
-	//*/
 }

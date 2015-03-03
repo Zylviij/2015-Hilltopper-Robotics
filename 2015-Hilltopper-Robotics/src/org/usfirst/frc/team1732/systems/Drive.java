@@ -2,54 +2,45 @@ package org.usfirst.frc.team1732.systems;
 
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.CANTalon;
-import edu.wpi.first.wpilibj.CANTalon.ControlMode;
 import edu.wpi.first.wpilibj.Gyro;
+import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.RobotDrive.MotorType;
 
 public class Drive
 {
-
-	//*/ motors
+	/*
+	 * Actuators
+	 */
+	// motors
 	private CANTalon m_leftFrontMotor = new CANTalon(24);
 	private CANTalon m_rightFrontMotor = new CANTalon(21);
 	private CANTalon m_leftBackMotor = new CANTalon(13);
 	private CANTalon m_rightBackMotor = new CANTalon(22);
-	//*/
-
-	//*/ accel
-	BuiltInAccelerometer m_accelerometer = new BuiltInAccelerometer();
-	//*/
 	
-	//*/ gyro
-	Gyro m_gyro = new Gyro(0);
-	//*/
-	
-	public double getAveEncoder() {
-		double[] encoders=getEncoders();
-		return (encoders[0] + encoders[1] + encoders[2] + encoders[3]) / 4;
-	}
-	
-	public double[] getEncoders() {
-		return new double[]{
-				m_leftFrontMotor.getEncPosition(),
-				m_rightFrontMotor.getEncPosition(),
-				m_leftBackMotor.getEncPosition(),
-				m_rightBackMotor.getEncPosition()
-		};
-	}
-	
-	//*/ drive
+	// drive
 	private RobotDrive m_drive = new RobotDrive(m_leftFrontMotor, m_leftBackMotor, m_rightFrontMotor, m_rightBackMotor);
-	//*/
 	
-	private static final double SLOW = 0.5;
+	/*
+	 * Sensors
+	 */
+	// accel
+	BuiltInAccelerometer m_accelerometer = new BuiltInAccelerometer();
+	
+	// gyro
+	Gyro m_gyro = new Gyro(0);
+		
+	/*
+	 * Constants
+	 */
+	private static double strafeSpeed = 0.5;
+	
+	Preferences prefs;
 	
 	/**
 	 * organizes values of talons for dashboard
 	 * @return values for dashboard
 	 */
-	//*/
 	public double[][] getCANTalon() {
 		return new double[][]{
 			{
@@ -70,124 +61,62 @@ public class Drive
 			}
 		};
 	}
-	//*/
 	
 	/**
-	 * gets gyro value for dashboard and catestian
+	 * gets gyro value for dashboard
 	 * @return gyro value
 	 */
-	//*/
-	public double getGyro() {
-		return m_gyro.getAngle();
-	}
-	//*/
+	public double getGyro() { return m_gyro.getAngle(); }
 	
 	/**
 	 * gets and oraganizes values for dashboard
 	 * @return oraganized values for dashboard
 	 */
-	//*/
-	public double[] getAccels() {
-		return new double[]{m_accelerometer.getX(), m_accelerometer.getY(), m_accelerometer.getZ()};
-	}
-	//*/
-	
-	/**
-	 * start the motors
-	 */
-	//*/
-	public void teleopInit() {
+	public double[] getAccels() { return new double[]{m_accelerometer.getX(), m_accelerometer.getY(), m_accelerometer.getZ()}; }
+
+	public void init() {
+		// enables
 		m_leftFrontMotor.enableControl();
 		m_rightFrontMotor.enableControl();
 		m_leftBackMotor.enableControl();
 		m_rightBackMotor.enableControl();
 		
-		//m_leftFrontMotor.changeControlMode(ControlMode.Speed);
-		//m_rightFrontMotor.changeControlMode(ControlMode.Speed);
-		//m_leftBackMotor.changeControlMode(ControlMode.Speed);
-		//m_rightBackMotor.changeControlMode(ControlMode.Speed);
-		
+		// inverts left side motors
 		m_drive.setInvertedMotor(MotorType.kFrontLeft, true);
 		m_drive.setInvertedMotor(MotorType.kRearLeft, true);
 	
-	}
-	//*/
-	
-	public void driveToTote(Direction direction) {
-		m_drive.mecanumDrive_Polar(direction.getDist(), direction.getDirection(), 0);
-	}
-	
-	/**
-	 * Set the drive for auto.
-	 * @param mag Magnitude
-	 * @param dir Direction
-	 * @param rot Rotation
-	 */
-	public void drive(double mag, double dir, double rot)
-	{
-		m_drive.mecanumDrive_Cartesian(mag, dir, rot, getGyro());
-	}
-	//*/
-	
-	/**
-	 * Set the drive for tele.
-	 * @param io: all input
-	 */
-	//*/
-	public void drive(IO io)
-	{	
-		if (io.getResetGyro()) m_gyro.reset();
+		/*
+		 * Grab from dashboard
+		 */
+		strafeSpeed = prefs.getDouble("Strafe Speed", strafeSpeed);
 		
-		//*/
-		if (io.getFinesseMode() == -1) {
-			m_drive.mecanumDrive_Polar(0.3, 270, 0);
-		} 
-		else if (io.getFinesseMode() == 1) {
-			m_drive.mecanumDrive_Polar(0.3, 90, 0);
-		}
+	}
+
+	public void drive(double mag, double dir, double rot) {
+		m_drive.mecanumDrive_Polar(mag, dir, rot);
+	}
+	
+	public void drive(IO io) {	
+		
+		if (io.getFinesseMode() == -1) { m_drive.mecanumDrive_Polar(strafeSpeed, 270, 0); } 
+		else if (io.getFinesseMode() == 1) { m_drive.mecanumDrive_Polar(strafeSpeed, 90, 0); }
 		else {
-			if (!io.getShift())
-			{				
-				// drive polar mecanum reduced speed
-				if (io.getLeftArcade())
-				{
-					m_drive.mecanumDrive_Polar(io.getLeftMagnitude() * SLOW, io.getLeftDirection(), io.getLeftRotation());
-				} 
-				else if (io.getRightArcade())
-				{
-					m_drive.mecanumDrive_Polar(io.getRightMagnitude() * SLOW, io.getRightDirection(), io.getRightRotation());
-				}
-				else
-				{
-					m_drive.mecanumDrive_Polar(io.getMagnitude() * SLOW, io.getDirection(), io.getRotation());
-				}
-			}
-			else 
-			{				
-				// drive cartestain mecanum full speed
-				if (io.getLeftArcade())
-				{
-				m_drive.mecanumDrive_Cartesian(io.getLeftX(), io.getLeftY(), io.getLeftRotation(), m_gyro.getAngle());
-				} 
-				else if (io.getRightArcade())
-				{
-					m_drive.mecanumDrive_Cartesian(io.getRightX(), io.getRightY(), io.getRightRotation(), m_gyro.getAngle());
-				}
-				else
-				{
-					m_drive.mecanumDrive_Cartesian(((io.getLeftX() + io.getRightX()) / 2), ((io.getLeftY() + io.getRightY()) / 2), io.getRotation(), m_gyro.getAngle());
-				}
+			int arcade = io.getArcade();
+			if (!io.getCartestian()) {
+				if (arcade == -1) { m_drive.mecanumDrive_Polar(io.getLeftMagnitude(), io.getLeftDirection(), io.getLeftRotation()); } 
+				else if (arcade == 1) { m_drive.mecanumDrive_Polar(io.getRightMagnitude(), io.getRightDirection(), io.getRightRotation()); }
+				else if (arcade == 0) {	m_drive.mecanumDrive_Polar(io.getMagnitude(), io.getDirection(), io.getRotation()); }
+				else { System.out.println("Error: Arcade button meathod not working properly!"); }
+			} else {
+				if (arcade == -1) { m_drive.mecanumDrive_Cartesian(io.getLeftX(), io.getLeftY(), io.getLeftRot(), getGyro()); }
+				else if (arcade == 1) { m_drive.mecanumDrive_Cartesian(io.getRightX(), io.getRightY(), io.getRightRot(), getGyro()); }
+				else if (arcade == 0) { m_drive.mecanumDrive_Cartesian(io.getX(), io.getY(), io.getRotation(), getGyro()); }
+				else { System.out.println("Error: Arcade button meathod not working properly!"); }
 			}
 		}
 	}
-	//*/
 
-	/**
-	 * Make safe the drive train.
-	 */
-	//*/
-	public void makeSafe()
-	{
+	public void makeSafe() {
 		m_leftFrontMotor.set(0);
 		m_leftFrontMotor.disable();
 		
@@ -201,5 +130,4 @@ public class Drive
 		m_rightBackMotor.disable();
 		
 	}
-	//*/
 }

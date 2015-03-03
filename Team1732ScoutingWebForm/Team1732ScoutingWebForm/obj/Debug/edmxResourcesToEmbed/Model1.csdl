@@ -1,0 +1,549 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Matches" EntityType="Model1.Matches" />
+    <EntitySet Name="Stack_1_Totes" EntityType="Model1.Stack_1_Totes" />
+    <EntitySet Name="Stack_1_Toppers" EntityType="Model1.Stack_1_Toppers" />
+    <EntitySet Name="Stack_2_Totes" EntityType="Model1.Stack_2_Totes" />
+    <EntitySet Name="Stack_3_Totes" EntityType="Model1.Stack_3_Totes" />
+    <EntitySet Name="Stack_4_Totes" EntityType="Model1.Stack_4_Totes" />
+    <EntitySet Name="Stack_5_Totes" EntityType="Model1.Stack_5_Totes" />
+    <EntitySet Name="Stack_6_Totes" EntityType="Model1.Stack_6_Totes" />
+    <EntitySet Name="Stack_2_Toppers" EntityType="Model1.Stack_2_Toppers" />
+    <EntitySet Name="Stack_3_Toppers" EntityType="Model1.Stack_3_Toppers" />
+    <EntitySet Name="Stack_4_Toppers" EntityType="Model1.Stack_4_Toppers" />
+    <EntitySet Name="Stack_5_Toppers" EntityType="Model1.Stack_5_Toppers" />
+    <EntitySet Name="Stack_6_Toppers" EntityType="Model1.Stack_6_Toppers" />
+    <EntitySet Name="Stack_10_Totes" EntityType="Model1.Stack_10_Totes" />
+    <EntitySet Name="Stack_7_Toppers" EntityType="Model1.Stack_7_Toppers" />
+    <EntitySet Name="Stack_8_Toppers" EntityType="Model1.Stack_8_Toppers" />
+    <EntitySet Name="Stack_9_Toppers" EntityType="Model1.Stack_9_Toppers" />
+    <EntitySet Name="Stack_10_Toppers" EntityType="Model1.Stack_10_Toppers" />
+    <EntitySet Name="Stack_7_Totes" EntityType="Model1.Stack_7_Totes" />
+    <EntitySet Name="Stack_8_Totes" EntityType="Model1.Stack_8_Totes" />
+    <EntitySet Name="Stack_9_Totes" EntityType="Model1.Stack_9_Totes" />
+    <EntitySet Name="Stack_11_Totes" EntityType="Model1.Stack_11_Totes" />
+    <EntitySet Name="Stack_12_Totes" EntityType="Model1.Stack_12_Totes" />
+    <EntitySet Name="Stack_11_Toppers" EntityType="Model1.Stack_11_Toppers" />
+    <EntitySet Name="Stack_12_Toppers" EntityType="Model1.Stack_12_Toppers" />
+    <AssociationSet Name="MatchesStack_1_Totes" Association="Model1.MatchesStack_1_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_1_Totes" EntitySet="Stack_1_Totes" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_1_Toppers" Association="Model1.MatchesStack_1_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_1_Toppers" EntitySet="Stack_1_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_10_Toppers" Association="Model1.MatchesStack_10_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_10_Toppers" EntitySet="Stack_10_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_10_Totes" Association="Model1.MatchesStack_10_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_10_Totes" EntitySet="Stack_10_Totes" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_11_Toppers" Association="Model1.MatchesStack_11_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_11_Toppers" EntitySet="Stack_11_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_11_Totes" Association="Model1.MatchesStack_11_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_11_Totes" EntitySet="Stack_11_Totes" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_12_Toppers" Association="Model1.MatchesStack_12_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_12_Toppers" EntitySet="Stack_12_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_12_Totes" Association="Model1.MatchesStack_12_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_12_Totes" EntitySet="Stack_12_Totes" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_2_Toppers" Association="Model1.MatchesStack_2_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_2_Toppers" EntitySet="Stack_2_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_2_Totes" Association="Model1.MatchesStack_2_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_2_Totes" EntitySet="Stack_2_Totes" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_3_Toppers" Association="Model1.MatchesStack_3_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_3_Toppers" EntitySet="Stack_3_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_3_Totes" Association="Model1.MatchesStack_3_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_3_Totes" EntitySet="Stack_3_Totes" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_4_Toppers" Association="Model1.MatchesStack_4_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_4_Toppers" EntitySet="Stack_4_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_4_Totes" Association="Model1.MatchesStack_4_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_4_Totes" EntitySet="Stack_4_Totes" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_5_Toppers" Association="Model1.MatchesStack_5_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_5_Toppers" EntitySet="Stack_5_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_5_Totes" Association="Model1.MatchesStack_5_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_5_Totes" EntitySet="Stack_5_Totes" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_6_Toppers" Association="Model1.MatchesStack_6_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_6_Toppers" EntitySet="Stack_6_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_6_Totes" Association="Model1.MatchesStack_6_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_6_Totes" EntitySet="Stack_6_Totes" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_7_Toppers" Association="Model1.MatchesStack_7_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_7_Toppers" EntitySet="Stack_7_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_7_Totes" Association="Model1.MatchesStack_7_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_7_Totes" EntitySet="Stack_7_Totes" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_8_Toppers" Association="Model1.MatchesStack_8_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_8_Toppers" EntitySet="Stack_8_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_9_Toppers" Association="Model1.MatchesStack_9_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_9_Toppers" EntitySet="Stack_9_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_8_Totes" Association="Model1.MatchesStack_8_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_8_Totes" EntitySet="Stack_8_Totes" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_9_Totes" Association="Model1.MatchesStack_9_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_9_Totes" EntitySet="Stack_9_Totes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Matches">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="String" Name="Team_Match" Nullable="false" annotation:StoreGeneratedPattern="Identity" MaxLength="9" />
+    <Property Type="Int32" Name="Team" Nullable="false" />
+    <Property Type="Int32" Name="Match" Nullable="false" />
+    <Property Type="Boolean" Name="Auto_tote_set" Nullable="false" />
+    <Property Type="Boolean" Name="Auto_tote_stack" Nullable="false" />
+    <Property Type="Boolean" Name="Auto_robot_set" Nullable="false" />
+    <Property Type="Boolean" Name="Auto_mobility" Nullable="false" />
+    <Property Type="Boolean" Name="Coop_stack" Nullable="false" />
+    <Property Type="Boolean" Name="Coop_Set" Nullable="false" />
+    <Property Type="String" Name="Match_notes" Nullable="false" />
+    <NavigationProperty Name="Stack_1_Totes" Relationship="Model1.MatchesStack_1_Totes" FromRole="Matches" ToRole="Stack_1_Totes" />
+    <NavigationProperty Name="Stack_1_Toppers" Relationship="Model1.MatchesStack_1_Toppers" FromRole="Matches" ToRole="Stack_1_Toppers" />
+    <NavigationProperty Name="Stack_10_Toppers" Relationship="Model1.MatchesStack_10_Toppers" FromRole="Matches" ToRole="Stack_10_Toppers" />
+    <NavigationProperty Name="Stack_10_Totes" Relationship="Model1.MatchesStack_10_Totes" FromRole="Matches" ToRole="Stack_10_Totes" />
+    <NavigationProperty Name="Stack_11_Toppers" Relationship="Model1.MatchesStack_11_Toppers" FromRole="Matches" ToRole="Stack_11_Toppers" />
+    <NavigationProperty Name="Stack_11_Totes" Relationship="Model1.MatchesStack_11_Totes" FromRole="Matches" ToRole="Stack_11_Totes" />
+    <NavigationProperty Name="Stack_12_Toppers" Relationship="Model1.MatchesStack_12_Toppers" FromRole="Matches" ToRole="Stack_12_Toppers" />
+    <NavigationProperty Name="Stack_12_Totes" Relationship="Model1.MatchesStack_12_Totes" FromRole="Matches" ToRole="Stack_12_Totes" />
+    <NavigationProperty Name="Stack_2_Toppers" Relationship="Model1.MatchesStack_2_Toppers" FromRole="Matches" ToRole="Stack_2_Toppers" />
+    <NavigationProperty Name="Stack_2_Totes" Relationship="Model1.MatchesStack_2_Totes" FromRole="Matches" ToRole="Stack_2_Totes" />
+    <NavigationProperty Name="Stack_3_Toppers" Relationship="Model1.MatchesStack_3_Toppers" FromRole="Matches" ToRole="Stack_3_Toppers" />
+    <NavigationProperty Name="Stack_3_Totes" Relationship="Model1.MatchesStack_3_Totes" FromRole="Matches" ToRole="Stack_3_Totes" />
+    <NavigationProperty Name="Stack_4_Toppers" Relationship="Model1.MatchesStack_4_Toppers" FromRole="Matches" ToRole="Stack_4_Toppers" />
+    <NavigationProperty Name="Stack_4_Totes" Relationship="Model1.MatchesStack_4_Totes" FromRole="Matches" ToRole="Stack_4_Totes" />
+    <NavigationProperty Name="Stack_5_Toppers" Relationship="Model1.MatchesStack_5_Toppers" FromRole="Matches" ToRole="Stack_5_Toppers" />
+    <NavigationProperty Name="Stack_5_Totes" Relationship="Model1.MatchesStack_5_Totes" FromRole="Matches" ToRole="Stack_5_Totes" />
+    <NavigationProperty Name="Stack_6_Toppers" Relationship="Model1.MatchesStack_6_Toppers" FromRole="Matches" ToRole="Stack_6_Toppers" />
+    <NavigationProperty Name="Stack_6_Totes" Relationship="Model1.MatchesStack_6_Totes" FromRole="Matches" ToRole="Stack_6_Totes" />
+    <NavigationProperty Name="Stack_7_Toppers" Relationship="Model1.MatchesStack_7_Toppers" FromRole="Matches" ToRole="Stack_7_Toppers" />
+    <NavigationProperty Name="Stack_7_Totes" Relationship="Model1.MatchesStack_7_Totes" FromRole="Matches" ToRole="Stack_7_Totes" />
+    <NavigationProperty Name="Stack_8_Toppers" Relationship="Model1.MatchesStack_8_Toppers" FromRole="Matches" ToRole="Stack_8_Toppers" />
+    <NavigationProperty Name="Stack_9_Toppers" Relationship="Model1.MatchesStack_9_Toppers" FromRole="Matches" ToRole="Stack_9_Toppers" />
+    <NavigationProperty Name="Stack_8_Totes" Relationship="Model1.MatchesStack_8_Totes" FromRole="Matches" ToRole="Stack_8_Totes" />
+    <NavigationProperty Name="Stack_9_Totes" Relationship="Model1.MatchesStack_9_Totes" FromRole="Matches" ToRole="Stack_9_Totes" />
+  </EntityType>
+  <EntityType Name="Stack_1_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="Boolean" Name="TT1" Nullable="false" />
+    <Property Type="Boolean" Name="TT2" Nullable="false" />
+    <Property Type="Boolean" Name="TT3" Nullable="false" />
+    <Property Type="Boolean" Name="TT4" Nullable="false" />
+    <Property Type="Boolean" Name="TT5" Nullable="false" />
+    <Property Type="Boolean" Name="TT6" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_1_Totes" FromRole="Stack_1_Totes" ToRole="Matches" />
+  </EntityType>
+  <EntityType Name="Stack_1_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="String" Name="Bin" Nullable="false" />
+    <Property Type="String" Name="Noodle" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_1_Toppers" FromRole="Stack_1_Toppers" ToRole="Matches" />
+  </EntityType>
+  <EntityType Name="Stack_2_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="Boolean" Name="TT1" Nullable="false" />
+    <Property Type="Boolean" Name="TT2" Nullable="false" />
+    <Property Type="Boolean" Name="TT3" Nullable="false" />
+    <Property Type="Boolean" Name="TT4" Nullable="false" />
+    <Property Type="Boolean" Name="TT5" Nullable="false" />
+    <Property Type="Boolean" Name="TT6" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_2_Totes" FromRole="Stack_2_Totes" ToRole="Matches" />
+  </EntityType>
+  <EntityType Name="Stack_3_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="Boolean" Name="TT1" Nullable="false" />
+    <Property Type="Boolean" Name="TT2" Nullable="false" />
+    <Property Type="Boolean" Name="TT3" Nullable="false" />
+    <Property Type="Boolean" Name="TT4" Nullable="false" />
+    <Property Type="Boolean" Name="TT5" Nullable="false" />
+    <Property Type="Boolean" Name="TT6" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_3_Totes" FromRole="Stack_3_Totes" ToRole="Matches" />
+  </EntityType>
+  <EntityType Name="Stack_4_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="Boolean" Name="TT1" Nullable="false" />
+    <Property Type="Boolean" Name="TT2" Nullable="false" />
+    <Property Type="Boolean" Name="TT3" Nullable="false" />
+    <Property Type="Boolean" Name="TT4" Nullable="false" />
+    <Property Type="Boolean" Name="TT5" Nullable="false" />
+    <Property Type="Boolean" Name="TT6" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_4_Totes" FromRole="Stack_4_Totes" ToRole="Matches" />
+  </EntityType>
+  <EntityType Name="Stack_5_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="Boolean" Name="TT1" Nullable="false" />
+    <Property Type="Boolean" Name="TT2" Nullable="false" />
+    <Property Type="Boolean" Name="TT3" Nullable="false" />
+    <Property Type="Boolean" Name="TT4" Nullable="false" />
+    <Property Type="Boolean" Name="TT5" Nullable="false" />
+    <Property Type="Boolean" Name="TT6" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_5_Totes" FromRole="Stack_5_Totes" ToRole="Matches" />
+  </EntityType>
+  <EntityType Name="Stack_6_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="Boolean" Name="TT1" Nullable="false" />
+    <Property Type="Boolean" Name="TT2" Nullable="false" />
+    <Property Type="Boolean" Name="TT3" Nullable="false" />
+    <Property Type="Boolean" Name="TT4" Nullable="false" />
+    <Property Type="Boolean" Name="TT5" Nullable="false" />
+    <Property Type="Boolean" Name="TT6" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_6_Totes" FromRole="Stack_6_Totes" ToRole="Matches" />
+  </EntityType>
+  <EntityType Name="Stack_2_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="String" Name="Bin" Nullable="false" />
+    <Property Type="String" Name="Noodle" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_2_Toppers" FromRole="Stack_2_Toppers" ToRole="Matches" />
+  </EntityType>
+  <EntityType Name="Stack_3_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="String" Name="Bin" Nullable="false" />
+    <Property Type="String" Name="Noodle" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_3_Toppers" FromRole="Stack_3_Toppers" ToRole="Matches" />
+  </EntityType>
+  <EntityType Name="Stack_4_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="String" Name="Bin" Nullable="false" />
+    <Property Type="String" Name="Noodle" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_4_Toppers" FromRole="Stack_4_Toppers" ToRole="Matches" />
+  </EntityType>
+  <EntityType Name="Stack_5_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="String" Name="Bin" Nullable="false" />
+    <Property Type="String" Name="Noodle" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_5_Toppers" FromRole="Stack_5_Toppers" ToRole="Matches" />
+  </EntityType>
+  <EntityType Name="Stack_6_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="String" Name="Bin" Nullable="false" />
+    <Property Type="String" Name="Noodle" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_6_Toppers" FromRole="Stack_6_Toppers" ToRole="Matches" />
+  </EntityType>
+  <EntityType Name="Stack_10_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="Boolean" Name="TT1" Nullable="false" />
+    <Property Type="Boolean" Name="TT2" Nullable="false" />
+    <Property Type="Boolean" Name="TT3" Nullable="false" />
+    <Property Type="Boolean" Name="TT4" Nullable="false" />
+    <Property Type="Boolean" Name="TT5" Nullable="false" />
+    <Property Type="Boolean" Name="TT6" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_10_Totes" FromRole="Stack_10_Totes" ToRole="Matches" />
+  </EntityType>
+  <EntityType Name="Stack_7_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="String" Name="Bin" Nullable="false" />
+    <Property Type="String" Name="Noodle" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_7_Toppers" FromRole="Stack_7_Toppers" ToRole="Matches" />
+  </EntityType>
+  <EntityType Name="Stack_8_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="String" Name="Bin" Nullable="false" />
+    <Property Type="String" Name="Noodle" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_8_Toppers" FromRole="Stack_8_Toppers" ToRole="Matches" />
+  </EntityType>
+  <EntityType Name="Stack_9_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="String" Name="Bin" Nullable="false" />
+    <Property Type="String" Name="Noodle" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_9_Toppers" FromRole="Stack_9_Toppers" ToRole="Matches" />
+  </EntityType>
+  <EntityType Name="Stack_10_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="String" Name="Bin" Nullable="false" />
+    <Property Type="String" Name="Noodle" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_10_Toppers" FromRole="Stack_10_Toppers" ToRole="Matches" />
+  </EntityType>
+  <EntityType Name="Stack_7_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="Boolean" Name="TT1" Nullable="false" />
+    <Property Type="Boolean" Name="TT2" Nullable="false" />
+    <Property Type="Boolean" Name="TT3" Nullable="false" />
+    <Property Type="Boolean" Name="TT4" Nullable="false" />
+    <Property Type="Boolean" Name="TT5" Nullable="false" />
+    <Property Type="Boolean" Name="TT6" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_7_Totes" FromRole="Stack_7_Totes" ToRole="Matches" />
+  </EntityType>
+  <EntityType Name="Stack_8_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="Boolean" Name="TT1" Nullable="false" />
+    <Property Type="Boolean" Name="TT2" Nullable="false" />
+    <Property Type="Boolean" Name="TT3" Nullable="false" />
+    <Property Type="Boolean" Name="TT4" Nullable="false" />
+    <Property Type="Boolean" Name="TT5" Nullable="false" />
+    <Property Type="Boolean" Name="TT6" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_8_Totes" FromRole="Stack_8_Totes" ToRole="Matches" />
+  </EntityType>
+  <EntityType Name="Stack_9_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="Boolean" Name="TT1" Nullable="false" />
+    <Property Type="Boolean" Name="TT2" Nullable="false" />
+    <Property Type="Boolean" Name="TT3" Nullable="false" />
+    <Property Type="Boolean" Name="TT4" Nullable="false" />
+    <Property Type="Boolean" Name="TT5" Nullable="false" />
+    <Property Type="Boolean" Name="TT6" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_9_Totes" FromRole="Stack_9_Totes" ToRole="Matches" />
+  </EntityType>
+  <EntityType Name="Stack_11_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="Boolean" Name="TT1" Nullable="false" />
+    <Property Type="Boolean" Name="TT2" Nullable="false" />
+    <Property Type="Boolean" Name="TT3" Nullable="false" />
+    <Property Type="Boolean" Name="TT4" Nullable="false" />
+    <Property Type="Boolean" Name="TT5" Nullable="false" />
+    <Property Type="Boolean" Name="TT6" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_11_Totes" FromRole="Stack_11_Totes" ToRole="Matches" />
+  </EntityType>
+  <EntityType Name="Stack_12_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="Boolean" Name="TT1" Nullable="false" />
+    <Property Type="Boolean" Name="TT2" Nullable="false" />
+    <Property Type="Boolean" Name="TT3" Nullable="false" />
+    <Property Type="Boolean" Name="TT4" Nullable="false" />
+    <Property Type="Boolean" Name="TT5" Nullable="false" />
+    <Property Type="Boolean" Name="TT6" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_12_Totes" FromRole="Stack_12_Totes" ToRole="Matches" />
+  </EntityType>
+  <EntityType Name="Stack_11_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="String" Name="Bin" Nullable="false" />
+    <Property Type="String" Name="Noodle" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_11_Toppers" FromRole="Stack_11_Toppers" ToRole="Matches" />
+  </EntityType>
+  <EntityType Name="Stack_12_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Type="Int32" Name="PK" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Team_Match" Nullable="false" MaxLength="9" />
+    <Property Type="String" Name="Bin" Nullable="false" />
+    <Property Type="String" Name="Noodle" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model1.MatchesStack_12_Toppers" FromRole="Stack_12_Toppers" ToRole="Matches" />
+  </EntityType>
+  <Association Name="MatchesStack_1_Totes">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_1_Totes" Role="Stack_1_Totes" Multiplicity="1" />
+  </Association>
+  <Association Name="MatchesStack_1_Toppers">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_1_Toppers" Role="Stack_1_Toppers" Multiplicity="1" />
+  </Association>
+  <Association Name="MatchesStack_10_Toppers">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_10_Toppers" Role="Stack_10_Toppers" Multiplicity="1" />
+  </Association>
+  <Association Name="MatchesStack_10_Totes">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_10_Totes" Role="Stack_10_Totes" Multiplicity="1" />
+  </Association>
+  <Association Name="MatchesStack_11_Toppers">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_11_Toppers" Role="Stack_11_Toppers" Multiplicity="1" />
+  </Association>
+  <Association Name="MatchesStack_11_Totes">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_11_Totes" Role="Stack_11_Totes" Multiplicity="1" />
+  </Association>
+  <Association Name="MatchesStack_12_Toppers">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_12_Toppers" Role="Stack_12_Toppers" Multiplicity="1" />
+  </Association>
+  <Association Name="MatchesStack_12_Totes">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_12_Totes" Role="Stack_12_Totes" Multiplicity="1" />
+  </Association>
+  <Association Name="MatchesStack_2_Toppers">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_2_Toppers" Role="Stack_2_Toppers" Multiplicity="1" />
+  </Association>
+  <Association Name="MatchesStack_2_Totes">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_2_Totes" Role="Stack_2_Totes" Multiplicity="1" />
+  </Association>
+  <Association Name="MatchesStack_3_Toppers">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_3_Toppers" Role="Stack_3_Toppers" Multiplicity="1" />
+  </Association>
+  <Association Name="MatchesStack_3_Totes">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_3_Totes" Role="Stack_3_Totes" Multiplicity="1" />
+  </Association>
+  <Association Name="MatchesStack_4_Toppers">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_4_Toppers" Role="Stack_4_Toppers" Multiplicity="1" />
+  </Association>
+  <Association Name="MatchesStack_4_Totes">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_4_Totes" Role="Stack_4_Totes" Multiplicity="1" />
+  </Association>
+  <Association Name="MatchesStack_5_Toppers">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_5_Toppers" Role="Stack_5_Toppers" Multiplicity="1" />
+  </Association>
+  <Association Name="MatchesStack_5_Totes">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_5_Totes" Role="Stack_5_Totes" Multiplicity="1" />
+  </Association>
+  <Association Name="MatchesStack_6_Toppers">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_6_Toppers" Role="Stack_6_Toppers" Multiplicity="1" />
+  </Association>
+  <Association Name="MatchesStack_6_Totes">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_6_Totes" Role="Stack_6_Totes" Multiplicity="1" />
+  </Association>
+  <Association Name="MatchesStack_7_Toppers">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_7_Toppers" Role="Stack_7_Toppers" Multiplicity="1" />
+  </Association>
+  <Association Name="MatchesStack_7_Totes">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_7_Totes" Role="Stack_7_Totes" Multiplicity="1" />
+  </Association>
+  <Association Name="MatchesStack_8_Toppers">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_8_Toppers" Role="Stack_8_Toppers" Multiplicity="1" />
+  </Association>
+  <Association Name="MatchesStack_9_Toppers">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_9_Toppers" Role="Stack_9_Toppers" Multiplicity="1" />
+  </Association>
+  <Association Name="MatchesStack_8_Totes">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_8_Totes" Role="Stack_8_Totes" Multiplicity="1" />
+  </Association>
+  <Association Name="MatchesStack_9_Totes">
+    <End Type="Model1.Matches" Role="Matches" Multiplicity="1" />
+    <End Type="Model1.Stack_9_Totes" Role="Stack_9_Totes" Multiplicity="1" />
+  </Association>
+</Schema>

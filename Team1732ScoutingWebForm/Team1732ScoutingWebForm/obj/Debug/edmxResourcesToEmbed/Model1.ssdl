@@ -1,0 +1,717 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="Matches" EntityType="Model1.Store.Matches" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_1_Totes" EntityType="Model1.Store.Stack_1_Totes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_1_Toppers" EntityType="Model1.Store.Stack_1_Toppers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_2_Totes" EntityType="Model1.Store.Stack_2_Totes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_3_Totes" EntityType="Model1.Store.Stack_3_Totes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_4_Totes" EntityType="Model1.Store.Stack_4_Totes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_5_Totes" EntityType="Model1.Store.Stack_5_Totes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_6_Totes" EntityType="Model1.Store.Stack_6_Totes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_2_Toppers" EntityType="Model1.Store.Stack_2_Toppers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_3_Toppers" EntityType="Model1.Store.Stack_3_Toppers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_4_Toppers" EntityType="Model1.Store.Stack_4_Toppers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_5_Toppers" EntityType="Model1.Store.Stack_5_Toppers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_6_Toppers" EntityType="Model1.Store.Stack_6_Toppers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_10_Totes" EntityType="Model1.Store.Stack_10_Totes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_7_Toppers" EntityType="Model1.Store.Stack_7_Toppers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_8_Toppers" EntityType="Model1.Store.Stack_8_Toppers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_9_Toppers" EntityType="Model1.Store.Stack_9_Toppers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_10_Toppers" EntityType="Model1.Store.Stack_10_Toppers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_7_Totes" EntityType="Model1.Store.Stack_7_Totes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_8_Totes" EntityType="Model1.Store.Stack_8_Totes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_9_Totes" EntityType="Model1.Store.Stack_9_Totes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_11_Totes" EntityType="Model1.Store.Stack_11_Totes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_12_Totes" EntityType="Model1.Store.Stack_12_Totes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_11_Toppers" EntityType="Model1.Store.Stack_11_Toppers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stack_12_Toppers" EntityType="Model1.Store.Stack_12_Toppers" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="MatchesStack_1_Totes" Association="Model1.Store.MatchesStack_1_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_1_Totes" EntitySet="Stack_1_Totes" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_1_Toppers" Association="Model1.Store.MatchesStack_1_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_1_Toppers" EntitySet="Stack_1_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_10_Toppers" Association="Model1.Store.MatchesStack_10_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_10_Toppers" EntitySet="Stack_10_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_10_Totes" Association="Model1.Store.MatchesStack_10_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_10_Totes" EntitySet="Stack_10_Totes" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_11_Toppers" Association="Model1.Store.MatchesStack_11_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_11_Toppers" EntitySet="Stack_11_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_11_Totes" Association="Model1.Store.MatchesStack_11_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_11_Totes" EntitySet="Stack_11_Totes" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_12_Toppers" Association="Model1.Store.MatchesStack_12_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_12_Toppers" EntitySet="Stack_12_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_12_Totes" Association="Model1.Store.MatchesStack_12_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_12_Totes" EntitySet="Stack_12_Totes" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_2_Toppers" Association="Model1.Store.MatchesStack_2_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_2_Toppers" EntitySet="Stack_2_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_2_Totes" Association="Model1.Store.MatchesStack_2_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_2_Totes" EntitySet="Stack_2_Totes" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_3_Toppers" Association="Model1.Store.MatchesStack_3_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_3_Toppers" EntitySet="Stack_3_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_3_Totes" Association="Model1.Store.MatchesStack_3_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_3_Totes" EntitySet="Stack_3_Totes" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_4_Toppers" Association="Model1.Store.MatchesStack_4_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_4_Toppers" EntitySet="Stack_4_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_4_Totes" Association="Model1.Store.MatchesStack_4_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_4_Totes" EntitySet="Stack_4_Totes" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_5_Toppers" Association="Model1.Store.MatchesStack_5_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_5_Toppers" EntitySet="Stack_5_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_5_Totes" Association="Model1.Store.MatchesStack_5_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_5_Totes" EntitySet="Stack_5_Totes" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_6_Toppers" Association="Model1.Store.MatchesStack_6_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_6_Toppers" EntitySet="Stack_6_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_6_Totes" Association="Model1.Store.MatchesStack_6_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_6_Totes" EntitySet="Stack_6_Totes" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_7_Toppers" Association="Model1.Store.MatchesStack_7_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_7_Toppers" EntitySet="Stack_7_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_7_Totes" Association="Model1.Store.MatchesStack_7_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_7_Totes" EntitySet="Stack_7_Totes" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_8_Toppers" Association="Model1.Store.MatchesStack_8_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_8_Toppers" EntitySet="Stack_8_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_9_Toppers" Association="Model1.Store.MatchesStack_9_Toppers">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_9_Toppers" EntitySet="Stack_9_Toppers" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_8_Totes" Association="Model1.Store.MatchesStack_8_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_8_Totes" EntitySet="Stack_8_Totes" />
+    </AssociationSet>
+    <AssociationSet Name="MatchesStack_9_Totes" Association="Model1.Store.MatchesStack_9_Totes">
+      <End Role="Matches" EntitySet="Matches" />
+      <End Role="Stack_9_Totes" EntitySet="Stack_9_Totes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Matches">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="Team_Match" Type="nvarchar" StoreGeneratedPattern="Identity" Nullable="false" MaxLength="9" />
+    <Property Name="Team" Type="int" Nullable="false" />
+    <Property Name="Match" Type="int" Nullable="false" />
+    <Property Name="Auto_tote_set" Type="bit" Nullable="false" />
+    <Property Name="Auto_tote_stack" Type="bit" Nullable="false" />
+    <Property Name="Auto_robot_set" Type="bit" Nullable="false" />
+    <Property Name="Auto_mobility" Type="bit" Nullable="false" />
+    <Property Name="Coop_stack" Type="bit" Nullable="false" />
+    <Property Name="Coop_Set" Type="bit" Nullable="false" />
+    <Property Name="Match_notes" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Stack_1_Totes_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Stack_1_Toppers_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Stack_10_Toppers_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Stack_10_Totes_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Stack_11_Toppers_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Stack_11_Totes_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Stack_12_Toppers_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Stack_12_Totes_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Stack_2_Toppers_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Stack_2_Totes_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Stack_3_Toppers_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Stack_3_Totes_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Stack_4_Toppers_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Stack_4_Totes_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Stack_5_Toppers_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Stack_5_Totes_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Stack_6_Toppers_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Stack_6_Totes_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Stack_7_Toppers_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Stack_7_Totes_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Stack_8_Toppers_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Stack_9_Toppers_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Stack_8_Totes_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Stack_9_Totes_Team_Match" Type="nvarchar" MaxLength="9" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_1_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="TT1" Type="bit" Nullable="false" />
+    <Property Name="TT2" Type="bit" Nullable="false" />
+    <Property Name="TT3" Type="bit" Nullable="false" />
+    <Property Name="TT4" Type="bit" Nullable="false" />
+    <Property Name="TT5" Type="bit" Nullable="false" />
+    <Property Name="TT6" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_1_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="Bin" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Noodle" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_2_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="TT1" Type="bit" Nullable="false" />
+    <Property Name="TT2" Type="bit" Nullable="false" />
+    <Property Name="TT3" Type="bit" Nullable="false" />
+    <Property Name="TT4" Type="bit" Nullable="false" />
+    <Property Name="TT5" Type="bit" Nullable="false" />
+    <Property Name="TT6" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_3_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="TT1" Type="bit" Nullable="false" />
+    <Property Name="TT2" Type="bit" Nullable="false" />
+    <Property Name="TT3" Type="bit" Nullable="false" />
+    <Property Name="TT4" Type="bit" Nullable="false" />
+    <Property Name="TT5" Type="bit" Nullable="false" />
+    <Property Name="TT6" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_4_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="TT1" Type="bit" Nullable="false" />
+    <Property Name="TT2" Type="bit" Nullable="false" />
+    <Property Name="TT3" Type="bit" Nullable="false" />
+    <Property Name="TT4" Type="bit" Nullable="false" />
+    <Property Name="TT5" Type="bit" Nullable="false" />
+    <Property Name="TT6" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_5_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="TT1" Type="bit" Nullable="false" />
+    <Property Name="TT2" Type="bit" Nullable="false" />
+    <Property Name="TT3" Type="bit" Nullable="false" />
+    <Property Name="TT4" Type="bit" Nullable="false" />
+    <Property Name="TT5" Type="bit" Nullable="false" />
+    <Property Name="TT6" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_6_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="TT1" Type="bit" Nullable="false" />
+    <Property Name="TT2" Type="bit" Nullable="false" />
+    <Property Name="TT3" Type="bit" Nullable="false" />
+    <Property Name="TT4" Type="bit" Nullable="false" />
+    <Property Name="TT5" Type="bit" Nullable="false" />
+    <Property Name="TT6" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_2_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="Bin" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Noodle" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_3_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="Bin" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Noodle" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_4_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="Bin" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Noodle" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_5_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="Bin" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Noodle" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_6_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="Bin" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Noodle" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_10_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="TT1" Type="bit" Nullable="false" />
+    <Property Name="TT2" Type="bit" Nullable="false" />
+    <Property Name="TT3" Type="bit" Nullable="false" />
+    <Property Name="TT4" Type="bit" Nullable="false" />
+    <Property Name="TT5" Type="bit" Nullable="false" />
+    <Property Name="TT6" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_7_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="Bin" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Noodle" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_8_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="Bin" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Noodle" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_9_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="Bin" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Noodle" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_10_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="Bin" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Noodle" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_7_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="TT1" Type="bit" Nullable="false" />
+    <Property Name="TT2" Type="bit" Nullable="false" />
+    <Property Name="TT3" Type="bit" Nullable="false" />
+    <Property Name="TT4" Type="bit" Nullable="false" />
+    <Property Name="TT5" Type="bit" Nullable="false" />
+    <Property Name="TT6" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_8_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="TT1" Type="bit" Nullable="false" />
+    <Property Name="TT2" Type="bit" Nullable="false" />
+    <Property Name="TT3" Type="bit" Nullable="false" />
+    <Property Name="TT4" Type="bit" Nullable="false" />
+    <Property Name="TT5" Type="bit" Nullable="false" />
+    <Property Name="TT6" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_9_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="TT1" Type="bit" Nullable="false" />
+    <Property Name="TT2" Type="bit" Nullable="false" />
+    <Property Name="TT3" Type="bit" Nullable="false" />
+    <Property Name="TT4" Type="bit" Nullable="false" />
+    <Property Name="TT5" Type="bit" Nullable="false" />
+    <Property Name="TT6" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_11_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="TT1" Type="bit" Nullable="false" />
+    <Property Name="TT2" Type="bit" Nullable="false" />
+    <Property Name="TT3" Type="bit" Nullable="false" />
+    <Property Name="TT4" Type="bit" Nullable="false" />
+    <Property Name="TT5" Type="bit" Nullable="false" />
+    <Property Name="TT6" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_12_Totes">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="TT1" Type="bit" Nullable="false" />
+    <Property Name="TT2" Type="bit" Nullable="false" />
+    <Property Name="TT3" Type="bit" Nullable="false" />
+    <Property Name="TT4" Type="bit" Nullable="false" />
+    <Property Name="TT5" Type="bit" Nullable="false" />
+    <Property Name="TT6" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_11_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="Bin" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Noodle" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stack_12_Toppers">
+    <Key>
+      <PropertyRef Name="Team_Match" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Team_Match" Type="nvarchar" Nullable="false" MaxLength="9" />
+    <Property Name="Bin" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Noodle" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="MatchesStack_1_Totes">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_1_Totes" Type="Model1.Store.Stack_1_Totes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_1_Totes">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_1_Totes_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchesStack_1_Toppers">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_1_Toppers" Type="Model1.Store.Stack_1_Toppers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_1_Toppers">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_1_Toppers_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchesStack_10_Toppers">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_10_Toppers" Type="Model1.Store.Stack_10_Toppers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_10_Toppers">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_10_Toppers_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchesStack_10_Totes">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_10_Totes" Type="Model1.Store.Stack_10_Totes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_10_Totes">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_10_Totes_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchesStack_11_Toppers">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_11_Toppers" Type="Model1.Store.Stack_11_Toppers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_11_Toppers">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_11_Toppers_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchesStack_11_Totes">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_11_Totes" Type="Model1.Store.Stack_11_Totes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_11_Totes">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_11_Totes_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchesStack_12_Toppers">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_12_Toppers" Type="Model1.Store.Stack_12_Toppers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_12_Toppers">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_12_Toppers_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchesStack_12_Totes">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_12_Totes" Type="Model1.Store.Stack_12_Totes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_12_Totes">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_12_Totes_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchesStack_2_Toppers">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_2_Toppers" Type="Model1.Store.Stack_2_Toppers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_2_Toppers">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_2_Toppers_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchesStack_2_Totes">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_2_Totes" Type="Model1.Store.Stack_2_Totes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_2_Totes">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_2_Totes_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchesStack_3_Toppers">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_3_Toppers" Type="Model1.Store.Stack_3_Toppers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_3_Toppers">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_3_Toppers_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchesStack_3_Totes">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_3_Totes" Type="Model1.Store.Stack_3_Totes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_3_Totes">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_3_Totes_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchesStack_4_Toppers">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_4_Toppers" Type="Model1.Store.Stack_4_Toppers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_4_Toppers">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_4_Toppers_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchesStack_4_Totes">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_4_Totes" Type="Model1.Store.Stack_4_Totes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_4_Totes">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_4_Totes_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchesStack_5_Toppers">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_5_Toppers" Type="Model1.Store.Stack_5_Toppers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_5_Toppers">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_5_Toppers_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchesStack_5_Totes">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_5_Totes" Type="Model1.Store.Stack_5_Totes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_5_Totes">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_5_Totes_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchesStack_6_Toppers">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_6_Toppers" Type="Model1.Store.Stack_6_Toppers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_6_Toppers">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_6_Toppers_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchesStack_6_Totes">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_6_Totes" Type="Model1.Store.Stack_6_Totes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_6_Totes">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_6_Totes_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchesStack_7_Toppers">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_7_Toppers" Type="Model1.Store.Stack_7_Toppers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_7_Toppers">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_7_Toppers_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchesStack_7_Totes">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_7_Totes" Type="Model1.Store.Stack_7_Totes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_7_Totes">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_7_Totes_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchesStack_8_Toppers">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_8_Toppers" Type="Model1.Store.Stack_8_Toppers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_8_Toppers">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_8_Toppers_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchesStack_9_Toppers">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_9_Toppers" Type="Model1.Store.Stack_9_Toppers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_9_Toppers">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_9_Toppers_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchesStack_8_Totes">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_8_Totes" Type="Model1.Store.Stack_8_Totes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_8_Totes">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_8_Totes_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MatchesStack_9_Totes">
+    <End Role="Matches" Type="Model1.Store.Matches" Multiplicity="*" />
+    <End Role="Stack_9_Totes" Type="Model1.Store.Stack_9_Totes" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stack_9_Totes">
+        <PropertyRef Name="Team_Match" />
+      </Principal>
+      <Dependent Role="Matches">
+        <PropertyRef Name="Stack_9_Totes_Team_Match" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

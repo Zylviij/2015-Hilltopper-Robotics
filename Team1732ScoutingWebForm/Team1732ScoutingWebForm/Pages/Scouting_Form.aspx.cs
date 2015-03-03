@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Team1732ScoutingWebForm
 {
+<<<<<<< HEAD
     enum Stack_Locations
     {
         TT1 = 0,
@@ -17,6 +18,13 @@ namespace Team1732ScoutingWebForm
         Bin = 5,
         Noodle = 6
     }
+=======
+    //enum Auto_Info
+    //{
+    //    tote_set { get; set;}
+        
+    //}
+>>>>>>> origin/master
 
     struct Auto_Info
     {
