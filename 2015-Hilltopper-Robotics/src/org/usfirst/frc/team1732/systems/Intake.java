@@ -1,7 +1,6 @@
 package org.usfirst.frc.team1732.systems;
 
 import edu.wpi.first.wpilibj.CANTalon;
-import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.Solenoid;
 
 public class Intake 
@@ -20,17 +19,11 @@ public class Intake
 	private static final double LEFT = -1;
 	private static final double RIGHT = 1;
 	
-	Preferences prefs;
 		
 	public void init() {
 		// init motors for use
 		m_motorLeft.enableControl();
 		m_motorRight.enableControl();
-		/*
-		 * Grab from Dashboard
-		 */
-		IN = prefs.getDouble("Intake In Speed", IN);
-		OUT = prefs.getDouble("Intake Out Speed", OUT);
 	}
 	
 	/**

@@ -5,6 +5,7 @@ import org.usfirst.frc.team1732.systems.IO;
 import org.usfirst.frc.team1732.systems.RobotMap;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Robot extends IterativeRobot
@@ -16,11 +17,19 @@ public class Robot extends IterativeRobot
 	// creates all robot parts (motors, solenoids, sensors)
 	private RobotMap m_robotMap;
 	
+	private SendableChooser choice;
+		
     public void robotInit()
     {
     	m_io = new IO();
     	
     	m_robotMap = new RobotMap();
+    	
+    	choice = new SendableChooser();
+    	choice.addDefault("Drive Forward", Integer.valueOf(0));
+    	choice.addObject("Get Recycling Container", Integer.valueOf(1));
+    	choice.addObject("Get Recycling Container Advanced", Integer.valueOf(2));
+    	SmartDashboard.putData("Auton Chooser", choice);
     }
     
     public static int a = 0;
@@ -30,14 +39,37 @@ public class Robot extends IterativeRobot
     		System.out.println(a);
     	}
     }
-
+    Object mode;
     public static long startTime;
-    public void autonomousInit() { startTime = System.currentTimeMillis(); }
+    public void autonomousInit() {
+    	m_robotMap.init();
+    	mode = choice.getSelected();
+    	System.out.println(mode);
+    	startTime = System.currentTimeMillis();
+   	}
     
     public void autonomousPeriodic()
     {
-    	if (System.currentTimeMillis() - startTime < 1000) {
-    		m_robotMap.m_drive.drive(0.5, 0, 0);
+    	// drive forward
+    	if (mode == Integer.valueOf(0)) {
+	    	if (System.currentTimeMillis() - startTime < 1000) {
+	    		m_robotMap.m_drive.drive(0.5, 0, 0);
+	    	}
+	    // get Recycling Container
+    	} else if (mode == Integer.valueOf(1)) {
+    		if (System.currentTimeMillis() - startTime < 5000) {
+    			m_robotMap.m_drive.drive(0.2, 180, 0);
+    			m_robotMap.m_craaa.controlCraaa(0, true, true);
+    		}
+    	// get Recycling Container advanced
+    	} else if (mode == Integer.valueOf(2)) {
+    		if (System.currentTimeMillis() - startTime < 1000) {
+    			m_robotMap.m_drive.drive(0.2, 180, 0);
+    			m_robotMap.m_craaa.controlCraaa(0, true, true);
+    		} else if (System.currentTimeMillis() - startTime < 5000) {
+    			m_robotMap.m_drive.drive(0.2, 180, 0);
+    			m_robotMap.m_craaa.controlCraaa(0, false, true);
+    		}
     	}
     }
     
@@ -82,6 +114,7 @@ public class Robot extends IterativeRobot
     	SmartDashboard.putBoolean("Craaa Angle", m_io.getCraaaAngle());
     	SmartDashboard.putBoolean("Craaa Down", m_io.getCraaaDown());
     	SmartDashboard.putBoolean("Craaa Up", m_io.getCraaaUp());
+    	SmartDashboard.putBoolean("Open Craaa", m_io.getOpenCraaa());
     	SmartDashboard.putBoolean("Intake Extend", m_io.getIntakeExtend());
     	SmartDashboard.putBoolean("Lift Tote", m_io.getLiftTote());
     	SmartDashboard.putBoolean("Drop Tote Stack", m_io.getDropToteStack());
@@ -109,18 +142,21 @@ public class Robot extends IterativeRobot
     	SmartDashboard.putNumber("Accelerometer Y", accels[1]);
     	SmartDashboard.putNumber("Accelerometer Z", accels[2]);
     	
-    	// lift
+    	/* lift
     	SmartDashboard.putNumber("Lift Minimum Encoder Value", m_robotMap.m_lift.getMinimum());
     	SmartDashboard.putNumber("Lift Current Encoder Value", m_robotMap.m_lift.getEncoder());
     	SmartDashboard.putNumber("Lift Height From Bottom", m_robotMap.m_lift.getDistanceFromBot());
     	SmartDashboard.putNumber("Lift Percantage To Top", m_robotMap.m_lift.getPercentageToTop());
+    	*/
     	
-    	// craaa
+    	/* craaa
     	SmartDashboard.putNumber("Craaa Minimum Encoder Value", m_robotMap.m_craaa.getMinumum());
     	SmartDashboard.putNumber("Craaa Current Encoder Value", m_robotMap.m_craaa.getEncoder());
     	SmartDashboard.putNumber("Craaa Height From Bottom", m_robotMap.m_craaa.getDistanceFromBot());
     	SmartDashboard.putNumber("Craaa Percentage to Top", m_robotMap.m_craaa.getPercentageToTop());
-    	                
+    	*/
+    	SmartDashboard.putNumber("Craaa Output Current", m_robotMap.m_craaa.getCANTalon());           
+    	SmartDashboard.putNumber("Lift Output Current", m_robotMap.m_lift.getCANTalon());           
     }
     
     public void disabledInit() { m_robotMap.makeSafe(); }

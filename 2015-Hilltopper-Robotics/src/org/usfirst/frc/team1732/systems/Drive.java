@@ -3,7 +3,6 @@ package org.usfirst.frc.team1732.systems;
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Gyro;
-import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.RobotDrive.MotorType;
 
@@ -34,9 +33,7 @@ public class Drive
 	 * Constants
 	 */
 	private static double strafeSpeed = 0.5;
-	
-	Preferences prefs;
-	
+		
 	/**
 	 * organizes values of talons for dashboard
 	 * @return values for dashboard
@@ -88,7 +85,6 @@ public class Drive
 		/*
 		 * Grab from dashboard
 		 */
-		strafeSpeed = prefs.getDouble("Strafe Speed", strafeSpeed);
 		
 	}
 
@@ -97,22 +93,26 @@ public class Drive
 	}
 	
 	public void drive(IO io) {	
-		
-		if (io.getFinesseMode() == -1) { m_drive.mecanumDrive_Polar(strafeSpeed, 270, 0); } 
-		else if (io.getFinesseMode() == 1) { m_drive.mecanumDrive_Polar(strafeSpeed, 90, 0); }
-		else {
-			int arcade = io.getArcade();
-			if (!io.getCartestian()) {
-				if (arcade == -1) { m_drive.mecanumDrive_Polar(io.getLeftMagnitude(), io.getLeftDirection(), io.getLeftRotation()); } 
-				else if (arcade == 1) { m_drive.mecanumDrive_Polar(io.getRightMagnitude(), io.getRightDirection(), io.getRightRotation()); }
-				else if (arcade == 0) {	m_drive.mecanumDrive_Polar(io.getMagnitude(), io.getDirection(), io.getRotation()); }
-				else { System.out.println("Error: Arcade button meathod not working properly!"); }
-			} else {
-				if (arcade == -1) { m_drive.mecanumDrive_Cartesian(io.getLeftX(), io.getLeftY(), io.getLeftRot(), getGyro()); }
-				else if (arcade == 1) { m_drive.mecanumDrive_Cartesian(io.getRightX(), io.getRightY(), io.getRightRot(), getGyro()); }
-				else if (arcade == 0) { m_drive.mecanumDrive_Cartesian(io.getX(), io.getY(), io.getRotation(), getGyro()); }
-				else { System.out.println("Error: Arcade button meathod not working properly!"); }
+		if (io.getResetGyro()) { m_gyro.reset(); }
+		if (!io.getInvert()) {
+			if (io.getFinesseMode() == -1) { m_drive.mecanumDrive_Polar(strafeSpeed, 270, 0); } 
+			else if (io.getFinesseMode() == 1) { m_drive.mecanumDrive_Polar(strafeSpeed, 90, 0); }
+			else {
+				int arcade = io.getArcade();
+				if (!io.getCartestian()) {
+					if (arcade == -1) { m_drive.mecanumDrive_Polar(io.getLeftMagnitude(), io.getLeftDirection(), io.getLeftRotation()); } 
+					else if (arcade == 1) { m_drive.mecanumDrive_Polar(io.getRightMagnitude(), io.getRightDirection(), io.getRightRotation()); }
+					else if (arcade == 0) {	m_drive.mecanumDrive_Polar(io.getMagnitude(), io.getDirection(), io.getRotation()); }
+					else { System.out.println("Error: Arcade button meathod not working properly!"); }
+				} else {
+					if (arcade == -1) { m_drive.mecanumDrive_Cartesian(io.getLeftX(), io.getLeftY(), io.getLeftRot(), getGyro()); }
+					else if (arcade == 1) { m_drive.mecanumDrive_Cartesian(io.getRightX(), io.getRightY(), io.getRightRot(), getGyro()); }
+					else if (arcade == 0) { m_drive.mecanumDrive_Cartesian(io.getX(), io.getY(), io.getRotation(), getGyro()); }
+					else { System.out.println("Error: Arcade button meathod not working properly!"); }
+				}
 			}
+		} else {
+			m_drive.tankDrive(-1 * io.getRightY(), -1 * io.getLeftY());
 		}
 	}
 

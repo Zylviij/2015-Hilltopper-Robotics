@@ -33,6 +33,12 @@ public class IO
 	private Button m_resetGyroLeft = new JoystickButton(m_leftJoystick, 2);
 	private Button m_resetGyroRight = new JoystickButton(m_rightJoystick, 2);
 	
+	private Button m_invertLeft = new JoystickButton(m_leftJoystick, 3);
+	private Button m_invertRight = new JoystickButton(m_rightJoystick, 3);
+	
+	private Button m_dropLeft = new JoystickButton(m_leftJoystick, 4);
+	private Button m_dropRight = new JoystickButton(m_rightJoystick, 4);
+	
 	/*
 	 * Buttons
 	 */
@@ -49,7 +55,6 @@ public class IO
 	/*
 	 * Getters
 	 */
-	
 	private double minimum = Double.MAX_VALUE;
 	private double maximum = Double.MIN_VALUE;
 	public double getCraaaHeight() {
@@ -59,6 +64,14 @@ public class IO
 		double range = maximum - minimum;
 		double position = current - minimum;
 		return position / range;
+	}
+	
+	public boolean getDrop() {
+		return m_dropLeft.get() || m_dropRight.get();
+	}
+	
+	public boolean getInvert() {
+		return m_invertLeft.get() || m_invertRight.get();
 	}
 	
 	/**
