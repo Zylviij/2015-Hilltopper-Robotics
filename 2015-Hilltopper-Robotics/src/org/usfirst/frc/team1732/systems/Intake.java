@@ -14,10 +14,14 @@ public class Intake
 	private Solenoid m_solenoidLeft = new Solenoid(1, 1);
 	
 	private static final double STOP = 0;
-	private static double IN = 0.7;
-	private static double OUT = -0.5;
+	private static final double IN = 1;
+	private static final double IN_SLOW = 0.5;
+	private static final double OUT = -1;
+	private static final double OUT_SLOW = -0.5;
 	private static final double LEFT = -1;
 	private static final double RIGHT = 1;
+	
+	private static boolean m_lastDir = false; // false if in, true if out
 	
 		
 	public void init() {
@@ -35,16 +39,23 @@ public class Intake
 		boolean in = io.getToteIn();
 		boolean out = io.getToteOut();
 		if (in && out) {
-			m_motorLeft.set(STOP);
-			m_motorRight.set(STOP);
+			if (m_lastDir) {
+				m_motorLeft.set(OUT * LEFT);
+				m_motorRight.set(OUT * RIGHT);
+			} else {
+				m_motorLeft.set(IN * LEFT);
+				m_motorRight.set(IN * RIGHT);
+			}
 		}
 		else if (in) {
-			m_motorLeft.set(LEFT * IN);
-			m_motorRight.set(RIGHT * IN);
+			m_lastDir = false;
+			m_motorLeft.set(LEFT * IN_SLOW);
+			m_motorRight.set(RIGHT * IN_SLOW);
 		}
 		else if (out) {
-			m_motorLeft.set(LEFT * OUT);
-			m_motorRight.set(RIGHT * OUT);
+			m_lastDir = true;
+			m_motorLeft.set(LEFT * OUT_SLOW);
+			m_motorRight.set(RIGHT * OUT_SLOW);
 		}
 		else {
 			m_motorLeft.set(STOP);

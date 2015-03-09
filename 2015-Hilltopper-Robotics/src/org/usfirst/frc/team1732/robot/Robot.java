@@ -17,6 +17,7 @@ public class Robot extends IterativeRobot
 	// creates all robot parts (motors, solenoids, sensors)
 	private RobotMap m_robotMap;
 	
+	// creates a way to chose auto mode
 	private SendableChooser choice;
 		
     public void robotInit()
@@ -28,23 +29,18 @@ public class Robot extends IterativeRobot
     	choice = new SendableChooser();
     	choice.addDefault("Drive Forward", Integer.valueOf(0));
     	choice.addObject("Get Recycling Container", Integer.valueOf(1));
-    	choice.addObject("Get Recycling Container Advanced", Integer.valueOf(2));
+    	choice.addObject("Get Recycling Container Long", Integer.valueOf(3));
+    	choice.addObject("Stop", Integer.valueOf(2));
     	SmartDashboard.putData("Auton Chooser", choice);
     }
     
-    public static int a = 0;
-    public void disabledPeriodic()
-    {
-    	if (++a % 100 == 0) {
-    		System.out.println(a);
-    	}
-    }
     Object mode;
     public static long startTime;
     public void autonomousInit() {
     	m_robotMap.init();
+    	
     	mode = choice.getSelected();
-    	System.out.println(mode);
+    	
     	startTime = System.currentTimeMillis();
    	}
     
@@ -52,23 +48,40 @@ public class Robot extends IterativeRobot
     {
     	// drive forward
     	if (mode == Integer.valueOf(0)) {
-	    	if (System.currentTimeMillis() - startTime < 1000) {
+	    	if (System.currentTimeMillis() - startTime < 3000) {
 	    		m_robotMap.m_drive.drive(0.5, 0, 0);
 	    	}
-	    // get Recycling Container
-    	} else if (mode == Integer.valueOf(1)) {
-    		if (System.currentTimeMillis() - startTime < 5000) {
-    			m_robotMap.m_drive.drive(0.2, 180, 0);
-    			m_robotMap.m_craaa.controlCraaa(0, true, true);
-    		}
-    	// get Recycling Container advanced
-    	} else if (mode == Integer.valueOf(2)) {
+    	}	
+    	// get Recycling Container 
+    	else if (mode == Integer.valueOf(1)) {
     		if (System.currentTimeMillis() - startTime < 1000) {
     			m_robotMap.m_drive.drive(0.2, 180, 0);
-    			m_robotMap.m_craaa.controlCraaa(0, true, true);
+    			m_robotMap.m_craaa.controlCraaa(0, false);
+    		} else if (System.currentTimeMillis() - startTime < 1500) {
+    			m_robotMap.m_drive.drive(0, 0, 0);
+    			m_robotMap.m_craaa.controlCraaa(0, true);
     		} else if (System.currentTimeMillis() - startTime < 5000) {
-    			m_robotMap.m_drive.drive(0.2, 180, 0);
-    			m_robotMap.m_craaa.controlCraaa(0, false, true);
+    			m_robotMap.m_drive.drive(0.3, 0, 0);
+    			m_robotMap.m_craaa.controlCraaa(0, true);
+    		} else if (System.currentTimeMillis() - startTime < 6250){
+    			m_robotMap.m_craaa.controlCraaa(0, false);
+    		}
+    	}
+    	// stop
+    	else if (mode == Integer.valueOf(2)) {
+    		m_robotMap.m_drive.drive(0, 0, 0);
+    	}
+    	// get Recycling Container long
+    	else if (mode == Integer.valueOf(3)) {
+    		 if (System.currentTimeMillis() - startTime < 500) {
+    			m_robotMap.m_drive.drive(0, 0, 0);
+    			m_robotMap.m_craaa.controlCraaa(0, true);
+    		} else if (System.currentTimeMillis() - startTime < 6000) {
+    			m_robotMap.m_drive.drive(0.27, 0, 0);
+    			m_robotMap.m_craaa.controlCraaa(0, true);
+    		} else {
+    			m_robotMap.m_drive.drive(0, 0, 0);
+    			m_robotMap.m_craaa.controlCraaa(0, false);
     		}
     	}
     }
@@ -87,37 +100,40 @@ public class Robot extends IterativeRobot
     public void setDashboard() {
     	
     	// io    	
-    	SmartDashboard.putNumber("Craaa Height Slider", m_io.getCraaaHeight());
-    	
     	SmartDashboard.putNumber("Finesse Mode", m_io.getFinesseMode());
     	SmartDashboard.putNumber("Arcade Mode", m_io.getArcade());
+    	
+    	SmartDashboard.putBoolean("Cartesian", m_io.getCartestian());
+    	SmartDashboard.putBoolean("Drop Totes", m_io.getDrop());
+    	SmartDashboard.putBoolean("Invert", m_io.getInvert());
     	
     	SmartDashboard.putNumber("Magnitude", m_io.getMagnitude());
     	SmartDashboard.putNumber("Direction", m_io.getDirection());
     	SmartDashboard.putNumber("Rotation", m_io.getRotation());
+    	SmartDashboard.putNumber("X", m_io.getX());
+    	SmartDashboard.putNumber("Y", m_io.getY());
     	
     	SmartDashboard.putNumber("Left Magnitude", m_io.getLeftMagnitude());
     	SmartDashboard.putNumber("Left Direction", m_io.getLeftDirection());
     	SmartDashboard.putNumber("Left Rotation", m_io.getLeftRotation());
+    	SmartDashboard.putNumber("Left X", m_io.getLeftX());
+    	SmartDashboard.putNumber("Left Y", m_io.getLeftY());
+    	SmartDashboard.putNumber("Left Rotation", m_io.getLeftRot());
+    	
     	SmartDashboard.putNumber("Right Magnitude", m_io.getRightMagnitude());
     	SmartDashboard.putNumber("Right Direction", m_io.getRightDirection());
     	SmartDashboard.putNumber("Right Rotation", m_io.getRightRotation());
-    	SmartDashboard.putNumber("Left X", m_io.getLeftX());
     	SmartDashboard.putNumber("Right X", m_io.getRightX());
-    	SmartDashboard.putNumber("Left Y", m_io.getLeftY());
     	SmartDashboard.putNumber("Right Y", m_io.getRightY());
-    	SmartDashboard.putNumber("Left Rotation", m_io.getLeftRot());
     	SmartDashboard.putNumber("Right Rotation", m_io.getRightRot());
-    	
-    	SmartDashboard.putBoolean("Cartesian", m_io.getCartestian());
-    	
+    	    	
     	SmartDashboard.putBoolean("Craaa Angle", m_io.getCraaaAngle());
     	SmartDashboard.putBoolean("Craaa Down", m_io.getCraaaDown());
     	SmartDashboard.putBoolean("Craaa Up", m_io.getCraaaUp());
     	SmartDashboard.putBoolean("Open Craaa", m_io.getOpenCraaa());
     	SmartDashboard.putBoolean("Intake Extend", m_io.getIntakeExtend());
-    	SmartDashboard.putBoolean("Lift Tote", m_io.getLiftTote());
-    	SmartDashboard.putBoolean("Drop Tote Stack", m_io.getDropToteStack());
+    	SmartDashboard.putBoolean("Lift Up", m_io.getLiftUp());
+    	SmartDashboard.putBoolean("Lift Down", m_io.getLiftDown());
     	SmartDashboard.putBoolean("Tote In", m_io.getToteIn());
     	SmartDashboard.putBoolean("Tote Out", m_io.getToteOut());
     	
@@ -136,26 +152,9 @@ public class Robot extends IterativeRobot
     	
     	SmartDashboard.putNumber("Drive Gyro", m_robotMap.m_drive.getGyro());
     	
-    	double[] accels = m_robotMap.m_drive.getAccels();
-    	
-    	SmartDashboard.putNumber("Accelerometer X", accels[0]);
-    	SmartDashboard.putNumber("Accelerometer Y", accels[1]);
-    	SmartDashboard.putNumber("Accelerometer Z", accels[2]);
-    	
-    	/* lift
-    	SmartDashboard.putNumber("Lift Minimum Encoder Value", m_robotMap.m_lift.getMinimum());
-    	SmartDashboard.putNumber("Lift Current Encoder Value", m_robotMap.m_lift.getEncoder());
-    	SmartDashboard.putNumber("Lift Height From Bottom", m_robotMap.m_lift.getDistanceFromBot());
-    	SmartDashboard.putNumber("Lift Percantage To Top", m_robotMap.m_lift.getPercentageToTop());
-    	*/
-    	
-    	/* craaa
-    	SmartDashboard.putNumber("Craaa Minimum Encoder Value", m_robotMap.m_craaa.getMinumum());
-    	SmartDashboard.putNumber("Craaa Current Encoder Value", m_robotMap.m_craaa.getEncoder());
-    	SmartDashboard.putNumber("Craaa Height From Bottom", m_robotMap.m_craaa.getDistanceFromBot());
-    	SmartDashboard.putNumber("Craaa Percentage to Top", m_robotMap.m_craaa.getPercentageToTop());
-    	*/
-    	SmartDashboard.putNumber("Craaa Output Current", m_robotMap.m_craaa.getCANTalon());           
+    	SmartDashboard.putNumber("Craaa Output Current", m_robotMap.m_craaa.getCANTalon());       
+    	SmartDashboard.putNumber("Craaa Temp", m_robotMap.m_craaa.getCANTalonHeat());
+    	SmartDashboard.putNumber("Lift Temp", m_robotMap.m_lift.getCANTalonHeat());
     	SmartDashboard.putNumber("Lift Output Current", m_robotMap.m_lift.getCANTalon());           
     }
     

@@ -21,8 +21,15 @@ public class Lift
 	/*
 	 * Constants
 	 */
-	private static double SPEED = -1;
-		
+	private static final double UP = 1;
+	private static final double UP_SLOW = 0.5;
+	private static final double DOWN = -1;
+	private static final double DOWN_SLOW = -0.5;
+	private static final double SPEED = 1;
+	private static final double STOP = 0;
+	
+	private static boolean m_lastDir = false; // true if up, false if down
+	
 	public void init() {
 		m_motor.enableControl();
 		/*
@@ -34,52 +41,39 @@ public class Lift
 		return m_motor.getOutputCurrent();
 	}
 	
-	/*
-	public double getEncoder() {
-		return -1 * m_encoder.get();
+	public double getCANTalonHeat() {
+		return m_motor.getTemp();
 	}
-	
-	public double getMinimum() {
-		return minimum;
-	}
-	
-	public double getDistanceFromBot() {
-		return getEncoder() - minimum;
-	}
-	
-	public double getPercentageToTop() {
-		return getDistanceFromBot() / maximum;
-	}*/
 	
 	/**
 	 * control the lift from joysticks
 	 * @param io
 	 */
 	public void controlLift(IO io) {
-		
-		/*if (getEncoder() < minimum) minimum = getEncoder();
-		
-		if (io.getLiftTote()) {
-			m_motor.set((maximum - getDistanceFromBot()) * SPEED);
+		if (io.getLiftUp() && io.getLiftDown()) {
+			if (m_lastDir) {
+				m_motor.set(UP * SPEED);
+			} else {
+				m_motor.set(DOWN * SPEED);
+			}
+		}
+		else if (io.getLiftUp()) {
+			m_lastDir = true;
+			m_motor.set(UP_SLOW * SPEED);
+		} else if (io.getLiftDown()) {
+			m_lastDir = false;
+			m_motor.set(DOWN_SLOW * SPEED);
 		} else {
-			m_motor.set(((minimum - getDistanceFromBot()) * SPEED) + DOWN_DRIFT);
-		}*/
-		
-		if (io.getLiftTote()) {
-			m_motor.set(SPEED);
-		} else if (io.getDropToteStack()) {
-			m_motor.set(-1 * SPEED);
-		} else {
-			m_motor.set(0);
+			m_motor.set(STOP);
 		}
 		
 		// set servos
-		if (io.getDrop()) {
-			m_dropLeft.set(0.625);
-			m_dropRight.set(0.5);
+		if (io.getDrop() || io.getOpenCraaa()) {
+			m_dropLeft.set(0.25);
+			m_dropRight.set(1);
 		} else {
-			m_dropLeft.set(1);
-			m_dropRight.set(0);
+			m_dropLeft.set(.75);
+			m_dropRight.set(0.5);
 
 		}
 

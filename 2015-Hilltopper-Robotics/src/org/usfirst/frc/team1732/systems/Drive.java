@@ -32,7 +32,7 @@ public class Drive
 	/*
 	 * Constants
 	 */
-	private static double strafeSpeed = 0.5;
+	private static double strafeSpeed = 1;
 		
 	/**
 	 * organizes values of talons for dashboard
@@ -97,22 +97,24 @@ public class Drive
 		if (!io.getInvert()) {
 			if (io.getFinesseMode() == -1) { m_drive.mecanumDrive_Polar(strafeSpeed, 270, 0); } 
 			else if (io.getFinesseMode() == 1) { m_drive.mecanumDrive_Polar(strafeSpeed, 90, 0); }
+			else if (io.getSpin() == -1) { m_drive.mecanumDrive_Polar(0, 0, -1); }
+			else if (io.getSpin() == 1) { m_drive.mecanumDrive_Polar(0, 0, 1);}
 			else {
 				int arcade = io.getArcade();
 				if (!io.getCartestian()) {
-					if (arcade == -1) { m_drive.mecanumDrive_Polar(io.getLeftMagnitude(), io.getLeftDirection(), io.getLeftRotation()); } 
-					else if (arcade == 1) { m_drive.mecanumDrive_Polar(io.getRightMagnitude(), io.getRightDirection(), io.getRightRotation()); }
+					if (arcade == -1) { m_drive.arcadeDrive(io.getLeftY(), io.getLeftX()); } 
+					else if (arcade == 1) { m_drive.arcadeDrive(io.getRightY(), io.getRightX()); } 
 					else if (arcade == 0) {	m_drive.mecanumDrive_Polar(io.getMagnitude(), io.getDirection(), io.getRotation()); }
 					else { System.out.println("Error: Arcade button meathod not working properly!"); }
 				} else {
-					if (arcade == -1) { m_drive.mecanumDrive_Cartesian(io.getLeftX(), io.getLeftY(), io.getLeftRot(), getGyro()); }
-					else if (arcade == 1) { m_drive.mecanumDrive_Cartesian(io.getRightX(), io.getRightY(), io.getRightRot(), getGyro()); }
+					if (arcade == -1) { m_drive.arcadeDrive(io.getLeftY(), io.getLeftX()); } 
+					else if (arcade == 1) { m_drive.arcadeDrive(io.getRightY(), io.getRightX()); } 
 					else if (arcade == 0) { m_drive.mecanumDrive_Cartesian(io.getX(), io.getY(), io.getRotation(), getGyro()); }
 					else { System.out.println("Error: Arcade button meathod not working properly!"); }
 				}
 			}
 		} else {
-			m_drive.tankDrive(-1 * io.getRightY(), -1 * io.getLeftY());
+			m_drive.mecanumDrive_Polar(io.getMagnitude(), (io.getDirection() + 180) % 360, io.getRotation());
 		}
 	}
 

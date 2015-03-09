@@ -30,13 +30,13 @@ public class IO
 	private Button m_finesseLeftRight = new JoystickButton(m_rightJoystick, 5);
 	private Button m_finesseRightRight = new JoystickButton(m_rightJoystick, 6);
 	
-	private Button m_resetGyroLeft = new JoystickButton(m_leftJoystick, 2);
-	private Button m_resetGyroRight = new JoystickButton(m_rightJoystick, 2);
+	private Button m_resetGyroLeft = new JoystickButton(m_leftJoystick, 4);
+	private Button m_resetGyroRight = new JoystickButton(m_rightJoystick, 3);
 	
-	private Button m_invertLeft = new JoystickButton(m_leftJoystick, 3);
-	private Button m_invertRight = new JoystickButton(m_rightJoystick, 3);
+	private Button m_invertLeft = new JoystickButton(m_leftJoystick, 2);
+	private Button m_invertRight = new JoystickButton(m_rightJoystick, 2);
 	
-	private Button m_dropLeft = new JoystickButton(m_leftJoystick, 4);
+	private Button m_dropLeft = new JoystickButton(m_leftJoystick, 3);
 	private Button m_dropRight = new JoystickButton(m_rightJoystick, 4);
 	
 	/*
@@ -44,8 +44,8 @@ public class IO
 	 */
 	private Button m_toteOut = new JoystickButton(m_buttons, 16);
 	private Button m_toteIn = new JoystickButton(m_buttons, 13);
-	private Button m_dropToteStack = new JoystickButton(m_buttons, 18);
-	private Button m_liftTote = new JoystickButton(m_buttons, 19);
+	private Button m_liftUp = new JoystickButton(m_buttons, 18);
+	private Button m_liftDown = new JoystickButton(m_buttons, 19);
 	private Button m_intakeExtend = new JoystickButton(m_buttons, 12);
 	private Button m_openCraaa = new JoystickButton(m_buttons, 3);
 	private Button m_craaaUp = new JoystickButton(m_buttons, 17);
@@ -124,11 +124,21 @@ public class IO
 	public double getRightY() { return m_rightJoystick.getY(); }
 	public double getLeftX() { return m_leftJoystick.getX(); }
 	public double getRightX() { return m_rightJoystick.getX(); }
-	public double getLeftRot() { return m_leftJoystick.getTwist(); }
-	public double getRightRot() { return m_rightJoystick.getTwist(); }
+	public double getLeftRot() { return m_leftJoystick.getZ(); }
+	public double getRightRot() { return m_rightJoystick.getZ(); }
 	public double getX() { return (getLeftX() + getRightX()) / 2; }
 	public double getY() { return (getLeftY() + getRightY()) / 2; }
 	public boolean getResetGyro() { return m_resetGyroRight.get() || m_resetGyroLeft.get(); }
+	
+	public int getSpin() {
+		boolean left = m_resetGyroLeft.get();
+		boolean right = m_resetGyroRight.get();
+		
+		if (left && right) { return 0; }
+		else if (left) { return -1; }
+		else if (right) { return 1; }
+		else { return 0; }
+	}
 	
 	public boolean getCartestian() { return m_leftJoystick.getTrigger() || m_rightJoystick.getTrigger(); }
 	
@@ -137,8 +147,8 @@ public class IO
 	public boolean getCraaaUp() { return m_craaaUp.get(); }
 	public boolean getOpenCraaa() { return m_openCraaa.get(); }
 	public boolean getIntakeExtend() { return m_intakeExtend.get(); }
-	public boolean getLiftTote() { return m_liftTote.get();}
-	public boolean getDropToteStack() { return m_dropToteStack.get(); }
+	public boolean getLiftDown() { return m_liftDown.get();}
+	public boolean getLiftUp() { return m_liftUp.get(); }
 	public boolean getToteOut() { return m_toteOut.get(); }
 	public boolean getToteIn() { return m_toteIn.get(); }
 }
