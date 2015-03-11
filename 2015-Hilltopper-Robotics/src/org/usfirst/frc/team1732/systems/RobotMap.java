@@ -11,12 +11,10 @@ public class RobotMap
 	 */
 	public Drive m_drive = new Drive();
 	public Lift m_lift = new Lift();
-	public Intake m_intake = new Intake();
 	public Craaa m_craaa = new Craaa();
 	
 	public void init() {
 		m_drive.init();
-		m_intake.init();
 		m_craaa.init();
 		m_lift.init();
 	}
@@ -24,7 +22,6 @@ public class RobotMap
 	public void teleop(IO io) {
 		m_drive.drive(io);
 		m_lift.controlLift(io);
-		m_intake.controlIntake(io);
 		m_craaa.controlCraaa(io);
 	}
 	
@@ -35,7 +32,6 @@ public class RobotMap
 	{
 		m_drive.makeSafe();
 		m_lift.makeSafe();
-		m_intake.makeSafe();
 		m_craaa.makeSafe();
 	}
 }

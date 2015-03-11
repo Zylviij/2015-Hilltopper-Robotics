@@ -100,12 +100,6 @@ public class Robot extends IterativeRobot
     public void setDashboard() {
     	
     	// io    	
-    	SmartDashboard.putNumber("Finesse Mode", m_io.getFinesseMode());
-    	SmartDashboard.putNumber("Arcade Mode", m_io.getArcade());
-    	
-    	SmartDashboard.putBoolean("Cartesian", m_io.getCartestian());
-    	SmartDashboard.putBoolean("Drop Totes", m_io.getDrop());
-    	SmartDashboard.putBoolean("Invert", m_io.getInvert());
     	
     	SmartDashboard.putNumber("Magnitude", m_io.getMagnitude());
     	SmartDashboard.putNumber("Direction", m_io.getDirection());
@@ -118,25 +112,12 @@ public class Robot extends IterativeRobot
     	SmartDashboard.putNumber("Left Rotation", m_io.getLeftRotation());
     	SmartDashboard.putNumber("Left X", m_io.getLeftX());
     	SmartDashboard.putNumber("Left Y", m_io.getLeftY());
-    	SmartDashboard.putNumber("Left Rotation", m_io.getLeftRot());
     	
     	SmartDashboard.putNumber("Right Magnitude", m_io.getRightMagnitude());
     	SmartDashboard.putNumber("Right Direction", m_io.getRightDirection());
     	SmartDashboard.putNumber("Right Rotation", m_io.getRightRotation());
     	SmartDashboard.putNumber("Right X", m_io.getRightX());
     	SmartDashboard.putNumber("Right Y", m_io.getRightY());
-    	SmartDashboard.putNumber("Right Rotation", m_io.getRightRot());
-    	    	
-    	SmartDashboard.putBoolean("Craaa Angle", m_io.getCraaaAngle());
-    	SmartDashboard.putBoolean("Craaa Down", m_io.getCraaaDown());
-    	SmartDashboard.putBoolean("Craaa Up", m_io.getCraaaUp());
-    	SmartDashboard.putBoolean("Open Craaa", m_io.getOpenCraaa());
-    	SmartDashboard.putBoolean("Intake Extend", m_io.getIntakeExtend());
-    	SmartDashboard.putBoolean("Lift Up", m_io.getLiftUp());
-    	SmartDashboard.putBoolean("Lift Down", m_io.getLiftDown());
-    	SmartDashboard.putBoolean("Tote In", m_io.getToteIn());
-    	SmartDashboard.putBoolean("Tote Out", m_io.getToteOut());
-    	
     	// drive
     	double[][] talonInfo = m_robotMap.m_drive.getCANTalon();
     	

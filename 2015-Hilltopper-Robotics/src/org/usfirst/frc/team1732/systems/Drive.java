@@ -32,7 +32,12 @@ public class Drive
 	/*
 	 * Constants
 	 */
-	private static double strafeSpeed = 1;
+	private static final double STRAFE_SPEED = 1;
+	private static final double SPIN_LEFT = -1;
+	private static final double SPIN_RIGHT = 1;
+	private static final double LEFT = 90;
+	private static final double RIGHT = 270;
+	private static final double STOP = 0;
 		
 	/**
 	 * organizes values of talons for dashboard
@@ -92,7 +97,82 @@ public class Drive
 		m_drive.mecanumDrive_Polar(mag, dir, rot);
 	}
 	
-	public void drive(IO io) {	
+	public void drive(IO io) {
+		// arcade buttons
+		boolean arcadeLeft = io.getArcadeLeft();
+		boolean arcadeRight = io.getArcadeRight();
+		// if both are pressed,  act as if neither are pressed
+		if (arcadeLeft && arcadeRight) {
+			arcadeLeft = false;
+			arcadeRight = false;
+		}
+		
+		// spin buttons
+		boolean spinLeft = io.getSpinLeft();
+		boolean spinRight = io.getSpinRight();
+		// if both are pressed,  act as if neither are pressed
+		if (spinLeft && spinRight) {
+			spinLeft = false;
+			spinRight = false;
+		}
+		
+		// strafe buttons
+		boolean strafeLeft = io.getStrafeLeftLeft() || io.getStrafeLeftRight();
+		boolean strafeRight = io.getStrafeRightLeft() || io.getStrafeRightRight();
+		// if both are pressed,  act as if neither are pressed
+		if (strafeLeft && strafeRight) {
+			strafeLeft = false;
+			strafeRight = false;
+		}
+		
+		// invert buttons
+		boolean invert = io.getInvertLeft() || io.getInvertRight();
+		
+		// gyro buttons
+		boolean gyro = io.getGyroLeft() || io.getGyroRight();
+		
+		// reset gyro buttons
+		boolean resetGyro = io.getResetGyroLeft() || io.getResetGyroRight();
+		
+		if (spinLeft) {
+			m_drive.mecanumDrive_Polar(STOP, STOP, SPIN_LEFT);
+		} else if (spinRight) {
+			m_drive.mecanumDrive_Polar(STOP, STOP, SPIN_RIGHT);
+		} else {
+			if (gyro) {
+				m_drive.mecanumDrive_Cartesian(io.getX(), io.getY(), io.getRotation(), m_gyro.getAngle());
+			} else {
+				if (invert) {
+					if (strafeLeft) {
+						m_drive.mecanumDrive_Polar(STRAFE_SPEED, RIGHT, STOP);
+					} else if (strafeRight) {
+						m_drive.mecanumDrive_Polar(STRAFE_SPEED, LEFT, STOP);
+					} else {
+						m_drive.mecanumDrive_Polar(io.getMagnitude(), (io.getDirection() + 180) % 360, io.getRotation());
+					}
+				} else {
+					if (arcadeLeft) {
+						m_drive.mecanumDrive_Polar(io.getLeftMagnitude(), io.getLeftDirection(), io.getLeftRotation());
+					} else if (arcadeRight) {
+						m_drive.mecanumDrive_Polar(io.getRightMagnitude(), io.getRightDirection(), io.getRightRotation());
+					} else {
+						if (strafeLeft) {
+							m_drive.mecanumDrive_Polar(STRAFE_SPEED, LEFT, STOP);
+						} else if (strafeRight) {
+							m_drive.mecanumDrive_Polar(STRAFE_SPEED, RIGHT, STOP);
+						} else {
+							m_drive.mecanumDrive_Polar(io.getMagnitude(), io.getDirection(), io.getRotation());
+						}
+					}
+				}
+			}
+		}
+		
+		if (resetGyro) {
+			m_gyro.reset();
+		}
+		
+		/*/
 		if (io.getResetGyro()) { m_gyro.reset(); }
 		if (!io.getInvert()) {
 			if (io.getFinesseMode() == -1) { m_drive.mecanumDrive_Polar(strafeSpeed, 270, 0); } 
@@ -116,6 +196,7 @@ public class Drive
 		} else {
 			m_drive.mecanumDrive_Polar(io.getMagnitude(), (io.getDirection() + 180) % 360, io.getRotation());
 		}
+		//*/
 	}
 
 	public void makeSafe() {

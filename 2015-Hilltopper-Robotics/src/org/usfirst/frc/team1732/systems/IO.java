@@ -21,134 +21,93 @@ public class IO
 	/*
 	 * Create Joystick Buttons
 	 */
-	private Button m_arcadeLeft = new JoystickButton(m_leftJoystick, 7);
-	private Button m_arcadeRight = new JoystickButton(m_rightJoystick, 7);
+	private Button m_arcadeLeft = new JoystickButton(m_leftJoystick, 1);
+	private Button m_arcadeRight = new JoystickButton(m_rightJoystick, 1);
 		
-	private Button m_finesseLeftLeft = new JoystickButton(m_leftJoystick, 5);
-	private Button m_finesseRightLeft = new JoystickButton(m_leftJoystick, 6);
+	private Button m_spinLeft = new JoystickButton(m_leftJoystick, 7);
+	private Button m_spinRight = new JoystickButton(m_rightJoystick, 7);
+
+	private Button m_strafeLeftLeft = new JoystickButton(m_leftJoystick, 5);
+	private Button m_strafeLeftRight = new JoystickButton(m_rightJoystick, 5);
 	
-	private Button m_finesseLeftRight = new JoystickButton(m_rightJoystick, 5);
-	private Button m_finesseRightRight = new JoystickButton(m_rightJoystick, 6);
+	private Button m_strafeRightLeft = new JoystickButton(m_leftJoystick, 6);
+	private Button m_strafeRightRight = new JoystickButton(m_rightJoystick, 6);
 	
-	private Button m_resetGyroLeft = new JoystickButton(m_leftJoystick, 4);
-	private Button m_resetGyroRight = new JoystickButton(m_rightJoystick, 3);
+	private Button m_resetGyroLeft = new JoystickButton(m_leftJoystick, 3);
+	private Button m_resetGyroRight = new JoystickButton(m_rightJoystick, 4);
 	
 	private Button m_invertLeft = new JoystickButton(m_leftJoystick, 2);
 	private Button m_invertRight = new JoystickButton(m_rightJoystick, 2);
 	
-	private Button m_dropLeft = new JoystickButton(m_leftJoystick, 3);
-	private Button m_dropRight = new JoystickButton(m_rightJoystick, 4);
+	private Button m_gyroLeft = new JoystickButton(m_leftJoystick, 4);
+	private Button m_gyroRight = new JoystickButton(m_rightJoystick, 3);
+	
 	
 	/*
 	 * Buttons
 	 */
-	private Button m_toteOut = new JoystickButton(m_buttons, 16);
-	private Button m_toteIn = new JoystickButton(m_buttons, 13);
-	private Button m_liftUp = new JoystickButton(m_buttons, 18);
-	private Button m_liftDown = new JoystickButton(m_buttons, 19);
-	private Button m_intakeExtend = new JoystickButton(m_buttons, 12);
-	private Button m_openCraaa = new JoystickButton(m_buttons, 3);
-	private Button m_craaaUp = new JoystickButton(m_buttons, 17);
-	private Button m_craaaDown = new JoystickButton(m_buttons, 20);
-	private Button m_craaaAngle = new JoystickButton(m_buttons, 15);
+	private Button m_00 = new JoystickButton(m_buttons, 16);
+	private Button m_10 = new JoystickButton(m_buttons, 13);
+	private Button m_03 = new JoystickButton(m_buttons, 18);
+	private Button m_13 = new JoystickButton(m_buttons, 19);
+	private Button m_20 = new JoystickButton(m_buttons, 12);
+	private Button m_23 = new JoystickButton(m_buttons, 3);
+	private Button m_01 = new JoystickButton(m_buttons, 17);
+	private Button m_11 = new JoystickButton(m_buttons, 20);
+	private Button m_21 = new JoystickButton(m_buttons, 15);
+	private Button m_02 = new JoystickButton(m_buttons, 000); // update
+	private Button m_12 = new JoystickButton(m_buttons, 001); // update
+	private Button m_22 = new JoystickButton(m_buttons, 002); // update
 	
-	/*
-	 * Getters
-	 */
-	private double minimum = Double.MAX_VALUE;
-	private double maximum = Double.MIN_VALUE;
-	public double getCraaaHeight() {
-		double current = m_buttons.getRawAxis(0);
-		if (current > maximum) maximum = current;
-		if (current < minimum) minimum = current;
-		double range = maximum - minimum;
-		double position = current - minimum;
-		return position / range;
-	}
+	public boolean get00() { return m_00.get(); }
+	public boolean get01() { return m_01.get(); }
+	public boolean get02() { return m_02.get(); }
+	public boolean get03() { return m_03.get(); }
+	public boolean get10() { return m_10.get(); }
+	public boolean get11() { return m_11.get(); }
+	public boolean get12() { return m_12.get(); }
+	public boolean get13() { return m_13.get(); }
+	public boolean get20() { return m_20.get(); }
+	public boolean get21() { return m_21.get(); }
+	public boolean get22() { return m_22.get(); }
+	public boolean get23() { return m_23.get(); }
 	
-	public boolean getDrop() {
-		return m_dropLeft.get() || m_dropRight.get();
-	}
+	public double getMagnitude() { return (m_leftJoystick.getMagnitude() + m_rightJoystick.getMagnitude()) / 2.0; }
+	public double getDirection() { return Math.toDegrees(Math.atan2((m_leftJoystick.getX() + m_rightJoystick.getX()) / 2.0, (m_leftJoystick.getY() + m_rightJoystick.getY()) / -2.0));	}
+	public double getRotation() { return (m_rightJoystick.getY() - m_leftJoystick.getY()) / 2.0; }
 	
-	public boolean getInvert() {
-		return m_invertLeft.get() || m_invertRight.get();
-	}
-	
-	/**
-	 * returns the finesse direction
-	 * @return -1 if left <br /> 1 if right <br /> 0 if both or neither
-	 */
-	public int getFinesseMode() {
-		
-		boolean left = m_finesseLeftLeft.get() || m_finesseLeftRight.get();
-		boolean right = m_finesseRightLeft.get() || m_finesseRightRight.get();
-		
-		if (left && right) { return 0; }
-		else if (left) { return -1; }
-		else if (right) { return 1; }
-		else { return 0; }
-	}
-	
-	public int getArcade() {
-		boolean left = m_arcadeLeft.get();
-		boolean right = m_arcadeRight.get();
-		
-		if (left && right) { return 0; }
-		else if (left) { return -1; }
-		else if (right) { return 1; }
-		else { return 0; }
-	}
-	
-	public double getMagnitude() {
-		return (m_leftJoystick.getMagnitude() + m_rightJoystick.getMagnitude()) / 2.0;
-	}
-	
-	public double getDirection() {
-		return Math.toDegrees(Math.atan2(
-										(m_leftJoystick.getX() + m_rightJoystick.getX()) / 2.0,
-										(m_leftJoystick.getY() + m_rightJoystick.getY()) / -2.0
-										));	
-	}
-	
-	public double getRotation() {
-		return (m_rightJoystick.getY() - m_leftJoystick.getY()) / 2.0;
-	}
+	public double getX() { return (getLeftX() + getRightX()) / 2; }
+	public double getY() { return (getLeftY() + getRightY()) / 2; }
 	
 	public double getLeftMagnitude() { return m_leftJoystick.getMagnitude(); }
 	public double getRightMagnitude() { return m_rightJoystick.getMagnitude(); }
 	public double getLeftDirection() { return m_leftJoystick.getDirectionDegrees(); }
 	public double getRightDirection() { return m_rightJoystick.getDirectionDegrees(); }
-	public double getLeftRotation() { return m_leftJoystick.getTwist(); }
-	public double getRightRotation() { return m_rightJoystick.getTwist(); }
+	public double getLeftRotation() { return m_leftJoystick.getZ(); }
+	public double getRightRotation() { return m_rightJoystick.getZ(); }
+	
+	
 	public double getLeftY() { return m_leftJoystick.getY(); }
 	public double getRightY() { return m_rightJoystick.getY(); }
 	public double getLeftX() { return m_leftJoystick.getX(); }
 	public double getRightX() { return m_rightJoystick.getX(); }
-	public double getLeftRot() { return m_leftJoystick.getZ(); }
-	public double getRightRot() { return m_rightJoystick.getZ(); }
-	public double getX() { return (getLeftX() + getRightX()) / 2; }
-	public double getY() { return (getLeftY() + getRightY()) / 2; }
-	public boolean getResetGyro() { return m_resetGyroRight.get() || m_resetGyroLeft.get(); }
 	
-	public int getSpin() {
-		boolean left = m_resetGyroLeft.get();
-		boolean right = m_resetGyroRight.get();
-		
-		if (left && right) { return 0; }
-		else if (left) { return -1; }
-		else if (right) { return 1; }
-		else { return 0; }
-	}
+	public boolean getArcadeLeft() { return m_arcadeLeft.get(); }
+	public boolean getArcadeRight() { return m_arcadeRight.get(); }
+	public boolean getSpinLeft() { return m_spinLeft.get(); }
+	public boolean getSpinRight() { return m_spinRight.get(); }
 	
-	public boolean getCartestian() { return m_leftJoystick.getTrigger() || m_rightJoystick.getTrigger(); }
+	public boolean getStrafeLeftLeft() { return m_strafeLeftLeft.get(); }
+	public boolean getStrafeLeftRight() { return m_strafeLeftRight.get(); }
+	public boolean getStrafeRightLeft() { return m_strafeRightLeft.get(); }
+	public boolean getStrafeRightRight() { return m_strafeRightRight.get(); }
+
+	public boolean getGyroLeft() { return m_gyroLeft.get(); }
+	public boolean getGyroRight() { return m_gyroRight.get(); }
 	
-	public boolean getCraaaAngle() { return m_craaaAngle.get(); }
-	public boolean getCraaaDown() { return m_craaaDown.get(); }
-	public boolean getCraaaUp() { return m_craaaUp.get(); }
-	public boolean getOpenCraaa() { return m_openCraaa.get(); }
-	public boolean getIntakeExtend() { return m_intakeExtend.get(); }
-	public boolean getLiftDown() { return m_liftDown.get();}
-	public boolean getLiftUp() { return m_liftUp.get(); }
-	public boolean getToteOut() { return m_toteOut.get(); }
-	public boolean getToteIn() { return m_toteIn.get(); }
+	public boolean getResetGyroLeft() { return m_resetGyroLeft.get(); }
+	public boolean getResetGyroRight() { return m_resetGyroRight.get(); }
+	
+	public boolean getInvertLeft() { return m_invertLeft.get(); }
+	public boolean getInvertRight() { return m_invertRight.get(); }
 }
