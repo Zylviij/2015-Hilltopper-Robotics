@@ -8,7 +8,7 @@ public class Craaa
 	/*
 	 * Actuators
 	 */
-	private Solenoid m_solenoidOpen = new Solenoid(1, 0);
+	private Solenoid m_solenoidOpen = new Solenoid(1, 3);
 	
 	private CANTalon m_motor = new CANTalon(14);
 	
@@ -39,8 +39,8 @@ public class Craaa
 	 * @param io
 	 */
 	public void controlCraaa(IO io) {
-		boolean up = io.get00();
-		boolean down = io.get10();
+		boolean up = io.getCraaaUp();
+		boolean down = io.getCraaaDown();
 		if (up && down) {
 			if (m_lastDir) {
 				m_motor.set(UP * SPEED);
@@ -57,7 +57,7 @@ public class Craaa
 		} else {
 			m_motor.set(STOP);
 		}
-		boolean open = io.get20();
+		boolean open = io.getCraaaOpen();
 		m_solenoidOpen.set(open);
 	}
 	
@@ -79,7 +79,7 @@ public class Craaa
 		m_motor.set(0);
 		m_motor.disable();
 		
-		m_solenoidOpen.set(true);
+		m_solenoidOpen.set(false);
 		m_solenoidOpen.free();
 	}
 }

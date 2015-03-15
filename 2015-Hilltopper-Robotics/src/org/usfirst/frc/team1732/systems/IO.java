@@ -46,31 +46,43 @@ public class IO
 	/*
 	 * Buttons
 	 */
-	private Button m_00 = new JoystickButton(m_buttons, 16);
-	private Button m_10 = new JoystickButton(m_buttons, 13);
-	private Button m_03 = new JoystickButton(m_buttons, 18);
-	private Button m_13 = new JoystickButton(m_buttons, 19);
-	private Button m_20 = new JoystickButton(m_buttons, 12);
-	private Button m_23 = new JoystickButton(m_buttons, 3);
-	private Button m_01 = new JoystickButton(m_buttons, 17);
-	private Button m_11 = new JoystickButton(m_buttons, 20);
-	private Button m_21 = new JoystickButton(m_buttons, 15);
-	private Button m_02 = new JoystickButton(m_buttons, 000); // update
-	private Button m_12 = new JoystickButton(m_buttons, 001); // update
-	private Button m_22 = new JoystickButton(m_buttons, 002); // update
+	private Button m_mode = new JoystickButton(m_buttons, 3);
 	
-	public boolean get00() { return m_00.get(); }
-	public boolean get01() { return m_01.get(); }
-	public boolean get02() { return m_02.get(); }
-	public boolean get03() { return m_03.get(); }
-	public boolean get10() { return m_10.get(); }
-	public boolean get11() { return m_11.get(); }
-	public boolean get12() { return m_12.get(); }
-	public boolean get13() { return m_13.get(); }
-	public boolean get20() { return m_20.get(); }
-	public boolean get21() { return m_21.get(); }
-	public boolean get22() { return m_22.get(); }
-	public boolean get23() { return m_23.get(); }
+	private Button m_craaaUp = new JoystickButton(m_buttons, 16);
+	private Button m_craaaDown = new JoystickButton(m_buttons, 13);
+	private Button m_craaaOpen = new JoystickButton(m_buttons, 12);
+	
+	private Button m_humanPlayer = new JoystickButton(m_buttons, 17);
+	// TODO: update io number
+	private Button m_centreTote = new JoystickButton(m_buttons, 8);
+	private Button m_latch = new JoystickButton(m_buttons, 18);
+	private Button m_out = new JoystickButton(m_buttons, 20);
+	private Button m_drop = new JoystickButton(m_buttons, 19);
+	
+	private Button m_intakesExtended = new JoystickButton(m_buttons, 15);
+	
+	public boolean getMode() { return m_mode.get(); }
+	
+	public boolean getCraaaUp() { return m_craaaUp.get(); }
+	public boolean getCraaaDown() { return m_craaaDown.get(); }
+	public boolean getCraaaOpen() { return m_craaaOpen.get(); }
+	
+	public boolean getHumanPlayer() { return m_humanPlayer.get(); }
+	public boolean getRollersOut() { return m_humanPlayer.get(); }
+	
+	public boolean getCentreTote() { return m_centreTote.get(); }
+	public boolean getFlippers() { return m_centreTote.get(); }
+	
+	public boolean getLatch() { return m_latch.get(); }
+	public boolean getLiftUp() { return m_latch.get(); }
+	
+	public boolean getOut() { return m_out.get(); }
+	public boolean getRollersIn() { return m_out.get(); }
+	
+	public boolean getDrop() { return m_drop.get(); }
+	public boolean getLiftDown() { return m_drop.get(); }
+	
+	public boolean getIntakesExtended() { return m_intakesExtended.get(); }
 	
 	public double getMagnitude() { return (m_leftJoystick.getMagnitude() + m_rightJoystick.getMagnitude()) / 2.0; }
 	public double getDirection() { return Math.toDegrees(Math.atan2((m_leftJoystick.getX() + m_rightJoystick.getX()) / 2.0, (m_leftJoystick.getY() + m_rightJoystick.getY()) / -2.0));	}

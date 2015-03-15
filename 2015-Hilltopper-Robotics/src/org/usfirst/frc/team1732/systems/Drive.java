@@ -144,9 +144,9 @@ public class Drive
 			} else {
 				if (invert) {
 					if (strafeLeft) {
-						m_drive.mecanumDrive_Polar(STRAFE_SPEED, RIGHT, STOP);
-					} else if (strafeRight) {
 						m_drive.mecanumDrive_Polar(STRAFE_SPEED, LEFT, STOP);
+					} else if (strafeRight) {
+						m_drive.mecanumDrive_Polar(STRAFE_SPEED, RIGHT, STOP);
 					} else {
 						m_drive.mecanumDrive_Polar(io.getMagnitude(), (io.getDirection() + 180) % 360, io.getRotation());
 					}
@@ -157,9 +157,9 @@ public class Drive
 						m_drive.mecanumDrive_Polar(io.getRightMagnitude(), io.getRightDirection(), io.getRightRotation());
 					} else {
 						if (strafeLeft) {
-							m_drive.mecanumDrive_Polar(STRAFE_SPEED, LEFT, STOP);
-						} else if (strafeRight) {
 							m_drive.mecanumDrive_Polar(STRAFE_SPEED, RIGHT, STOP);
+						} else if (strafeRight) {
+							m_drive.mecanumDrive_Polar(STRAFE_SPEED, LEFT, STOP);
 						} else {
 							m_drive.mecanumDrive_Polar(io.getMagnitude(), io.getDirection(), io.getRotation());
 						}
