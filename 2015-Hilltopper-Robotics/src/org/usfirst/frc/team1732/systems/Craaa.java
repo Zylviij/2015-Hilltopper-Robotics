@@ -58,12 +58,12 @@ public class Craaa
 			m_motor.set(STOP);
 		}
 		boolean open = io.getCraaaOpen();
-		m_solenoidOpen.set(open);
+		m_solenoidOpen.set(!open);
 	}
 	
 	public void controlCraaa(double speed, boolean open) {
 		m_motor.set(speed * SPEED);
-		m_solenoidOpen.set(open);
+		m_solenoidOpen.set(!open);
 	}
 	
 	public double getCANTalon() {
